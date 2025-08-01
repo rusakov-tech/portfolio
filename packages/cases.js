@@ -1,6 +1,6 @@
 export function initCases() {
-    const BATCH_SIZE = 2;
-    const DEFAULT_VISIBLE_COUNT = 2;
+    const BATCH_SIZE = 1;
+    const DEFAULT_VISIBLE_COUNT = 1;
 
     const cases = Array.from(document.querySelectorAll('[data-case]'));
     const btnShowMoreCases = document.getElementById('show-more-cases');

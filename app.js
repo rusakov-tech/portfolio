@@ -6,7 +6,6 @@ import { initBtnTop } from './packages/btn-top';
 import { initAchievements } from './packages/achievements';
 import { isMobile } from '#/utils/is-mobile';
 import { initCases } from './packages/cases';
-import { initPerformance } from './packages/performance';
 
 async function init() {
     try {
@@ -14,14 +13,6 @@ async function init() {
         initAchievements();
         initCases();
         initBtnTop();
-        initPerformance();
-
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                .register('/sw.js')
-                .then(registration => console.log('Service Worker registered', registration))
-                .catch(error => console.error('Service Worker registration failed', error));
-        }
 
         if (isMobile()) return;
 

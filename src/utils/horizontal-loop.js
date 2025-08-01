@@ -14,7 +14,7 @@
         - current() - returns the current index (if an animation is in-progress, it reflects the final index)
         - times - an Array of the times on the timeline where each element hits the "starting" spot.
 */
-export function horizontalLoop(gsap, Draggable, items, config) {
+export function horizontalLoop(gsap, Draggable, InertiaPlugin, items, config) {
     let timeline;
     items = gsap.utils.toArray(items);
     config = config || {};

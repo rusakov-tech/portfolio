@@ -13,7 +13,7 @@ export function initAchievements() {
 
     gsap.set('#achievements', { 'overflow': 'visible', 'scroll-snap-type': 'none' });
 
-    const loop = horizontalLoop(gsap, Draggable, achievements, {
+    const loop = horizontalLoop(gsap, Draggable, InertiaPlugin, achievements, {
         paused: true,
         paddingRight: 0,
         center: true,
