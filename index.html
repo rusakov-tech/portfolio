@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="ru" dir="ltr" itemscope itemtype="https://schema.org/WebPage/">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Денис Русаков | Frontend разработчик, техлид</title>
+        <link rel="preconnect" href="https://rusakov.tech/" />
+        <script>
+            window.addEventListener('load', () => {
+                const preloader = document.getElementById('preloader');
+
+                if (!preloader) {
+                    console.error('Не найден элемент с id = preloader');
+
+                    return;
+                }
+
+                const PRELOADER_TIMEOUT_ANIMATION = 300;
+                const PRELOADER_TIMEOUT_HIDE = 1000;
+
+                setTimeout(() => {
+                    preloader.classList.add('animate');
+
+                    setTimeout(() => {
+                        preloader.classList.add('hidden');
+
+                        preloader.addEventListener(
+                            'transitionend',
+                            event => {
+                                event.target.remove();
+
+                                const skipToMainContent = document.getElementById('skip-to-main-content');
+
+                                skipToMainContent.style.display = 'inline-block';
+                            },
+                            {
+                                once: true,
+                            }
+                        );
+                    }, PRELOADER_TIMEOUT_HIDE);
+                }, PRELOADER_TIMEOUT_ANIMATION);
+            });
+        </script>
+        <style>
+            :root {
+                --color-blue-50: oklch(0.4 0.26 264);
+                --color-blue-100: oklch(0.97 0.03 280);
+                --color-black-50: oklch(0.13 0 0);
+                --color-black-100: oklch(0.235 0 0);
+                --color-gray-50: oklch(0.43 0.01 270);
+                --color-gray-100: oklch(0.54 0.02 260);
+                --color-gray-150: oklch(0.95 0.01 280);
+                --color-gray-200: oklch(0.9099 0.0149 286.1);
+
+                --default-font-family: 'Inter', 'system-ui', 'sans-serif';
+                --default-font-feature-settings: normal;
+
+                --default-transition-duration: 0.25s;
+            }
+
+            *,
+            ::after,
+            ::before,
+            ::backdrop,
+            ::file-selector-button {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                overflow-y: scroll;
+            }
+
+            :where(h1) {
+                font-size: var(--text-2xl);
+
+                @media (max-width: 768px) {
+                    font-size: var(--text-xl);
+                }
+            }
+
+            .preloader {
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                z-index: 3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                opacity: 1;
+                transition: opacity 1s ease;
+
+                @media (prefers-color-scheme: light) {
+                    background-color: white;
+                }
+
+                @media (prefers-color-scheme: dark) {
+                    background-color: var(--color-black-50, oklch(0.13 0 0));
+                }
+
+                &.animate circle {
+                    cx: 40px;
+                    fill: var(--color-blue-50, oklch(0.97 0.03 280));
+                }
+
+                &.hidden {
+                    opacity: 0;
+                }
+
+                & svg {
+                    min-width: 56px;
+                    min-height: 26px;
+                    border-radius: 12px;
+                    border: 3px solid var(--color-blue-50, oklch(0.97 0.03 280));
+                }
+
+                & circle {
+                    fill: var(--color-blue-50, oklch(0.97 0.03 280));
+                    transition: cx 0.6s;
+                }
+            }
+
+            #skip-to-main-content {
+                display: none;
+            }
+
+            noscript .promo {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                object-fit: contain;
+                padding: 24px;
+            }
+        </style>
+
+        <link rel="preload" href="/images/photo-md.jpg" as="image" />
+        <link rel="dns-prefetch" href="https://rusakov.tech/" />
+        <link rel="prefetch" href="https://rusakov.tech/" />
+        <link rel="prerender" href="https://rusakov.tech/" />
+        <meta
+            name="description"
+            content="Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются."
+        />
+        <meta name="keywords" content="Портфолио, frontend разработчик, техлид, программист, Денис Русаков" />
+        <meta name="title" content="Денис Русаков" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="#3316e9" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)" />
+        <meta name="apple-mobile-web-app-title" content="Денис Русаков" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="application-name" content="Денис Русаков" />
+        <meta name="subject" content="Портфолио" />
+        <meta name="rating" content="General" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta property="article:author" content="Денис Русаков" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        <meta property="og:url" content="https://rusakov.tech/" />
+        <meta property="og:title" content="Денис Русаков" />
+        <meta property="og:site_name" content="Портфолио" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta
+            property="og:description"
+            content="Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются."
+        />
+        <meta property="og:image" content="/images/promo.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Денис Русаков" />
+        <meta name="twitter:image" content="/images/promo.png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
+
+        <link rel="me" href="https://rusakov.tech/" />
+        <link rel="me" href="mailto:rusakov.denis.a@yandex.ru" />
+        <link rel="canonical" href="https://rusakov.tech/" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="icon" href="/images/favicon.ico" sizes="32x32" type="image/x-icon" />
+        <link rel="icon" type="image/svg+xml" href="/images/any.svg" />
+        <link rel="icon" type="image/png" href="/images/icon_96x96.png" sizes="96x96" />
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/images/apple_touch_icon.png" />
+        <link rel="preload" href="/fonts/inter-variable.woff2" crossorigin="" as="font" type="font/woff2" />
+    </head>
+    <body>
+        <!-- <div class="preloader" id="preloader">
+            <svg width="56" height="26">
+                <circle r="8" cx="10" cy="10" />
+            </svg>
+            <noscript>
+                <img class="promo" src="/images/promo.png" width="1200" height="630" alt="Промо" />
+            </noscript>
+        </div> -->
+        <p id="skip-to-main-content" class="bg-primary text-center text-white">
+            <a
+                class="not-active:not-focus-visible:absolute not-active:not-focus-visible:[clip-path:inset(50%)] m-2 inline-block underline"
+                href="#cases"
+                >Перейти к основному содержанию</a
+            >
+        </p>
+        <header
+            id="header"
+            class="z-2 has:[&>div.expanded]:rounded-[0_0_12px_12px] fixed bottom-4 left-1/2 mx-auto flex -translate-x-1/2 items-center justify-center rounded-xl bg-white p-2 transition-[width,border-radius,padding] md:p-4 dark:bg-[oklch(0.2367_0.0076_285.81)] [&.expanded]:px-7 md:[&.expanded]:px-14"
+        >
+            <button
+                id="btn-top"
+                class="dark:bg-primary bg-secondary md:h-17 md:w-17 absolute left-4 z-10 flex h-7 w-7 items-center justify-center rounded-full opacity-0 transition-[opacity] hover:cursor-pointer md:left-4 [&.visible]:opacity-100 hover:[&>img]:scale-125"
+                type="button"
+                aria-label="Перейти к началу страницы"
+            >
+                <img
+                    class="h-4 w-4 transition-[scale] md:h-6 md:w-6"
+                    src="/images/icons/arrow.svg"
+                    width="32"
+                    height="32"
+                    alt="Стрелка вверх"
+                />
+            </button>
+            <nav class="nav relative flex items-center gap-1 md:gap-3" aria-label="Главная навигация" id="nav">
+                <ul
+                    class="z-2 grid grid-flow-col grid-cols-[85px_85px_85px] items-center gap-2 md:grid-cols-[195px_195px_195px] md:gap-3"
+                >
+                    <li>
+                        <a href="#about_myself">О&nbsp;себе</a>
+                    </li>
+                    <li>
+                        <a href="#cases">Кейсы</a>
+                    </li>
+                    <li>
+                        <a href="#contacts">Контакты</a>
+                    </li>
+                </ul>
+                <div
+                    id="nav-indicator"
+                    class="bg-secondary dark:bg-primary z-1 pointer-events-none absolute top-0 rounded-[20px] opacity-0 transition-all duration-300 ease-in-out"
+                ></div>
+            </nav>
+        </header>
+        <div class="z-1 grid h-full min-h-screen w-full gap-12 pt-16 md:gap-24 md:pb-0 md:pt-40">
+            <section>
+                <div class="container-md">
+                    <div class="flex flex-col items-center justify-start">
+                        <p class="text-4xl">кодинг & вайб</p>
+                        <h1>Денис, разработчик, техлид</h1>
+                        <img
+                            draggable="false"
+                            class="relative mt-8 h-[225px] w-[150px] rounded-xl object-cover md:h-[375px] md:w-[250px]"
+                            src="/images/photo-lg.jpg"
+                            alt="Фотография"
+                            fetchpriority="high"
+                            width="250"
+                            height="375"
+                            srcset="/images/photo-md.jpg 320w, /images/photo-lg.jpg 800w"
+                            sizes="(max-width: 768px) 150px,
+           (min-width: 769px) and (max-width: 1024px) 250px,
+           375px"
+                        />
+                        <p class="mt-16 text-xl md:text-[40px]">
+                            верстаю и&nbsp;разрабатываю сервисы, которые помогают бизнесу становится лучше
+                            с&nbsp;помощью довольных пользователей
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="mt-20 overflow-hidden md:mt-0" id="about_myself" data-scroll="start">
+                <div class="container-md">
+                    <h2>О себе</h2>
+                    <div class="mt-4 grid gap-4">
+                        <div class="flex flex-col items-start gap-2 text-xl md:text-3xl">
+                            <p>я frontend разработчик</p>
+                            <p>занимаюсь созданием удобных интерфейсов, которые нравятся и&nbsp;запоминаются</p>
+                            <p>разрабатываю сервисы, ориентированные на&nbsp;улучшение клиентского опыта</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="achievements relative mx-auto mt-12 flex w-full items-center overflow-hidden"
+                    id="achievements"
+                >
+                    <div data-achievement class="achievement">
+                        <div class="bg-[oklch(0.235_0_0)]">
+                            <img
+                                draggable="false"
+                                src="/images/logos/code_run.svg"
+                                alt="Проект"
+                                width="150"
+                                height="150"
+                            />
+                            <h3 class="text-white">«CodeRun»</h3>
+                            <p class="text-primary-middle-gray">
+                                Занял 33 место во втором сезоне<br />
+                                в треке «Фронтенд»
+                            </p>
+                            <a target="_blank" rel="noopener noreferrer" href="https://coderun.yandex.ru/">
+                                <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
+                            </a>
+                        </div>
+                    </div>
+                    <div data-achievement class="achievement">
+                        <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                            <img
+                                draggable="false"
+                                src="/images/logos/doka.svg"
+                                alt="Логотип"
+                                width="150"
+                                height="150"
+                            />
+                            <h3 class="text-primary-black dark:text-white">«Дока»</h3>
+                            <p class="text-primary-middle-gray">
+                                Написал статьи<br />
+                                по спецификациям по фронтенду
+                            </p>
+                            <a target="_blank" rel="noopener noreferrer" href="https://doka.guide/css/selection/">
+                                <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
+                            </a>
+                        </div>
+                    </div>
+                    <div data-achievement class="achievement">
+                        <div
+                            class="bg-[oklch(0.2077_0.0398_265.75)] p-2 text-center transition-[translate] hover:-translate-y-2"
+                        >
+                            <img
+                                draggable="false"
+                                src="/images/logos/tw.svg"
+                                alt="TailwindCSS Попутный ветер перемен"
+                                width="150"
+                                height="150"
+                            />
+                            <h3 class="text-white">«Попутный ветер перемен»</h3>
+                            <p class="text-primary-middle-gray">
+                                Выступил с презентацией<br />
+                                по TailwindCSS
+                            </p>
+                            <a target="_blank" rel="noopener noreferrer" href="https://webpractik.github.io/tw/">
+                                <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
+                            </a>
+                        </div>
+                    </div>
+                    <div data-achievement class="achievement">
+                        <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                            <img
+                                draggable="false"
+                                class="md:w-22 md:h-22 h-16 w-16"
+                                src="/images/logos/logo.svg"
+                                alt="Логотип"
+                                width="150"
+                                height="150"
+                            />
+                            <h3 class="text-primary-black dark:text-white">Сайт до 1 MB</h3>
+                            <p class="text-primary-middle-gray">Разработал простой сайт <br />портфолио с кейсами</p>
+                        </div>
+                    </div>
+                    <div data-achievement class="achievement">
+                        <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                            <img
+                                draggable="false"
+                                class="md:w-22 md:h-22 h-16 w-16"
+                                src="/images/icons/comment.svg"
+                                alt="Логотип"
+                                width="150"
+                                height="150"
+                            />
+                            <h3 class="text-primary-black dark:text-white">Аутстафф</h3>
+                            <p class="text-primary-middle-gray text-center">
+                                Провёл тех. собесы <br />для подбора людей в&nbsp;команды
+                            </p>
+                        </div>
+                    </div>
+                    <div data-achievement class="achievement">
+                        <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                            <div class="flex items-center justify-center gap-2">
+                                <img
+                                    draggable="false"
+                                    class="md:w-22 md:h-22 h-16 w-16"
+                                    src="/images/logos/vue.svg"
+                                    alt="Логотип"
+                                    width="150"
+                                    height="150"
+                                />
+                                <img
+                                    draggable="false"
+                                    class="md:w-22 md:h-22 h-16 w-16"
+                                    src="/images/logos/bitrix.svg"
+                                    alt="Логотип"
+                                    width="150"
+                                    height="150"
+                                />
+                            </div>
+                            <h3 class="text-primary-black dark:text-white">Vue.js и Bitrix Framework</h3>
+                            <p class="text-primary-middle-gray">Успешно сдал экзамен<br />и получил сертификат</p>
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=176&INDEX=Y/"
+                            >
+                                <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
+                            </a>
+                        </div>
+                    </div>
+                    <div data-achievement class="achievement">
+                        <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                            <img
+                                draggable="false"
+                                class="md:w-22 md:h-22 h-16 w-16"
+                                src="/images/logos/frontend_conf.svg"
+                                alt="Логотип"
+                                width="150"
+                                height="150"
+                            />
+                            <h3 class="text-primary-black dark:text-white">FrontendConf 2023</h3>
+                            <p class="text-primary-middle-gray">
+                                Посетил конференцию <br />
+                                по фронтенд разработке
+                            </p>
+                            <a target="_blank" rel="noopener noreferrer" href="https://frontendconf.ru/moscow/2023/">
+                                <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
+                            </a>
+                        </div>
+                    </div>
+                    <div data-achievement class="achievement">
+                        <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                            <img
+                                draggable="false"
+                                class="md:w-22 md:h-22 h-16 w-16"
+                                src="/images/logos/stepik.svg"
+                                alt="Логотип"
+                                width="150"
+                                height="150"
+                            />
+                            <h3 class="text-primary-black dark:text-white">Wordpress</h3>
+                            <p class="text-primary-middle-gray">
+                                Сдал экзамен «Сайт на Wordpress, верстка сайта и перенос на CMS»
+                            </p>
+                            <a target="_blank" rel="noopener noreferrer" href="https://stepik.org/course/113393/promo/">
+                                <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
+                            </a>
+                        </div>
+                    </div>
+                    <div data-achievement class="achievement">
+                        <div class="bg-white p-2 dark:bg-[oklch(0.235_0_0)]">
+                            <img
+                                draggable="false"
+                                class="md:w-22 md:h-22 h-16 w-16"
+                                src="/images/icons/coding_apps_websites_programming_hold_code.svg"
+                                alt="Логотип"
+                                width="150"
+                                height="150"
+                            />
+                            <h3 class="text-primary-black dark:text-white">Coming soon</h3>
+                            <p class="text-primary-middle-gray">Контент собирается, <br />добавлю чуть позже</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <main id="cases" data-scroll="start">
+                <div class="container-md">
+                    <h2
+                        class="relative inline-block w-auto after:absolute after:-right-4 after:top-0 after:text-sm after:content-['7']"
+                    >
+                        Кейсы
+                    </h2>
+                    <div class="mt-8 flex flex-col items-center gap-16">
+                        <div class="case" data-case>
+                            <div>
+                                <img
+                                    draggable="false"
+                                    class="rounded-xl object-cover md:h-[390px]"
+                                    src="/images/cases/ncode.png"
+                                    alt="Ncode команда"
+                                    width="320"
+                                    height="120"
+                                />
+                                <h3>«Ncode»</h3>
+                                <p>Разработал сайт для отличной команды разработчиков</p>
+                                <a href="https://ncode.dev/" target="_blank" rel="noopener noreferrer">Ссылка</a>
+                            </div>
+                        </div>
+                        <div class="case" data-case>
+                            <div>
+                                <img
+                                    draggable="false"
+                                    class="rounded-xl object-cover md:h-[390px]"
+                                    src="/images/cases/doubleb.png"
+                                    alt="DoubleB кофейня"
+                                    width="320"
+                                    height="120"
+                                />
+                                <h3>«Даблби»</h3>
+                                <p>Спроектировал квиз с&nbsp;промокодами для кофейни</p>
+                                <a
+                                    href="https://doubleb-coffee.github.io/quiz/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Ссылка</a
+                                >
+                            </div>
+                        </div>
+                        <div class="case" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>NDA</h3>
+                                <p>Сверстал сервис для работы по&nbsp;программе TradeIn</p>
+                            </div>
+                        </div>
+                        <div class="case" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>NDA</h3>
+                                <p>Создал интерфейс для образовательных платформ для подготовки к&nbsp;экзаменам</p>
+                            </div>
+                        </div>
+                        <div class="case" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>NDA</h3>
+                                <p>
+                                    Создал дизайн и&nbsp;сверстал личный кабинет салона красоты, что позволило
+                                    с&nbsp;лёгкостью управлять временем специалистов
+                                </p>
+                            </div>
+                        </div>
+                        <div class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>NDA</h3>
+                                <p>
+                                    Создал персональный сайт для музыкальной группы на платформе Wordpress, что
+                                    позволило управлять сайтом клиенту без участия разработчика;
+                                </p>
+                            </div>
+                        </div>
+                        <div class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>NDA</h3>
+                                <p>
+                                    Внедрил карту и&nbsp;разработал сайдбар с&nbsp;поиском, что позволило быстрее
+                                    находить важные места
+                                </p>
+                            </div>
+                        </div>
+                        <div class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/lightning.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Coming soon</h3>
+                                <p>Контент собирается, добавлю чуть позже</p>
+                            </div>
+                        </div>
+                        <button
+                            class="hover:text-primary -mt-4 px-4 py-2 transition-[color] hover:cursor-pointer"
+                            id="show-more-cases"
+                            type="button"
+                        >
+                            +1 кейсп
+                        </button>
+                    </div>
+                </div>
+            </main>
+            <section class="contacts" id="contacts" data-scroll="center">
+                <h2 class="sr-only">Контакты</h2>
+                <div class="container-lg">
+                    <div class="flex items-start justify-between font-medium">
+                        <a
+                            href="https://yandex.ru/maps/39/rostov-na-donu/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:text-primary md:text-[40px]"
+                        >
+                            Ростов-на-Дону,<br />
+                            Россия
+                        </a>
+                        <div>
+                            <ul class="flex flex-col items-end text-right">
+                                <li class="flex">
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://rostov.hh.ru/resume/2aa5864eff0d519f590039ed1f685065747867/"
+                                        >резюме</a
+                                    >
+                                    <a target="_blank" rel="noopener noreferrer" class="ml-1" href="/docs/cv.pdf"
+                                        >(cv)</a
+                                    >
+                                </li>
+                                <li class="flex">
+                                    <a target="_blank" rel="noopener noreferrer" href="https://t.me/rusakov_denis_a/"
+                                        >telegram</a
+                                    >
+                                </li>
+                                <li class="flex">
+                                    <a target="_blank" rel="noopener noreferrer" href="mailto:rusakov.denis.a@yandex.ru"
+                                        >почта</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="md:pb-34 pb-20">
+            <div class="container-lg">
+                <div class="relative">
+                    <img
+                        draggable="false"
+                        class="-translate-x-35/10 translate-y-8/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        src="/images/icons/computers_devices_electronics_mouse.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="translate-x-15/10 translate-y-6/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        src="/images/icons/internet_network_cloud_error.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="translate-x-27/10 translate-y-5/10 absolute left-1/2 top-0 w-[48px] rotate-[19deg] md:w-[10%]"
+                        src="/images/icons/hand_gesture_finger_click.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="md:translate-x-16/10 translate-x-18/10 -translate-y-5/10 absolute left-1/2 top-0 w-[48px] -rotate-[22deg] md:w-[10%]"
+                        src="/images/icons/computer_old_electronics.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="-translate-x-16/10 translate-y-7/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        src="/images/icons/business_product_startup.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="translate-x-8/10 -translate-y-2/10 absolute left-1/2 top-0 w-[48px] md:w-[8%]"
+                        src="/images/icons/hand_love_sign.svg"
+                        alt="Иконка"
+                        width="120"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="-translate-x-18/10 -translate-y-6/10 absolute left-1/2 top-0 w-[48px] md:w-[8%]"
+                        src="/images/icons/streamline_bubble.svg"
+                        alt="Иконка"
+                        width="120"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="translate-x-2/10 -translate-y-15/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        src="/images/icons/content_files_pencil_ruler.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="-translate-x-5/10 -translate-y-3/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        src="/images/icons/coding_apps_websites_programming_hold_code.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="-translate-x-25/10 translate-y-2/10 absolute left-1/2 top-0 w-[48px] -rotate-[14deg] md:w-[10%]"
+                        src="/images/icons/computers_devices_electronics_keyboard.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                    />
+                    <img
+                        draggable="false"
+                        class="mt-12 w-full"
+                        src="/images/surname.svg"
+                        alt="Фамилия"
+                        width="320"
+                        height="120"
+                    />
+                </div>
+            </div>
+        </footer>
+
+        <div class="bg"></div>
+        <div class="float-animation text-primary-gray fixed right-6 top-6 z-0 text-sm">v1.0.0-beta</div>
+
+        <script type="module" src="/app.js"></script>
+    </body>
+</html>
