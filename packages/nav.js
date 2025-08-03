@@ -75,6 +75,7 @@ export function initNav() {
 
     function moveIndicatorToActive() {
         const activeLink = document.querySelector('nav ul li a.active');
+
         if (!activeLink) {
             navIndicator.style.opacity = '0';
             return;
@@ -130,10 +131,16 @@ export function initNav() {
         link.addEventListener('click', onLinkClick);
     });
 
-    window.addEventListener('scroll', () => {
-        updateActiveLink();
-        moveIndicatorToActive();
-    });
+    window.addEventListener(
+        'scroll',
+        () => {
+            updateActiveLink();
+            moveIndicatorToActive();
+        },
+        {
+            passive: true,
+        }
+    );
 
     if (window.location.hash) {
         const targetId = window.location.hash.substring(1);

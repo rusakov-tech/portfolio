@@ -66,37 +66,43 @@ export const initCursor = () => {
         iconIndex++;
     }
 
-    window.addEventListener('mousemove', ({ clientX, clientY }) => {
-        if (lastX !== null && lastY !== null) {
-            const dx = clientX - lastX;
-            const dy = clientY - lastY;
-            const distance = Math.hypot(dx, dy);
+    window.addEventListener(
+        'mousemove',
+        ({ clientX, clientY }) => {
+            if (lastX !== null && lastY !== null) {
+                const dx = clientX - lastX;
+                const dy = clientY - lastY;
+                const distance = Math.hypot(dx, dy);
 
-            if (distance >= DISTANCE_THRESHOLD) {
-                createIcon(clientX, clientY);
+                if (distance >= DISTANCE_THRESHOLD) {
+                    createIcon(clientX, clientY);
+                    lastX = clientX;
+                    lastY = clientY;
+                }
+            } else {
                 lastX = clientX;
                 lastY = clientY;
             }
-        } else {
-            lastX = clientX;
-            lastY = clientY;
-        }
 
-        clearTimeout(stopTimer);
+            clearTimeout(stopTimer);
 
-        stopTimer = setTimeout(() => {
-            trail.forEach(icon => {
-                gsap.to(icon, {
-                    opacity: 0,
-                    scale: 0.5,
-                    duration: 0.6,
-                    onComplete: () => icon.remove(),
+            stopTimer = setTimeout(() => {
+                trail.forEach(icon => {
+                    gsap.to(icon, {
+                        opacity: 0,
+                        scale: 0.5,
+                        duration: 0.6,
+                        onComplete: () => icon.remove(),
+                    });
                 });
-            });
 
-            trail.length = 0;
-            lastX = null;
-            lastY = null;
-        }, TIMER_DURATION);
-    });
+                trail.length = 0;
+                lastX = null;
+                lastY = null;
+            }, TIMER_DURATION);
+        },
+        {
+            passive: true,
+        }
+    );
 };

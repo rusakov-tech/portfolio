@@ -6,34 +6,40 @@
         <title>Денис Русаков | Frontend разработчик, техлид</title>
         <link rel="preconnect" href="https://rusakov.tech/" />
         <script>
-            window.addEventListener('load', () => {
-                const preloader = document.getElementById('preloader');
+            window.addEventListener(
+                'load',
+                () => {
+                    const preloader = document.getElementById('preloader');
 
-                if (!preloader) {
-                    console.error('Не найден элемент с id = preloader');
+                    if (!preloader) {
+                        console.error('Не найден элемент с id = preloader');
 
-                    return;
-                }
+                        return;
+                    }
 
-                const PRELOADER_TIMEOUT_ANIMATION = 300;
-                const PRELOADER_TIMEOUT_HIDE = 1000;
-
-                setTimeout(() => {
-                    preloader.classList.add('animate');
+                    const PRELOADER_TIMEOUT_ANIMATION = 300;
+                    const PRELOADER_TIMEOUT_HIDE = 1000;
 
                     setTimeout(() => {
-                        preloader.classList.add('hidden');
+                        preloader.classList.add('animate');
 
-                        preloader.addEventListener('transitionend', event => {
-                            event.target.remove();
+                        setTimeout(() => {
+                            preloader.classList.add('hidden');
 
-                            const skipToMainContent = document.getElementById('skip-to-main-content');
+                            preloader.addEventListener('transitionend', event => {
+                                event.target.remove();
 
-                            skipToMainContent?.removeAttribute('hidden');
-                        });
-                    }, PRELOADER_TIMEOUT_HIDE);
-                }, PRELOADER_TIMEOUT_ANIMATION);
-            });
+                                const skipToMainContent = document.getElementById('skip-to-main-content');
+
+                                skipToMainContent?.removeAttribute('hidden');
+                            });
+                        }, PRELOADER_TIMEOUT_HIDE);
+                    }, PRELOADER_TIMEOUT_ANIMATION);
+                },
+                {
+                    passive: true,
+                }
+            );
         </script>
         <style>
             :root {
@@ -188,7 +194,7 @@
         <link rel="icon" type="image/png" href="/images/icon_96x96.png" sizes="96x96" />
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/images/apple_touch_icon.png" />
-      <script type="module" crossorigin src="/assets/index-BGKHEGqD.js"></script>
+      <script type="module" crossorigin src="/assets/index-wB81fFul.js"></script>
       <link rel="stylesheet" crossorigin href="/assets/index-CL8jdTSx.css">
     </head>
     <body>
@@ -526,7 +532,7 @@
                                 <img
                                     draggable="false"
                                     class="rounded-xl object-cover md:h-[390px]"
-                                    src="/images/cases/doubleb.png"
+                                    src="/images/cases/doubleb.jpg"
                                     alt="DoubleB кофейня"
                                     width="320"
                                     height="120"

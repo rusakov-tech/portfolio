@@ -27,13 +27,19 @@ export function initCases() {
         btnShowMoreCases.classList.add('hidden');
     }
 
-    btnShowMoreCases.addEventListener('click', () => {
-        if (visibleCount >= totalCount) {
-            visibleCount = DEFAULT_VISIBLE_COUNT;
-        } else {
-            visibleCount = Math.min(visibleCount + BATCH_SIZE, totalCount);
-        }
+    btnShowMoreCases.addEventListener(
+        'click',
+        () => {
+            if (visibleCount >= totalCount) {
+                visibleCount = DEFAULT_VISIBLE_COUNT;
+            } else {
+                visibleCount = Math.min(visibleCount + BATCH_SIZE, totalCount);
+            }
 
-        updateCases();
-    });
+            updateCases();
+        },
+        {
+            passive: true,
+        }
+    );
 }

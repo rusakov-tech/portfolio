@@ -29,4 +29,6 @@ async function init() {
 }
 
 // eslint-disable-next-line no-undef
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', init, {
+    passive: true,
+});

@@ -13,27 +13,39 @@ export function initBtnTop() {
     const THRESHOLD = 150;
     const behavior = isPrefersReducedMotion.matches ? 'auto' : 'smooth';
 
-    btnTop.addEventListener('click', () => {
-        btnTop.classList.remove('visible');
+    btnTop.addEventListener(
+        'click',
+        () => {
+            btnTop.classList.remove('visible');
 
-        window.scrollTo({ top: 0, behavior });
-    });
-
-    window.addEventListener('scroll', () => {
-        const windowHeight = window.innerHeight;
-        const scrollTop = window.scrollY || window.pageYOffset;
-        const docHeight = document.documentElement.scrollHeight;
-        const distanceToBottom = docHeight - (scrollTop + windowHeight);
-
-        if (distanceToBottom <= THRESHOLD) {
-            header.classList.add('expanded');
-
-            btnTop.classList.add('visible');
-
-            return;
+            window.scrollTo({ top: 0, behavior });
+        },
+        {
+            passive: true,
         }
+    );
 
-        header.classList.remove('expanded');
-        btnTop.classList.remove('visible');
-    });
+    window.addEventListener(
+        'scroll',
+        () => {
+            const windowHeight = window.innerHeight;
+            const scrollTop = window.scrollY || window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight;
+            const distanceToBottom = docHeight - (scrollTop + windowHeight);
+
+            if (distanceToBottom <= THRESHOLD) {
+                header.classList.add('expanded');
+
+                btnTop.classList.add('visible');
+
+                return;
+            }
+
+            header.classList.remove('expanded');
+            btnTop.classList.remove('visible');
+        },
+        {
+            passive: true,
+        }
+    );
 }
