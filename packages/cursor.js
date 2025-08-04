@@ -18,6 +18,7 @@ export const initCursor = () => {
     const MAX_ICONS = 10;
     const DISTANCE_THRESHOLD = 25;
     const TIMER_DURATION = 250;
+    const IGNORED_TAGS = ['A', 'BUTTON'];
 
     const trail = [];
     let lastX = null;
@@ -42,11 +43,13 @@ export const initCursor = () => {
         return img;
     });
 
-    function createIcon(x, y) {
+    function updateIcon(x, y) {
         const iconTemplate = iconPool[iconIndex % iconPool.length];
         const icon = iconTemplate.cloneNode(true);
 
         document.body.appendChild(icon);
+
+        gsap.killTweensOf(icon);
 
         gsap.set(icon, { x, y, opacity: 1, scale: 1 });
 
@@ -69,9 +72,7 @@ export const initCursor = () => {
     window.addEventListener(
         'mousemove',
         ({ clientX, clientY, target }) => {
-            const ignoredTags = ['A', 'BUTTON'];
-
-            const isIgnoredTag = ignoredTags.includes(target.tagName);
+            const isIgnoredTag = IGNORED_TAGS.includes(target.tagName);
 
             if (isIgnoredTag) return;
 
@@ -81,7 +82,7 @@ export const initCursor = () => {
                 const distance = Math.hypot(dx, dy);
 
                 if (distance >= DISTANCE_THRESHOLD) {
-                    createIcon(clientX, clientY);
+                    updateIcon(clientX, clientY);
                     lastX = clientX;
                     lastY = clientY;
                 }
@@ -98,7 +99,9 @@ export const initCursor = () => {
                         opacity: 0,
                         scale: 0.5,
                         duration: 0.6,
-                        onComplete: () => icon.remove(),
+                        onComplete: () => {
+                            icon.remove();
+                        },
                     });
                 });
 
