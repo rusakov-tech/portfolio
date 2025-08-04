@@ -42,6 +42,29 @@
                 }
             );
         </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "React Bits",
+                "url": "https://reactbits.dev",
+                "description": "An open source collection of high quality, animated, interactive & fully customizable React components for building stunning, memorable user interfaces.",
+                "image": "https://reactbits.dev/og-pic.jpg",
+                "author": {
+                    "@type": "Person",
+                    "name": "Denis Rusakov"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Denis Rusakov",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://davidhaz.com"
+                    }
+                }
+            }
+        </script>
+        <meta name="robots" content="index, follow" />
         <style>
             :root {
                 --color-blue-50: oklch(0.4 0.26 264);
@@ -133,14 +156,16 @@
                 }
             }
 
-            noscript .promo {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                object-fit: contain;
-                padding: 24px;
+            noscript {
+                .promo {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    object-fit: contain;
+                    padding: 24px;
+                }
             }
         </style>
 

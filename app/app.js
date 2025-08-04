@@ -1,8 +1,8 @@
 import '#/styles/globals.css';
 
-import { initNav } from '../packages/nav';
-import { initCursor } from '../packages/cursor';
-import { initBtnTop } from '../packages/btn-top';
+import { initNav } from './_components/nav';
+import { initCursor } from '../packages/cursor/index.js';
+import { initBtnTop } from '../packages/btn-top/index.js';
 import { initAchievements } from './_components/achievements';
 import { isMobile } from '#/utils/is-mobile';
 import { initCases } from './_components/cases';
