@@ -14,67 +14,116 @@ export const initCursor = () => {
         'computers_devices_electronics_mouse',
     ];
 
-    const ICON_SIZE = 48;
+    const ICON_SIZE = 32;
     const MAX_ICONS = 10;
     const DISTANCE_THRESHOLD = 25;
     const TIMER_DURATION = 250;
     const IGNORED_TAGS = ['A', 'BUTTON'];
 
-    const trail = [];
     let lastX = null;
     let lastY = null;
     let stopTimer = null;
     let iconIndex = 0;
 
-    const iconTemplateContainer = document.createElement('div');
-
-    iconTemplateContainer.style.display = 'none';
-    document.body.appendChild(iconTemplateContainer);
-
     const iconPool = iconUrls.map(url => {
         const img = document.createElement('img');
+
         img.src = `/images/icons/${url}.svg`;
         img.width = ICON_SIZE;
         img.height = ICON_SIZE;
         img.classList.add('trail-icon');
         img.alt = 'Иконка курсора';
 
-        iconTemplateContainer.appendChild(img);
-        return img;
+        Object.assign(img.style, {
+            position: 'fixed',
+            pointerEvents: 'none',
+            top: '0',
+            left: '0',
+            opacity: '0',
+            scale: '0',
+            transformOrigin: 'center center',
+            willChange: 'transform, opacity',
+            userSelect: 'none',
+        });
+
+        document.body.appendChild(img);
+
+        return {
+            element: img,
+            active: false,
+        };
     });
 
-    function updateIcon(x, y) {
-        const iconTemplate = iconPool[iconIndex % iconPool.length];
-        const icon = iconTemplate.cloneNode(true);
+    const activeIcons = [];
 
-        document.body.appendChild(icon);
+    function showIcon(x, y) {
+        const poolIndex = iconIndex % iconPool.length;
+        const iconObj = iconPool[poolIndex];
 
-        gsap.killTweensOf(icon);
+        if (iconObj.active) {
+            const position = activeIcons.indexOf(poolIndex);
 
-        gsap.set(icon, { x, y, opacity: 1, scale: 1 });
+            if (position !== -1) activeIcons.splice(position, 1);
+        }
 
-        trail.push(icon);
+        activeIcons.push(poolIndex);
+        iconObj.active = true;
 
-        if (trail.length > MAX_ICONS) {
-            const old = trail.shift();
+        gsap.killTweensOf(iconObj.element);
 
-            gsap.to(old, {
+        gsap.set(iconObj.element, {
+            x,
+            y,
+            scale: 1,
+            opacity: 1,
+        });
+
+        if (activeIcons.length >= MAX_ICONS) {
+            const oldestIndex = activeIcons[0];
+            const oldestIcon = iconPool[oldestIndex];
+
+            gsap.to(oldestIcon.element, {
                 opacity: 0,
                 scale: 0.5,
                 duration: 0.5,
-                onComplete: () => old.remove(),
+                onComplete: () => {
+                    oldestIcon.active = false;
+
+                    const idx = activeIcons.indexOf(oldestIndex);
+                    if (idx !== -1) {
+                        activeIcons.splice(idx, 1);
+                    }
+                },
             });
         }
 
         iconIndex++;
     }
 
+    function hideAllIcons() {
+        activeIcons.forEach(idx => {
+            const icon = iconPool[idx];
+
+            gsap.to(icon.element, {
+                opacity: 0,
+                scale: 0.5,
+                duration: 0.6,
+                onComplete: () => {
+                    icon.active = false;
+
+                    const pos = activeIcons.indexOf(idx);
+                    if (pos !== -1) {
+                        activeIcons.splice(pos, 1);
+                    }
+                },
+            });
+        });
+    }
+
     window.addEventListener(
         'mousemove',
         ({ clientX, clientY, target }) => {
-            const isIgnoredTag = IGNORED_TAGS.includes(target.tagName);
-
-            if (isIgnoredTag) return;
+            if (IGNORED_TAGS.includes(target.tagName)) return;
 
             if (lastX !== null && lastY !== null) {
                 const dx = clientX - lastX;
@@ -82,7 +131,8 @@ export const initCursor = () => {
                 const distance = Math.hypot(dx, dy);
 
                 if (distance >= DISTANCE_THRESHOLD) {
-                    updateIcon(clientX, clientY);
+                    showIcon(clientX, clientY);
+
                     lastX = clientX;
                     lastY = clientY;
                 }
@@ -94,24 +144,12 @@ export const initCursor = () => {
             clearTimeout(stopTimer);
 
             stopTimer = setTimeout(() => {
-                trail.forEach(icon => {
-                    gsap.to(icon, {
-                        opacity: 0,
-                        scale: 0.5,
-                        duration: 0.6,
-                        onComplete: () => {
-                            icon.remove();
-                        },
-                    });
-                });
+                hideAllIcons();
 
-                trail.length = 0;
                 lastX = null;
                 lastY = null;
             }, TIMER_DURATION);
         },
-        {
-            passive: true,
-        }
+        { passive: true }
     );
 };

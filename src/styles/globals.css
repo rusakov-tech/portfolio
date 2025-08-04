@@ -196,10 +196,6 @@
             @apply m-[64px_24px] h-[calc(100%-128px)] w-[calc(100%-48px)];
         }
     }
-
-    .trail-icon {
-        @apply pointer-events-none fixed z-0 h-8 w-8 -translate-x-2/4 -translate-y-2/4 scale-100 opacity-100 will-change-[transform,opacity];
-    }
 }
 
 @utility container-md {
