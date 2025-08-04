@@ -1,7 +1,7 @@
 import globals from 'globals';
 import js from '@eslint/js';
 
-const files = ['packages/**/*.js', 'src/utils/**/*.js'];
+const files = ['app/**/*.js', 'packages/**/*.js', 'src/**/*.js'];
 
 export default [
     js.configs.recommended,

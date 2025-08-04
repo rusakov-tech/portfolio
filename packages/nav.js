@@ -60,11 +60,13 @@ export function initNav() {
             }
 
             links.forEach(link => link.classList.remove('active'));
+
             return;
         }
 
         links.forEach(link => {
             const linkId = link.getAttribute('href').substring(1);
+
             link.classList.toggle('active', linkId === currentId);
         });
 
@@ -78,6 +80,7 @@ export function initNav() {
 
         if (!activeLink) {
             navIndicator.style.opacity = '0';
+
             return;
         }
 
@@ -144,10 +147,11 @@ export function initNav() {
 
     if (window.location.hash) {
         const targetId = window.location.hash.substring(1);
-        const targetLink = Array.from(links).find(l => l.getAttribute('href').substring(1) === targetId);
+        const targetLink = Array.from(links).find(link => link.getAttribute('href').substring(1) === targetId);
 
         if (targetLink) {
-            links.forEach(l => l.classList.remove('active'));
+            links.forEach(link => link.classList.remove('active'));
+
             targetLink.classList.add('active');
         }
     }

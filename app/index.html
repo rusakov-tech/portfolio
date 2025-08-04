@@ -85,7 +85,7 @@
             :where(h1) {
                 font-size: var(--text-2xl);
 
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     font-size: var(--text-xl);
                 }
             }
@@ -383,7 +383,7 @@
                                 width="150"
                                 height="150"
                             />
-                            <h3 class="text-primary-black dark:text-white">Сайт до 1 MB</h3>
+                            <h3 class="text-primary-black dark:text-white">Сайт до 2 MB</h3>
                             <p class="text-primary-middle-gray">Разработал простой сайт <br />портфолио с кейсами</p>
                         </div>
                     </div>
@@ -513,7 +513,7 @@
                                 <img
                                     draggable="false"
                                     class="rounded-xl object-cover md:h-[390px]"
-                                    src="/images/cases/ncode.png"
+                                    src="/images/cases/ncode.jpg"
                                     alt="Ncode команда"
                                     width="320"
                                     height="120"
@@ -561,7 +561,7 @@
                                 <p>Сверстал сервис для работы по&nbsp;программе TradeIn</p>
                             </div>
                         </div>
-                        <div class="case" data-case>
+                        <div class="case hidden" data-case>
                             <div>
                                 <div class="placeholder-nda">
                                     <img
@@ -576,7 +576,7 @@
                                 <p>Создал интерфейс для образовательных платформ для подготовки к&nbsp;экзаменам</p>
                             </div>
                         </div>
-                        <div class="case" data-case>
+                        <div class="case hidden" data-case>
                             <div>
                                 <div class="placeholder-nda">
                                     <img
@@ -646,11 +646,11 @@
                             </div>
                         </div>
                         <button
-                            class="hover:text-primary -mt-4 px-4 py-2 transition-[color] hover:cursor-pointer"
+                            class="hover:text-primary -mt-4 px-4 py-2 text-xl transition-[color] hover:cursor-pointer"
                             id="show-more-cases"
                             type="button"
                         >
-                            +1 кейс
+                            +кейс
                         </button>
                     </div>
                 </div>
@@ -671,16 +671,15 @@
                         </a>
                         <div>
                             <ul class="flex flex-col items-end text-right">
-                                <li class="flex">
+                                <li class="flex items-center">
                                     <a
+                                        class="mr-1"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         href="https://rostov.hh.ru/resume/2aa5864eff0d519f590039ed1f685065747867/"
                                         >резюме</a
                                     >
-                                    <a target="_blank" rel="noopener noreferrer" class="ml-1" href="/docs/cv.pdf"
-                                        >(cv)</a
-                                    >
+                                    (<a target="_blank" rel="noopener noreferrer" href="/docs/cv.pdf">cv</a>)
                                 </li>
                                 <li class="flex">
                                     <a target="_blank" rel="noopener noreferrer" href="https://t.me/rusakov_denis_a/"

@@ -28,7 +28,7 @@ export function initAchievements() {
                         ease: 'power3',
                     }
                 );
-                gsap.to('.active', { opacity: 0.7 });
+                gsap.to('[data-achievement].active', { opacity: 0.7 });
 
                 activeAchievement.classList.remove('active');
             }
@@ -37,19 +37,19 @@ export function initAchievements() {
             activeAchievement = achievement;
 
             gsap.timeline({ defaults: { ease: 'power1.inOut' } })
-                .to('.active', { opacity: 1, ease: 'power2.inOut' }, 0)
+                .to('[data-achievement].active', { opacity: 1, ease: 'power2.inOut' }, 0)
                 .to(
-                    '.active > div > div, .active > div > img, .active h3, .active p, .active a',
+                    '[data-achievement].active > div > div, [data-achievement].active > div > img, [data-achievement].active h3, [data-achievement].active p, [data-achievement].active a',
                     { opacity: 1, ease: 'power1.inOut' },
                     0.3
                 )
                 .to(
-                    '.active > div > div, .active > div > img, .active h3, .active p, .active a',
+                    '[data-achievement].active > div > div, [data-achievement].active > div > img, [data-achievement].active h3, [data-achievement].active p, [data-achievement].active a',
                     { opacity: 1, ease: 'power1.inOut' },
                     0.3
                 )
                 .fromTo(
-                    '.active > div > div, .active > div > img',
+                    '[data-achievement].active > div > div, [data-achievement].active > div > img',
                     { y: i => [40, 60][i] },
                     { duration: 1.5, y: 0, ease: 'expo' },
                     0.3

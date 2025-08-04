@@ -68,7 +68,13 @@ export const initCursor = () => {
 
     window.addEventListener(
         'mousemove',
-        ({ clientX, clientY }) => {
+        ({ clientX, clientY, target }) => {
+            const ignoredTags = ['A', 'BUTTON'];
+
+            const isIgnoredTag = ignoredTags.includes(target.tagName);
+
+            if (isIgnoredTag) return;
+
             if (lastX !== null && lastY !== null) {
                 const dx = clientX - lastX;
                 const dy = clientY - lastY;

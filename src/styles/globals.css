@@ -64,14 +64,6 @@
         }
     }
 
-    /* nav ul {
-        @media (hover) and (prefers-reduced-motion: no-preference) {
-            &:has(:hover) > li a:not(:hover) {
-                opacity: 0.25;
-            }
-        }
-    } */
-
     h1 {
         @apply mt-8;
     }
@@ -112,13 +104,17 @@
 @layer components {
     .nav {
         a {
-            @apply hover:[&:not(.active)]:scale-115 inline-block w-full cursor-default rounded-2xl px-2 py-2 text-center text-sm font-semibold leading-[125%] transition-[background-color,scale,opacity] md:px-10 md:py-5 md:text-2xl dark:text-white hover:[&:not(.active)]:cursor-pointer;
+            @apply hover:[&:not(.active)]:scale-115 inline-block w-full cursor-default rounded-2xl px-2 py-2 text-center text-sm font-semibold leading-[125%] transition-[scale,opacity] md:px-10 md:py-5 md:text-2xl dark:text-white hover:[&:not(.active)]:cursor-pointer;
         }
     }
 
     .contacts {
+        li {
+            @apply xs:text-xl text-sm md:text-[40px];
+        }
+
         a {
-            @apply xs:text-xl hover:text-primary inline-block text-sm transition-[color] md:text-[40px];
+            @apply hover:text-primary inline-block transition-[color];
         }
     }
 
