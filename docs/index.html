@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+
         <title>Денис Русаков | Frontend разработчик, техлид</title>
+
         <link rel="preconnect" href="https://rusakov.tech/" />
 
         <script>
@@ -42,29 +44,7 @@
                 }
             );
         </script>
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebPage",
-                "name": "Денис Русаков",
-                "url": "https://rusakov.tech/",
-                "description": "Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются",
-                "image": "hhttps://rusakov.tech/promo.png",
-                "author": {
-                    "@type": "Person",
-                    "name": "Денис Русаков"
-                },
-                "publisher": {
-                    "@type": "Person",
-                    "name": "Денис Русаков",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://rusakov.tech/"
-                    }
-                }
-            }
-        </script>
-        <meta name="robots" content="index, follow" />
+
         <style>
             :root {
                 --color-blue-50: oklch(0.4 0.26 264);
@@ -109,7 +89,7 @@
             :where(h1) {
                 font-size: var(--text-2xl);
 
-                @media (max-width: 48rem) {
+                @media (width <= 48rem) {
                     font-size: var(--text-xl);
                 }
             }
@@ -172,6 +152,31 @@
         <link rel="dns-prefetch" href="https://rusakov.tech/" />
         <link rel="prefetch" href="https://rusakov.tech/" />
         <link rel="prerender" href="https://rusakov.tech/" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "Денис Русаков",
+                "url": "https://rusakov.tech/",
+                "description": "Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются",
+                "image": "hhttps://rusakov.tech/promo.png",
+                "author": {
+                    "@type": "Person",
+                    "name": "Денис Русаков"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Денис Русаков",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://rusakov.tech/"
+                    }
+                }
+            }
+        </script>
+
+        <meta name="robots" content="index, follow" />
         <meta
             name="description"
             content="Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются"
@@ -213,8 +218,10 @@
 
         <link rel="me" href="https://rusakov.tech/" />
         <link rel="me" href="mailto:rusakov.denis.a@yandex.ru" />
+
         <link rel="canonical" href="https://rusakov.tech/" />
         <link rel="manifest" href="/manifest.webmanifest" />
+
         <link rel="icon" href="/images/favicon.ico" sizes="32x32" type="image/x-icon" />
         <link rel="icon" type="image/svg+xml" href="/images/any.svg" />
         <link rel="icon" type="image/png" href="/images/icon_96x96.png" sizes="96x96" />
