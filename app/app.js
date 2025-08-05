@@ -1,18 +1,20 @@
 import '#/styles/globals.css';
 
 import { initNav } from './_components/nav';
-import { initCursor } from '../packages/cursor/index.js';
-import { initBtnTop } from '../packages/btn-top/index.js';
+import { initCursor } from '@repo/cursor';
+import { initBtnTop } from '@repo/btn-top';
 import { initAchievements } from './_components/achievements';
 import { isMobile } from '#/utils/is-mobile';
 import { initCases } from './_components/cases';
 
 async function init() {
     try {
-        initNav();
+        const header = document.getElementById('header');
+
+        initNav(header);
         initAchievements();
         initCases();
-        initBtnTop();
+        initBtnTop(header);
 
         if (isMobile()) return;
 

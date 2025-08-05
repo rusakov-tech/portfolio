@@ -1,16 +1,8 @@
 import { isPrefersReducedMotion } from '#/utils/is-prefers-reduced-motion';
 
-export function initNav() {
+export function initNav(header) {
     const HEADER_SPACING = 16;
     const SCROLL_OFFSET_DELTA = 1;
-
-    const header = document.getElementById('header');
-
-    if (!header) {
-        console.error('Не найден элемент с id = "header"');
-
-        return;
-    }
 
     const links = document.querySelectorAll('nav ul li a');
     const navIndicator = document.getElementById('nav-indicator');

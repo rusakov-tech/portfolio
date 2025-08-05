@@ -42,6 +42,29 @@
                 }
             );
         </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "Денис Русаков",
+                "url": "https://rusakov.tech/",
+                "description": "Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются",
+                "image": "hhttps://rusakov.tech/promo.png",
+                "author": {
+                    "@type": "Person",
+                    "name": "Денис Русаков"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Денис Русаков",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://rusakov.tech/"
+                    }
+                }
+            }
+        </script>
+        <meta name="robots" content="index, follow" />
         <style>
             :root {
                 --color-blue-50: oklch(0.4 0.26 264);
@@ -133,14 +156,16 @@
                 }
             }
 
-            noscript .promo {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                object-fit: contain;
-                padding: 24px;
+            noscript {
+                .promo {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    object-fit: contain;
+                    padding: 24px;
+                }
             }
         </style>
 
@@ -149,7 +174,7 @@
         <link rel="prerender" href="https://rusakov.tech/" />
         <meta
             name="description"
-            content="Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются."
+            content="Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются"
         />
         <meta name="keywords" content="Портфолио, frontend разработчик, техлид, программист, Денис Русаков" />
         <meta name="title" content="Денис Русаков" />
@@ -173,7 +198,7 @@
         <meta property="og:locale" content="ru_RU" />
         <meta
             property="og:description"
-            content="Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются."
+            content="Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются"
         />
         <meta property="og:image" content="/images/promo.png" />
         <meta property="og:image:width" content="1200" />
@@ -195,8 +220,8 @@
         <link rel="icon" type="image/png" href="/images/icon_96x96.png" sizes="96x96" />
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/images/apple_touch_icon.png" />
-      <script type="module" crossorigin src="/assets/app-BhpdPFRZ.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/app-UZc0_TWg.css">
+      <script type="module" crossorigin src="/assets/app-CMH2zj0q.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/app-AhzabRVm.css">
     </head>
     <body>
         <div class="preloader" id="preloader">
@@ -268,9 +293,9 @@
                             width="250"
                             height="375"
                             srcset="/images/photo-md.jpg 320w, /images/photo-lg.jpg 800w"
-                            sizes="(max-width: 768px) 150px,
-           (min-width: 769px) and (max-width: 1024px) 250px,
-           375px"
+                            sizes="
+                                (max-width: 768px) 150px,
+                                (min-width: 769px) and (max-width: 1024px) 250px, 375px"
                         />
                         <p class="mt-16 text-xl md:text-[40px]">
                             верстаю и&nbsp;разрабатываю сервисы, которые помогают бизнесу становится лучше
@@ -294,7 +319,7 @@
                     class="achievements relative mx-auto mt-12 flex w-full items-center overflow-hidden"
                     id="achievements"
                 >
-                    <div data-achievement class="achievement">
+                    <article data-achievement class="achievement">
                         <div class="bg-[oklch(0.235_0_0)]">
                             <img
                                 aria-hidden="true"
@@ -324,8 +349,8 @@
                                 />
                             </a>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 aria-hidden="true"
@@ -349,8 +374,8 @@
                                 <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
                             </a>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div
                             class="bg-[oklch(0.2077_0.0398_265.75)] p-2 text-center transition-[translate] hover:-translate-y-2"
                         >
@@ -375,8 +400,8 @@
                                 <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
                             </a>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
@@ -389,8 +414,8 @@
                             <h3 class="text-primary-black dark:text-white">Сайт до 2 MB</h3>
                             <p class="text-primary-middle-gray">Разработал простой сайт <br />портфолио с кейсами</p>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
@@ -405,8 +430,8 @@
                                 Провёл тех. собесы <br />для подбора людей в&nbsp;команды
                             </p>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <div class="flex items-center justify-center gap-2">
                                 <img
@@ -437,8 +462,8 @@
                                 <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
                             </a>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
@@ -462,8 +487,8 @@
                                 <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
                             </a>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
@@ -486,8 +511,8 @@
                                 <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
                             </a>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div class="bg-[oklch(0.235_0_0)] p-2">
                             <img
                                 draggable="false"
@@ -508,8 +533,8 @@
                                 <img src="/images/icons/link.svg" alt="Стрелочка" width="24" height="24" />
                             </a>
                         </div>
-                    </div>
-                    <div data-achievement class="achievement">
+                    </article>
+                    <article data-achievement class="achievement">
                         <div class="bg-white p-2 dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
@@ -522,7 +547,7 @@
                             <h3 class="text-primary-black dark:text-white">Coming soon</h3>
                             <p class="text-primary-middle-gray">Контент собирается, <br />добавлю чуть позже</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
             <main id="cases" class="@container/cases" data-scroll="start">
@@ -533,7 +558,7 @@
                         Кейсы
                     </h2>
                     <div class="mt-8 flex flex-col items-center gap-16">
-                        <div class="case" data-case>
+                        <article class="case" data-case>
                             <div>
                                 <img
                                     draggable="false"
@@ -549,8 +574,8 @@
                                     >Ссылка</a
                                 >
                             </div>
-                        </div>
-                        <div class="case" data-case>
+                        </article>
+                        <article class="case" data-case>
                             <div>
                                 <img
                                     draggable="false"
@@ -570,8 +595,8 @@
                                     >Ссылка</a
                                 >
                             </div>
-                        </div>
-                        <div class="case" data-case>
+                        </article>
+                        <article class="case" data-case>
                             <div>
                                 <div class="placeholder-nda">
                                     <img
@@ -585,8 +610,8 @@
                                 <h3>NDA</h3>
                                 <p>Сверстал сервис для работы по&nbsp;программе TradeIn</p>
                             </div>
-                        </div>
-                        <div class="case hidden" data-case>
+                        </article>
+                        <article class="case hidden" data-case>
                             <div>
                                 <div class="placeholder-nda">
                                     <img
@@ -600,8 +625,8 @@
                                 <h3>NDA</h3>
                                 <p>Создал интерфейс для образовательных платформ для подготовки к&nbsp;экзаменам</p>
                             </div>
-                        </div>
-                        <div class="case hidden" data-case>
+                        </article>
+                        <article class="case hidden" data-case>
                             <div>
                                 <div class="placeholder-nda">
                                     <img
@@ -618,8 +643,8 @@
                                     с&nbsp;лёгкостью управлять временем специалистов
                                 </p>
                             </div>
-                        </div>
-                        <div class="case hidden" data-case>
+                        </article>
+                        <article class="case hidden" data-case>
                             <div>
                                 <div class="placeholder-nda">
                                     <img
@@ -636,8 +661,8 @@
                                     позволило управлять сайтом клиенту без участия разработчика;
                                 </p>
                             </div>
-                        </div>
-                        <div class="case hidden" data-case>
+                        </article>
+                        <article class="case hidden" data-case>
                             <div>
                                 <div class="placeholder-nda">
                                     <img
@@ -654,8 +679,8 @@
                                     находить важные места
                                 </p>
                             </div>
-                        </div>
-                        <div class="case hidden" data-case>
+                        </article>
+                        <article class="case hidden" data-case>
                             <div>
                                 <div class="placeholder-nda">
                                     <img
@@ -669,7 +694,7 @@
                                 <h3>Coming soon</h3>
                                 <p>Контент собирается, добавлю чуть позже</p>
                             </div>
-                        </div>
+                        </article>
                         <button
                             class="hover:text-primary -mt-4 px-4 py-2 text-xl transition-[color] hover:cursor-pointer"
                             id="show-more-cases"

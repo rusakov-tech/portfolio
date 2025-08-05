@@ -21,7 +21,7 @@ export function initAchievements() {
         onChange: achievement => {
             if (activeAchievement) {
                 gsap.to(
-                    '#achievements > div > div > div, #achievements > div > div > img, #achievements h3, #achievements p, #achievements a',
+                    '#achievements > article > div > div, #achievements > article > div > img, #achievements h3, #achievements p, #achievements a',
                     {
                         overwrite: true,
                         opacity: 0,

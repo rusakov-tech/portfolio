@@ -1,10 +1,9 @@
 import { isPrefersReducedMotion } from '#/utils/is-prefers-reduced-motion';
 
-export function initBtnTop() {
+export function initBtnTop(header) {
     const THRESHOLD = 150;
     const behavior = isPrefersReducedMotion.matches ? 'auto' : 'smooth';
 
-    const header = document.getElementById('header');
     const btnTop = document.getElementById('btn-top');
 
     if (!btnTop) {

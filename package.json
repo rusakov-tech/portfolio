@@ -2,10 +2,13 @@
     "name": "portfolio",
     "version": "1.0.0",
     "private": true,
-    "description": "Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются.",
+    "description": "Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются",
     "homepage": "https://rusakov.tech/",
     "author": "Денис Русаков",
     "type": "module",
+    "workspaces": [
+        "packages/*"
+    ],
     "scripts": {
         "build": "vite build",
         "dev": "vite",
@@ -14,6 +17,8 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@repo/btn-top": "*",
+        "@repo/cursor": "*",
         "gsap": "3.13.0"
     },
     "devDependencies": {
