@@ -12,38 +12,34 @@ export function initBtnTop(header) {
         return;
     }
 
-    btnTop.addEventListener(
-        'click',
-        () => {
-            btnTop.classList.remove('visible');
+    function handleClickBtnTop() {
+        btnTop.classList.remove('visible');
 
-            window.scrollTo({ top: 0, behavior });
-        },
-        {
-            passive: true,
+        window.scrollTo({ top: 0, behavior });
+    }
+
+    btnTop.addEventListener('click', handleClickBtnTop, {
+        passive: true,
+    });
+
+    function handleScrollWindow() {
+        const windowHeight = window.innerHeight;
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const documentHeight = document.documentElement.scrollHeight;
+        const distanceToBottom = documentHeight - (scrollTop + windowHeight);
+
+        if (distanceToBottom <= THRESHOLD) {
+            header.classList.add('expanded');
+            btnTop.classList.add('visible');
+
+            return;
         }
-    );
 
-    window.addEventListener(
-        'scroll',
-        () => {
-            const windowHeight = window.innerHeight;
-            const scrollTop = window.scrollY || window.pageYOffset;
-            const documentHeight = document.documentElement.scrollHeight;
-            const distanceToBottom = documentHeight - (scrollTop + windowHeight);
+        header.classList.remove('expanded');
+        btnTop.classList.remove('visible');
+    }
 
-            if (distanceToBottom <= THRESHOLD) {
-                header?.classList.add('expanded');
-                btnTop.classList.add('visible');
-
-                return;
-            }
-
-            header?.classList.remove('expanded');
-            btnTop.classList.remove('visible');
-        },
-        {
-            passive: true,
-        }
-    );
+    window.addEventListener('scroll', handleScrollWindow, {
+        passive: true,
+    });
 }

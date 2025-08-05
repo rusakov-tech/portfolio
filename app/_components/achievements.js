@@ -9,7 +9,6 @@ export function initAchievements() {
     const achievements = gsap.utils.toArray('[data-achievement]');
 
     let activeAchievement;
-    let firstRun = false;
 
     gsap.set('#achievements', { 'overflow': 'visible', 'scroll-snap-type': 'none' });
 
@@ -53,8 +52,7 @@ export function initAchievements() {
                     { y: i => [40, 60][i] },
                     { duration: 1.5, y: 0, ease: 'expo' },
                     0.3
-                )
-                .progress(firstRun ? 1 : 0);
+                );
         },
     });
 
@@ -70,5 +68,4 @@ export function initAchievements() {
     gsap.set('[data-achievement] a', { opacity: i => (i === 0 ? 1 : 0) });
 
     loop.toIndex(0, { duration: 0 });
-    firstRun = false;
 }

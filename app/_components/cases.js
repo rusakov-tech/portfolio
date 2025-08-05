@@ -17,6 +17,7 @@ export function initCases() {
 
         if (remaining > 0) {
             const batch = Math.min(BATCH_SIZE, remaining);
+
             btnShowMoreCases.textContent = `+кейс${batch > 1 ? 'а' : ''}`;
             btnShowMoreCases.classList.remove('hidden');
         } else {
@@ -24,21 +25,19 @@ export function initCases() {
         }
     }
 
-    btnShowMoreCases.addEventListener(
-        'click',
-        () => {
-            if (visibleCount < totalCount) {
-                const prevVisibleCount = visibleCount;
-                visibleCount = Math.min(visibleCount + BATCH_SIZE, totalCount);
+    function handleClickBtnShowMoreCases() {
+        if (visibleCount < totalCount) {
+            const prevVisibleCount = visibleCount;
+            visibleCount = Math.min(visibleCount + BATCH_SIZE, totalCount);
 
-                updateCases();
+            updateCases();
 
-                const firstNewCase = cases[prevVisibleCount];
-                if (firstNewCase) {
-                    firstNewCase.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+            const firstNewCase = cases[prevVisibleCount];
+            if (firstNewCase) {
+                firstNewCase.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        },
-        { passive: true }
-    );
+        }
+    }
+
+    btnShowMoreCases.addEventListener('click', handleClickBtnShowMoreCases, { passive: true });
 }

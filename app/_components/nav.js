@@ -1,6 +1,8 @@
 import { isPrefersReducedMotion } from '#/utils/is-prefers-reduced-motion';
 
 export function initNav(header) {
+    const behavior = isPrefersReducedMotion ? 'auto' : 'smooth';
+
     const HEADER_SPACING = 16;
     const SCROLL_OFFSET_DELTA = 1;
 
@@ -110,8 +112,6 @@ export function initNav(header) {
             targetPosition = sectionTop + sectionHeight / 2 - getHeaderHeight(HEADER_SPACING);
         }
 
-        const behavior = isPrefersReducedMotion ? 'auto' : 'smooth';
-
         window.scrollTo({ top: targetPosition, behavior });
 
         history.pushState(null, '', `#${targetId}`);
@@ -126,16 +126,14 @@ export function initNav(header) {
         link.addEventListener('click', onLinkClick);
     });
 
-    window.addEventListener(
-        'scroll',
-        () => {
-            updateActiveLink();
-            moveIndicatorToActive();
-        },
-        {
-            passive: true,
-        }
-    );
+    function handleScrollWindow() {
+        updateActiveLink();
+        moveIndicatorToActive();
+    }
+
+    window.addEventListener('scroll', handleScrollWindow, {
+        passive: true,
+    });
 
     if (window.location.hash) {
         const targetId = window.location.hash.substring(1);

@@ -7,7 +7,7 @@ singleQuote: true
 semi: true
 singleAttributePerLine: false
 tabWidth: 4
-tailwindStylesheet: ./src/globals.css
+tailwindStylesheet: ./src/styles/globals.css
 trailingComma: es5
 proseWrap: always
 quoteProps: consistent

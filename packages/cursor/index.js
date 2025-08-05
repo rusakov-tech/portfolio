@@ -15,10 +15,11 @@ export const initCursor = () => {
     ];
 
     const ICON_SIZE = 32;
-    const MAX_ICONS = 10;
     const DISTANCE_THRESHOLD = 25;
     const TIMER_DURATION = 250;
     const IGNORED_TAGS = ['A', 'BUTTON'];
+
+    const maxIcons = iconUrls.lnegth;
 
     let lastX = null;
     let lastY = null;
@@ -35,15 +36,9 @@ export const initCursor = () => {
         img.alt = 'Иконка курсора';
 
         Object.assign(img.style, {
-            position: 'fixed',
-            pointerEvents: 'none',
             top: '0',
             left: '0',
             opacity: '0',
-            scale: '0',
-            transformOrigin: 'center center',
-            willChange: 'transform, opacity',
-            userSelect: 'none',
         });
 
         document.body.appendChild(img);
@@ -78,7 +73,7 @@ export const initCursor = () => {
             opacity: 1,
         });
 
-        if (activeIcons.length >= MAX_ICONS) {
+        if (activeIcons.length >= maxIcons) {
             const oldestIndex = activeIcons[0];
             const oldestIcon = iconPool[oldestIndex];
 
@@ -120,35 +115,39 @@ export const initCursor = () => {
         });
     }
 
-    window.addEventListener(
-        'mousemove',
-        ({ clientX, clientY, target }) => {
-            if (IGNORED_TAGS.includes(target.tagName)) return;
+    function handleMouseMoveWindow({ clientX, clientY, target }) {
+        if (IGNORED_TAGS.includes(target.tagName)) return;
 
-            if (lastX !== null && lastY !== null) {
-                const dx = clientX - lastX;
-                const dy = clientY - lastY;
-                const distance = Math.hypot(dx, dy);
+        if (lastX !== null && lastY !== null) {
+            const dx = clientX - lastX;
+            const dy = clientY - lastY;
+            const distance = Math.hypot(dx, dy);
 
-                if (distance >= DISTANCE_THRESHOLD) {
-                    showIcon(clientX, clientY);
+            if (distance >= DISTANCE_THRESHOLD) {
+                showIcon(clientX, clientY);
 
-                    lastX = clientX;
-                    lastY = clientY;
-                }
-            } else {
                 lastX = clientX;
                 lastY = clientY;
             }
+        } else {
+            lastX = clientX;
+            lastY = clientY;
+        }
 
-            clearTimeout(stopTimer);
+        clearTimeout(stopTimer);
 
-            stopTimer = setTimeout(() => {
-                hideAllIcons();
+        stopTimer = setTimeout(() => {
+            hideAllIcons();
 
-                lastX = null;
-                lastY = null;
-            }, TIMER_DURATION);
+            lastX = null;
+            lastY = null;
+        }, TIMER_DURATION);
+    }
+
+    window.addEventListener(
+        'mousemove',
+        ({ clientX, clientY, target }) => {
+            handleMouseMoveWindow({ clientX, clientY, target });
         },
         { passive: true }
     );

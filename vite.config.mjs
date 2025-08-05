@@ -13,6 +13,8 @@ export default defineConfig({
         extensions: ['.js'],
         alias: {
             '#': path.resolve(__dirname, 'src'),
+            '@repo/cursor': path.resolve(__dirname, 'packages/cursor'),
+            '@repo/btn-top': path.resolve(__dirname, 'packages/btn-top'),
         },
     },
     build: {

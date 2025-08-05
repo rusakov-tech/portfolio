@@ -49,7 +49,7 @@
     }
 
     body {
-        @apply selection:bg-primary bg-primary-light-gray dark:bg-primary-black mx-auto grid w-full cursor-[url('/images/icons/cursor.svg'),auto] grid-rows-[auto_1fr_auto] overscroll-none antialiased selection:text-white;
+        @apply mx-auto grid w-full cursor-[url('/images/icons/cursor.svg'),auto] grid-rows-[auto_1fr_auto] overscroll-none bg-primary-light-gray antialiased selection:bg-primary selection:text-white dark:bg-primary-black;
 
         font-size: 18px;
         color-scheme: light dark;
@@ -69,7 +69,7 @@
     }
 
     h2 {
-        @apply text-primary-gray text-xl lowercase md:text-2xl dark:text-white;
+        @apply text-xl text-primary-gray lowercase md:text-2xl dark:text-white;
     }
 
     .btn {
@@ -82,7 +82,7 @@
     }
 
     *:focus-visible {
-        @apply outline-solid outline-primary rounded-sm outline-2 outline-offset-2;
+        @apply rounded-sm outline-2 outline-offset-2 outline-primary outline-solid;
     }
 
     @keyframes float {
@@ -104,7 +104,7 @@
 @layer components {
     .nav {
         a {
-            @apply hover:[&:not(.active)]:scale-115 inline-block w-full cursor-default rounded-2xl px-2 py-2 text-center text-sm font-semibold leading-[125%] transition-[scale,opacity] md:px-10 md:py-5 md:text-2xl dark:text-white hover:[&:not(.active)]:cursor-pointer;
+            @apply inline-block w-full cursor-default rounded-2xl px-2 py-2 text-center text-sm leading-[125%] font-semibold transition-[scale,opacity] md:px-10 md:py-5 md:text-2xl dark:text-white hover:[&:not(.active)]:scale-115 hover:[&:not(.active)]:cursor-pointer;
         }
     }
 
@@ -112,11 +112,11 @@
         @apply mt-12 md:mt-24;
 
         li {
-            @apply xs:text-xl text-sm md:text-[40px];
+            @apply text-sm md:text-[40px] xs:text-xl;
         }
 
         a {
-            @apply hover:text-primary inline-block transition-[color];
+            @apply inline-block transition-[color] hover:text-primary;
         }
     }
 
@@ -132,7 +132,7 @@
         }
 
         & > div > img {
-            @apply md:w-22 md:h-22 h-16 w-16 object-contain;
+            @apply h-16 w-16 object-contain md:h-22 md:w-22;
         }
 
         p {
@@ -140,7 +140,7 @@
         }
 
         a {
-            @apply text-primary-black bg-secondary hover:bg-primary absolute bottom-2 right-2 mt-2 flex h-6 w-6 items-center justify-center rounded-md p-1 underline transition-[background-color] md:bottom-3 md:right-3 md:h-10 md:w-10 md:rounded-xl hover:[&>img]:invert;
+            @apply absolute right-2 bottom-2 mt-2 flex h-6 w-6 items-center justify-center rounded-md bg-secondary p-1 text-primary-black underline transition-[background-color] hover:bg-primary md:right-3 md:bottom-3 md:h-10 md:w-10 md:rounded-xl hover:[&>img]:invert;
 
             & > img {
                 @apply transition-[filter];
@@ -156,7 +156,7 @@
         }
 
         h3 {
-            @apply @3xl/cases:text-4xl mt-4 text-xl font-medium md:mt-8;
+            @apply mt-4 text-xl font-medium md:mt-8 @3xl/cases:text-4xl;
         }
 
         p {
@@ -172,12 +172,12 @@
         }
 
         a {
-            @apply text-primary-gray hover:text-primary dark:text-primary-middle-gray mt-4 inline-block gap-11 text-xl underline md:mt-8 md:text-xl;
+            @apply mt-4 inline-block gap-11 text-xl text-primary-gray underline hover:text-primary md:mt-8 md:text-xl dark:text-primary-middle-gray;
         }
     }
 
     .bg {
-        @apply -z-1 fixed bg-fixed bg-repeat;
+        @apply fixed -z-1 bg-fixed bg-repeat;
 
         background-position: center;
         background-size: 64px 64px;
@@ -200,7 +200,7 @@
     }
 
     .trail-icon {
-        @apply scale-none pointer-events-none fixed left-0 top-0 origin-[center_center] select-none opacity-0 will-change-[transform,opacity];
+        @apply pointer-events-none fixed origin-[center_center] will-change-[transform,opacity] select-none;
     }
 }
 

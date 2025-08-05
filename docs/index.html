@@ -227,8 +227,8 @@
         <link rel="icon" type="image/png" href="/images/icon_96x96.png" sizes="96x96" />
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/images/apple_touch_icon.png" />
-      <script type="module" crossorigin src="/assets/app-CMH2zj0q.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/app-AhzabRVm.css">
+      <script type="module" crossorigin src="/assets/app-CXcL26Z5.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/app-B5eHNzdS.css">
     </head>
     <body>
         <div class="preloader" id="preloader">
@@ -241,18 +241,18 @@
         </div>
         <p hidden id="skip-to-main-content" class="bg-primary text-center text-white">
             <a
-                class="not-active:not-focus-visible:absolute not-active:not-focus-visible:[clip-path:inset(50%)] m-2 inline-block underline"
+                class="m-2 inline-block underline not-active:not-focus-visible:absolute not-active:not-focus-visible:[clip-path:inset(50%)]"
                 href="#cases"
                 >Перейти к основному содержанию</a
             >
         </p>
         <header
             id="header"
-            class="z-2 has:[&>div.expanded]:rounded-[0_0_12px_12px] fixed bottom-4 left-1/2 mx-auto flex -translate-x-1/2 items-center justify-center rounded-xl bg-white p-2 transition-[padding] md:p-4 dark:bg-[oklch(0.2367_0.0076_285.81)] [&.expanded]:px-7 md:[&.expanded]:px-14"
+            class="has:[&>div.expanded]:rounded-[0_0_12px_12px] fixed bottom-4 left-1/2 z-2 mx-auto flex -translate-x-1/2 items-center justify-center rounded-xl bg-white p-2 transition-[padding] md:p-4 dark:bg-[oklch(0.2367_0.0076_285.81)] [&.expanded]:px-7 md:[&.expanded]:px-14"
         >
             <button
                 id="btn-top"
-                class="dark:bg-primary bg-secondary md:h-17 md:w-17 absolute left-4 z-10 flex h-7 w-7 items-center justify-center rounded-full opacity-0 transition-[opacity] hover:cursor-pointer md:left-4 [&.visible]:opacity-100 hover:[&>img]:scale-125"
+                class="absolute left-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary opacity-0 transition-[opacity] hover:cursor-pointer md:left-4 md:h-17 md:w-17 dark:bg-primary [&.visible]:opacity-100 hover:[&>img]:scale-125"
                 type="button"
                 aria-label="Перейти к началу страницы"
             >
@@ -262,7 +262,7 @@
                     src="/images/icons/arrow.svg"
                     width="32"
                     height="32"
-                    alt="Стрелка вверх"
+                    alt="Иконка стрелки вверх"
                 />
             </button>
             <nav class="nav relative flex items-center gap-1 md:gap-3" aria-label="Главная навигация" id="nav">
@@ -281,11 +281,11 @@
                 </ul>
                 <div
                     id="nav-indicator"
-                    class="bg-secondary dark:bg-primary z-1 pointer-events-none absolute top-0 rounded-[20px] opacity-0 transition-all duration-300 ease-in-out"
+                    class="pointer-events-none absolute top-0 z-1 rounded-[20px] bg-secondary opacity-0 transition-all duration-300 ease-in-out dark:bg-primary"
                 ></div>
             </nav>
         </header>
-        <div class="z-1 grid h-full min-h-screen w-full gap-12 pt-16 md:gap-24 md:pb-0 md:pt-40">
+        <div class="z-1 grid h-full min-h-screen w-full gap-12 pt-16 md:gap-24 md:pt-40 md:pb-0">
             <section>
                 <div class="container-md">
                     <div class="flex flex-col items-center justify-start">
@@ -412,7 +412,7 @@
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
-                                class="md:w-22 md:h-22 h-16 w-16"
+                                class="h-16 w-16 md:h-22 md:w-22"
                                 src="/images/logos/logo.svg"
                                 alt="Логотип"
                                 width="150"
@@ -426,14 +426,14 @@
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
-                                class="md:w-22 md:h-22 h-16 w-16"
+                                class="h-16 w-16 md:h-22 md:w-22"
                                 src="/images/icons/comment.svg"
                                 alt="Логотип"
                                 width="150"
                                 height="150"
                             />
                             <h3 class="text-primary-black dark:text-white">Аутстафф</h3>
-                            <p class="text-primary-middle-gray text-center">
+                            <p class="text-center text-primary-middle-gray">
                                 Провёл тех. собесы <br />для подбора людей в&nbsp;команды
                             </p>
                         </div>
@@ -443,7 +443,7 @@
                             <div class="flex items-center justify-center gap-2">
                                 <img
                                     draggable="false"
-                                    class="md:w-22 md:h-22 h-16 w-16"
+                                    class="h-16 w-16 md:h-22 md:w-22"
                                     src="/images/logos/vue.svg"
                                     alt="Логотип"
                                     width="150"
@@ -451,7 +451,7 @@
                                 />
                                 <img
                                     draggable="false"
-                                    class="md:w-22 md:h-22 h-16 w-16"
+                                    class="h-16 w-16 md:h-22 md:w-22"
                                     src="/images/logos/bitrix.svg"
                                     alt="Логотип"
                                     width="150"
@@ -474,7 +474,7 @@
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
-                                class="md:w-22 md:h-22 h-16 w-16"
+                                class="h-16 w-16 md:h-22 md:w-22"
                                 src="/images/logos/frontend_conf.svg"
                                 alt="Логотип"
                                 width="150"
@@ -499,7 +499,7 @@
                         <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
-                                class="md:w-22 md:h-22 h-16 w-16"
+                                class="h-16 w-16 md:h-22 md:w-22"
                                 src="/images/logos/stepik.svg"
                                 alt="Логотип"
                                 width="150"
@@ -523,9 +523,9 @@
                         <div class="bg-[oklch(0.235_0_0)] p-2">
                             <img
                                 draggable="false"
-                                class="md:w-22 md:h-22 h-16 w-16"
+                                class="h-16 w-16 md:h-22 md:w-22"
                                 src="/images/logos/strapi.svg"
-                                alt="Логотип"
+                                alt="Логотип Strapi"
                                 width="150"
                                 height="150"
                             />
@@ -543,9 +543,35 @@
                     </article>
                     <article data-achievement class="achievement">
                         <div class="bg-white p-2 dark:bg-[oklch(0.235_0_0)]">
+                            <div class="flex items-center justify-center gap-2">
+                                <img
+                                    draggable="false"
+                                    class="h-16 w-16 md:h-22 md:w-22"
+                                    src="/images/logos/tilda.svg"
+                                    alt="Логотип Tilda"
+                                    width="150"
+                                    height="150"
+                                />
+                                <img
+                                    draggable="false"
+                                    class="h-16 w-16 md:h-22 md:w-22"
+                                    src="/images/logos/nodejs.svg"
+                                    alt="Логотип Node.js"
+                                    width="150"
+                                    height="150"
+                                />
+                            </div>
+                            <h3 class="text-primary-black dark:text-white">Tilda + Node.js</h3>
+                            <p class="text-primary-middle-gray">
+                                Написание скрипта <br />для выгрузки html страниц из тильды
+                            </p>
+                        </div>
+                    </article>
+                    <article data-achievement class="achievement">
+                        <div class="bg-white p-2 dark:bg-[oklch(0.235_0_0)]">
                             <img
                                 draggable="false"
-                                class="md:w-22 md:h-22 h-16 w-16"
+                                class="h-16 w-16 md:h-22 md:w-22"
                                 src="/images/icons/coding_apps_websites_programming_hold_code.svg"
                                 alt="Логотип"
                                 width="150"
@@ -560,7 +586,7 @@
             <main id="cases" class="@container/cases" data-scroll="start">
                 <div class="container-md">
                     <h2
-                        class="relative inline-block w-auto after:absolute after:-right-4 after:top-0 after:text-sm after:content-['7']"
+                        class="relative inline-block w-auto after:absolute after:top-0 after:-right-4 after:text-sm after:content-['9']"
                     >
                         Кейсы
                     </h2>
@@ -692,6 +718,39 @@
                                 <div class="placeholder-nda">
                                     <img
                                         draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>NDA</h3>
+                                <p>
+                                    Создал новые страницы для сайта, а также Landing page на Tild'е, чтобы клиент мог
+                                    сам настраивать контент на страницах
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>NDA</h3>
+                                <p>Доработал Telegram бота с локализацией на React.js</p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
                                         src="/images/icons/lightning.svg"
                                         alt="Заглушка кейса под NDA"
                                         width="120"
@@ -703,7 +762,7 @@
                             </div>
                         </article>
                         <button
-                            class="hover:text-primary -mt-4 px-4 py-2 text-xl transition-[color] hover:cursor-pointer"
+                            class="-mt-4 px-4 py-2 text-xl transition-[color] hover:cursor-pointer hover:text-primary"
                             id="show-more-cases"
                             type="button"
                         >
@@ -754,12 +813,12 @@
                 </div>
             </section>
         </div>
-        <footer class="md:pb-34 pb-20">
+        <footer class="pb-20 md:pb-34">
             <div class="container-lg">
                 <div class="relative">
                     <img
                         draggable="false"
-                        class="-translate-x-35/10 translate-y-8/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] -translate-x-35/10 translate-y-8/10 md:w-[10%]"
                         src="/images/icons/computers_devices_electronics_mouse.svg"
                         alt="Иконка"
                         width="142"
@@ -767,7 +826,7 @@
                     />
                     <img
                         draggable="false"
-                        class="translate-x-15/10 translate-y-6/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] translate-x-15/10 translate-y-6/10 md:w-[10%]"
                         src="/images/icons/internet_network_cloud_error.svg"
                         alt="Иконка"
                         width="142"
@@ -775,7 +834,7 @@
                     />
                     <img
                         draggable="false"
-                        class="translate-x-27/10 translate-y-5/10 absolute left-1/2 top-0 w-[48px] rotate-[19deg] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] translate-x-27/10 translate-y-5/10 rotate-[19deg] md:w-[10%]"
                         src="/images/icons/hand_gesture_finger_click.svg"
                         alt="Иконка"
                         width="142"
@@ -783,7 +842,7 @@
                     />
                     <img
                         draggable="false"
-                        class="md:translate-x-16/10 translate-x-18/10 -translate-y-5/10 absolute left-1/2 top-0 w-[48px] -rotate-[22deg] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] translate-x-18/10 -translate-y-5/10 -rotate-[22deg] md:w-[10%] md:translate-x-16/10"
                         src="/images/icons/computer_old_electronics.svg"
                         alt="Иконка"
                         width="142"
@@ -791,7 +850,7 @@
                     />
                     <img
                         draggable="false"
-                        class="-translate-x-16/10 translate-y-7/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] -translate-x-16/10 translate-y-7/10 md:w-[10%]"
                         src="/images/icons/business_product_startup.svg"
                         alt="Иконка"
                         width="142"
@@ -799,7 +858,7 @@
                     />
                     <img
                         draggable="false"
-                        class="translate-x-8/10 -translate-y-2/10 absolute left-1/2 top-0 w-[48px] md:w-[8%]"
+                        class="absolute top-0 left-1/2 w-[48px] translate-x-8/10 -translate-y-2/10 md:w-[8%]"
                         src="/images/icons/hand_love_sign.svg"
                         alt="Иконка"
                         width="120"
@@ -807,7 +866,7 @@
                     />
                     <img
                         draggable="false"
-                        class="-translate-x-18/10 -translate-y-6/10 absolute left-1/2 top-0 w-[48px] md:w-[8%]"
+                        class="absolute top-0 left-1/2 w-[48px] -translate-x-18/10 -translate-y-6/10 md:w-[8%]"
                         src="/images/icons/streamline_bubble.svg"
                         alt="Иконка"
                         width="120"
@@ -815,7 +874,7 @@
                     />
                     <img
                         draggable="false"
-                        class="translate-x-2/10 -translate-y-15/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] translate-x-2/10 -translate-y-15/10 md:w-[10%]"
                         src="/images/icons/content_files_pencil_ruler.svg"
                         alt="Иконка"
                         width="142"
@@ -823,7 +882,7 @@
                     />
                     <img
                         draggable="false"
-                        class="-translate-x-5/10 -translate-y-3/10 absolute left-1/2 top-0 w-[48px] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] -translate-x-5/10 -translate-y-3/10 md:w-[10%]"
                         src="/images/icons/coding_apps_websites_programming_hold_code.svg"
                         alt="Иконка"
                         width="142"
@@ -831,7 +890,7 @@
                     />
                     <img
                         draggable="false"
-                        class="-translate-x-25/10 translate-y-2/10 absolute left-1/2 top-0 w-[48px] -rotate-[14deg] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] -translate-x-25/10 translate-y-2/10 -rotate-[14deg] md:w-[10%]"
                         src="/images/icons/computers_devices_electronics_keyboard.svg"
                         alt="Иконка"
                         width="142"
@@ -850,7 +909,7 @@
         </footer>
 
         <div class="bg"></div>
-        <div class="float-animation text-primary-gray fixed right-6 top-6 z-0 text-sm">v1.0.0-beta</div>
+        <div class="float-animation fixed top-6 right-6 z-0 text-sm text-primary-gray">v1.0.0-beta</div>
 
     </body>
 </html>
