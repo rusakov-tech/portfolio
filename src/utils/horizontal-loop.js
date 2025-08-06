@@ -213,6 +213,7 @@ export function horizontalLoop(gsap, Draggable, InertiaPlugin, items, config) {
                     gsap.set(proxy, { x: startProgress / -ratio });
                 },
                 onDrag: align,
+                touchAction: 'pan-x',
                 onThrowUpdate: align,
                 overshootTolerance: 0,
                 inertia: true,
