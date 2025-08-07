@@ -29,7 +29,7 @@ export const initCursor = () => {
     const iconPool = iconUrls.map(url => {
         const img = document.createElement('img');
 
-        img.src = `/images/icons/${url}.svg`;
+        img.src = `/img/icons/${url}.svg`;
         img.width = ICON_SIZE;
         img.height = ICON_SIZE;
         img.classList.add('trail-icon');
