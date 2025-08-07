@@ -6,9 +6,6 @@
     "homepage": "https://rusakov.tech/",
     "author": "Денис Русаков",
     "type": "module",
-    "workspaces": [
-        "packages/*"
-    ],
     "scripts": {
         "build": "vite build",
         "dev": "vite",
@@ -17,8 +14,6 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@repo/btn-top": "*",
-        "@repo/cursor": "*",
         "gsap": "3.13.0"
     },
     "devDependencies": {

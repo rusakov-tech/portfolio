@@ -1,11 +1,11 @@
 import '#/styles/globals.css';
 
-import { initNav } from './_components/nav';
-import { initCursor } from '@repo/cursor';
-import { initBtnTop } from '@repo/btn-top';
-import { initAchievements } from './_components/achievements';
-import { isMobile } from '#/utils/is-mobile';
-import { initCases } from './_components/cases';
+import { initNav } from '../molecules/nav.js';
+import { initCursor } from '../atoms/cursor.js';
+import { initBtnTop } from '../atoms/btn-top.js';
+import { initAchievements } from '../molecules/achievements.js';
+import { isMobile } from '#/utils/is-mobile.js';
+import { initCases } from '../molecules/cases.js';
 
 async function init() {
     try {

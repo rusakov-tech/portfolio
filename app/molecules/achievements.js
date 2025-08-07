@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import InertiaPlugin from 'gsap/InertiaPlugin';
-import { horizontalLoop } from '#/utils/horizontal-loop';
+import { horizontalLoop } from '#/utils/horizontal-loop.js';
 
 export function initAchievements() {
     gsap.registerPlugin(Draggable, InertiaPlugin);

@@ -6,15 +6,13 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-    root: 'app',
-    publicDir: '../public',
+    root: 'app/pages',
+    publicDir: '../../public',
     plugins: [tailwindcss()],
     resolve: {
         extensions: ['.js'],
         alias: {
             '#': path.resolve(__dirname, 'src'),
-            '@repo/cursor': path.resolve(__dirname, 'packages/cursor'),
-            '@repo/btn-top': path.resolve(__dirname, 'packages/btn-top'),
         },
     },
     build: {
@@ -22,7 +20,7 @@ export default defineConfig({
         emptyOutDir: true,
         rollupOptions: {
             input: {
-                app: path.resolve(__dirname, 'app/index.html'),
+                app: path.resolve(__dirname, 'app/pages/index.html'),
             },
         },
     },

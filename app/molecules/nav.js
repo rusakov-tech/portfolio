@@ -1,4 +1,4 @@
-import { isPrefersReducedMotion } from '#/utils/is-prefers-reduced-motion';
+import { isPrefersReducedMotion } from '#/utils/is-prefers-reduced-motion.js';
 
 export function initNav(header) {
     const behavior = isPrefersReducedMotion ? 'auto' : 'smooth';
