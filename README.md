@@ -1,3 +1,3 @@
 # Портфолио
 
-![Фамилия](./public/img/surname.svg "Фамилия")
+![Фамилия](./public/img/surname.svg 'Фамилия')

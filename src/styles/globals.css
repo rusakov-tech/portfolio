@@ -180,7 +180,11 @@
         }
 
         a {
-            @apply mt-4 inline-block gap-11 text-xl text-primary-gray underline hover:text-primary md:mt-8 md:text-xl dark:text-primary-middle-gray;
+            @apply mt-4 inline-block gap-11 border-b-2 text-xl leading-5 text-primary-gray transition-[color,border-color] hover:text-primary md:mt-8 md:text-xl dark:text-primary-middle-gray;
+
+            &:not(:is(:hover, :focus)) {
+                @apply border-[color-mix(in_srgb,currentColor,transparent_75%)];
+            }
         }
     }
 
