@@ -81,8 +81,16 @@
         }
     }
 
-    *:focus-visible {
-        @apply rounded-sm outline-2 outline-offset-2 outline-primary outline-solid;
+    * {
+        &:focus-visible {
+            @apply rounded-sm outline-2 outline-offset-2 outline-primary outline-solid;
+        }
+    }
+
+    img {
+        &::selection {
+            @apply bg-transparent;
+        }
     }
 
     @keyframes float {
@@ -118,10 +126,6 @@
         a {
             @apply inline-block transition-[color] hover:text-primary;
         }
-    }
-
-    #achievements {
-        touch-action: pan-x !important;
     }
 
     .achievement {
@@ -181,13 +185,10 @@
     }
 
     .bg {
-        @apply fixed -z-1 bg-fixed bg-repeat;
-
-        background-position: center;
-        background-size: 64px 64px;
+        @apply fixed -z-1 bg-size-[64px_64px] bg-fixed bg-center bg-repeat;
 
         @media (prefers-color-scheme: light) {
-            @apply bg-[radial-gradient(circle,#e0e0eb_4px,transparent_4px)];
+            @apply bg-[radial-gradient(circle,oklch(0.9099_0.0149_286.1)_4px,transparent_4px)];
         }
 
         @media (prefers-color-scheme: dark) {

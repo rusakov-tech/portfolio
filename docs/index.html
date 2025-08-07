@@ -2,7 +2,7 @@
 <html lang="ru" dir="ltr" itemscope itemtype="https://schema.org/WebPage/">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5" />
 
         <title>Денис Русаков | Frontend разработчик, техлид</title>
 
@@ -57,11 +57,6 @@
                 --color-gray-200: oklch(0.9099 0.0149 286.1);
 
                 --font-inter: 'Inter', 'sans-serif';
-
-                @supports (font-variation-settings: normal) {
-                    --font-inter: 'Inter Variable', 'sans-serif';
-                }
-
                 --font-feature-settings: normal;
 
                 --transition-duration: 0.25s;
@@ -71,6 +66,10 @@
                 font-feature-settings:
                     'liga' 1,
                     'calt' 1;
+
+                @supports (font-variation-settings: normal) {
+                    --font-inter: 'Inter Variable', 'sans-serif';
+                }
             }
 
             *,
@@ -114,23 +113,25 @@
                     background-color: var(--color-black-50, oklch(0.13 0 0));
                 }
 
-                &.animate circle {
-                    cx: 40px;
-                    fill: var(--color-blue-50, oklch(0.97 0.03 280));
+                &.animate {
+                    circle {
+                        cx: 40px;
+                        fill: var(--color-blue-50, oklch(0.97 0.03 280));
+                    }
                 }
 
                 &.hidden {
                     opacity: 0;
                 }
 
-                & svg {
+                svg {
                     min-width: 56px;
                     min-height: 26px;
                     border-radius: 12px;
                     border: 3px solid var(--color-blue-50, oklch(0.97 0.03 280));
                 }
 
-                & circle {
+                circle {
                     fill: var(--color-blue-50, oklch(0.97 0.03 280));
                     transition: cx 0.6s cubic-bezier(0.83, 0, 0.17, 1);
                 }
@@ -181,7 +182,10 @@
             name="description"
             content="Привет, меня зовут Денис. Я frontend разработчик, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются"
         />
-        <meta name="keywords" content="Портфолио, frontend разработчик, техлид, программист, Денис Русаков" />
+        <meta
+            name="keywords"
+            content="Портфолио, frontend разработчик, техлид, программист, Денис Русаков, фронтенд, Denis Rusakov"
+        />
         <meta name="title" content="Денис Русаков" />
         <meta name="color-scheme" content="dark light" />
         <meta name="theme-color" content="#3316e9" media="(prefers-color-scheme: light)" />
@@ -227,8 +231,8 @@
         <link rel="icon" type="image/png" href="/images/icon_96x96.png" sizes="96x96" />
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/images/apple_touch_icon.png" />
-      <script type="module" crossorigin src="/assets/app-Dyq3grAQ.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/app-vCfyoQwW.css">
+      <script type="module" crossorigin src="/assets/app-DOifR0zf.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/app-CXml3aTd.css">
     </head>
     <body>
         <div class="preloader" id="preloader">
@@ -323,7 +327,7 @@
                     </div>
                 </div>
                 <div
-                    class="achievements relative mx-auto mt-12 flex w-full items-center overflow-hidden"
+                    class="achievements relative mx-auto mt-12 flex w-full !touch-pan-x items-center overflow-hidden"
                     id="achievements"
                 >
                     <article data-achievement class="achievement">
@@ -834,7 +838,7 @@
                     />
                     <img
                         draggable="false"
-                        class="absolute top-0 left-1/2 w-[48px] translate-x-22/10 translate-y-5/10 rotate-[19deg] md:w-[10%]"
+                        class="absolute top-0 left-1/2 w-[48px] translate-x-22/10 translate-y-5/10 rotate-[19deg] md:w-[10%] md:translate-x-26/10"
                         src="/images/icons/hand_gesture_finger_click.svg"
                         alt="Иконка"
                         width="142"
