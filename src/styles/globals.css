@@ -1,0 +1,231 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-primary: var(--color-blue-50);
+    --color-secondary: var(--color-blue-100);
+    --color-primary-black: var(--color-black-50);
+    --color-primary-light-black: var(--color-black-100);
+    --color-primary-gray: var(--color-gray-50);
+    --color-primary-middle-gray: var(--color-gray-100);
+    --color-primary-light-gray: var(--color-gray-150);
+
+    --default-font-family: var(--font-inter, 'system-ui, sans-serif');
+
+    --default-transition-duration: var(--transition-duration);
+
+    --breakpoint-xs: var(--breakpoint-xs);
+}
+
+@layer base {
+    @font-face {
+        font-weight: 400;
+        font-family: Inter;
+        font-style: normal;
+        font-display: swap;
+        src: url('/fonts/inter/regular.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-weight: 500;
+        font-family: Inter;
+        font-style: normal;
+        font-display: swap;
+        src: url('/fonts/inter/semibold.woff2') format('woff2');
+    }
+
+    @supports (font-variation-settings: normal) {
+        @font-face {
+            font-weight: 100 900;
+            font-family: Inter Variable;
+            font-style: normal;
+            font-display: swap;
+            src: url('/fonts/inter/variable.woff2') format('woff2');
+        }
+    }
+
+    html,
+    :host {
+        @apply leading-[1.1] dark:text-white;
+    }
+
+    body {
+        @apply mx-auto grid w-full cursor-[url('/img/icons/cursor.svg'),auto] grid-rows-[auto_1fr_auto] overscroll-none bg-primary-light-gray text-[18px] antialiased selection:bg-primary selection:text-white dark:bg-primary-black;
+        color-scheme: light dark;
+
+        text-wrap: balance;
+        font-optical-sizing: auto;
+        font-synthesis: none;
+        -moz-osx-font-smoothing: grayscale;
+
+        @media (prefers-reduced-motion: no-preference) {
+            @apply scroll-smooth;
+        }
+    }
+
+    h1 {
+        @apply mt-8;
+    }
+
+    h2 {
+        @apply text-xl text-primary-gray lowercase md:text-2xl dark:text-white;
+    }
+
+    * {
+        &:focus-visible {
+            @apply rounded-sm outline-2 outline-offset-2 outline-primary outline-solid;
+        }
+    }
+
+    img {
+        &::selection {
+            @apply bg-transparent;
+        }
+    }
+}
+
+@layer components {
+    .nav {
+        a {
+            @apply inline-block w-full cursor-default rounded-2xl px-2 py-2 text-center text-sm leading-[125%] font-semibold transition-[scale,opacity] md:px-10 md:py-5 md:text-2xl dark:text-white hover:[&:not(.active)]:scale-115 hover:[&:not(.active)]:cursor-pointer;
+        }
+    }
+
+    .achievement {
+        @apply z-1 h-[280px] min-w-[320px] flex-shrink-0 overflow-hidden p-4 opacity-50 transition-[opacity] md:h-[400px] [&.is-active]:opacity-100;
+
+        & > div {
+            @apply relative flex h-full flex-col items-center justify-center rounded-xl p-10;
+        }
+
+        &.is-active {
+            & > div > div {
+                @apply translate-y-0;
+            }
+
+            h3,
+            & > div > div,
+            p,
+            a {
+                @apply opacity-100;
+            }
+        }
+
+        h3 {
+            @apply mt-8 text-[16px] opacity-0 transition-[opacity] md:text-xl;
+        }
+
+        & > div > div {
+            @apply translate-y-2 opacity-0 transition-[opacity,translate];
+
+            & > img {
+                @apply h-16 w-16 object-contain md:h-22 md:w-22;
+            }
+        }
+
+        p {
+            @apply mt-2 text-center text-xs opacity-0 transition-[opacity] md:text-[16px];
+        }
+
+        a {
+            @apply absolute right-2 bottom-2 mt-2 flex h-6 w-6 items-center justify-center rounded-md bg-secondary p-1 text-primary-black underline opacity-0 transition-[background-color,opacity] hover:bg-primary md:right-3 md:bottom-3 md:h-10 md:w-10 md:rounded-xl hover:[&>img]:invert;
+
+            & > img {
+                @apply transition-[filter];
+            }
+        }
+    }
+
+    .case {
+        @apply w-full;
+
+        & > div {
+            @apply flex flex-col items-start;
+        }
+
+        h3 {
+            @apply mt-4 text-xl font-medium md:mt-8 @3xl/cases:text-4xl;
+        }
+
+        p {
+            @apply mt-2 text-xl md:text-2xl;
+        }
+
+        & > div > img {
+            @apply w-full;
+        }
+
+        .placeholder-nda {
+            @apply flex h-[250px] w-full items-center justify-center rounded-xl bg-white object-cover md:h-[390px] dark:bg-[oklch(0.2367_0.0076_285.81)];
+        }
+
+        a {
+            @apply mt-4 inline-block gap-11 border-b-2 text-xl leading-5 text-primary-gray transition-[color,border-color] hover:text-primary md:mt-8 md:text-xl dark:text-primary-middle-gray;
+
+            &:not(:is(:hover, :focus)) {
+                @apply border-[color-mix(in_srgb,currentColor,transparent_75%)];
+            }
+        }
+    }
+
+    .contacts {
+        @apply mt-12 md:mt-24;
+
+        li {
+            @apply text-sm md:text-[40px] xs:text-xl;
+        }
+
+        a {
+            @apply inline-block transition-[color] hover:text-primary;
+        }
+    }
+
+    .bg {
+        @apply fixed -z-1 bg-size-[64px_64px] bg-fixed bg-center bg-repeat;
+
+        @media (prefers-color-scheme: light) {
+            @apply bg-[radial-gradient(circle,oklch(0.9099_0.0149_286.1)_4px,transparent_4px)];
+        }
+
+        @media (prefers-color-scheme: dark) {
+            @apply bg-[radial-gradient(circle,rgba(108,108,114,20%)_4px,transparent_4px)];
+        }
+
+        @media (width > --theme(--breakpoint-md)) {
+            @apply m-[76px_90px] h-[calc(100%-152px)] w-[calc(100%-180px)];
+        }
+
+        @media (width <= --theme(--breakpoint-md)) {
+            @apply m-[64px_24px] h-[calc(100%-128px)] w-[calc(100%-48px)];
+        }
+    }
+
+    .trail-icon {
+        @apply pointer-events-none fixed origin-[center_center] transition-[opacity,transform] duration-500 ease-out will-change-[transform,opacity] select-none;
+    }
+}
+
+@utility container-md {
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+
+    @media (width < --theme(--breakpoint-md)) {
+        @apply max-w-none;
+    }
+
+    @media (width >= --theme(--breakpoint-md)) {
+        @apply max-w-[calc(698px_+_3rem)];
+    }
+}
+
+@utility container-lg {
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+
+    @media (width < --theme(--breakpoint-md)) {
+        @apply max-w-none;
+    }
+
+    @media (width >= --theme(--breakpoint-md)) {
+        @apply max-w-[calc(1920px_+_3rem)];
+    }
+}
