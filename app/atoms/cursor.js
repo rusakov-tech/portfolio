@@ -1,6 +1,6 @@
 import { isMobile } from '#/utils/is-mobile';
 
-export const initCursor = () => {
+export function initCursor() {
     if (isMobile()) return;
 
     const iconUrls = [
@@ -20,90 +20,75 @@ export const initCursor = () => {
     const DISTANCE_THRESHOLD = 25;
     const FADE_DURATION = 500;
     const TIMER_DURATION = FADE_DURATION;
-    const IGNORED_TAGS = ['A', 'BUTTON'];
+    const MAX_ICONS = iconUrls.length;
 
-    const maxIcons = iconUrls.length;
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+
+    document.body.appendChild(canvas);
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    });
+
+    const images = [];
+    let loadedCount = 0;
+
+    iconUrls.forEach(url => {
+        const img = new Image();
+
+        img.src = `/img/icons/${url}.svg`;
+        img.onload = () => loadedCount++;
+        images.push(img);
+    });
+
+    const trail = [];
 
     let lastX = null;
     let lastY = null;
-    let stopTimer = null;
     let iconIndex = 0;
+    let stopTimer = null;
 
-    const iconPool = iconUrls.map(url => {
-        const img = document.createElement('img');
+    const IGNORED_TAGS = ['A', 'BUTTON'];
 
-        img.src = `/img/icons/${url}.svg`;
-        img.width = ICON_SIZE;
-        img.height = ICON_SIZE;
-        img.classList.add('trail-icon');
-        img.alt = 'Иконка курсора';
-        img.ariaHidden = 'true';
+    function addTrailIcon(x, y) {
+        if (trail.length >= MAX_ICONS) {
+            const oldest = trail.find(icon => !icon.fading);
 
-        Object.assign(img.style, {
-            top: '0',
-            left: '0',
-            opacity: '0',
-            transform: 'scale(1)',
+            if (oldest) {
+                oldest.fading = true;
+                oldest.startTime = performance.now();
+            }
+        }
+
+        trail.push({
+            x,
+            y,
+            startTime: performance.now(),
+            iconIndex: iconIndex % images.length,
+            fading: false,
         });
-
-        document.body.appendChild(img);
-
-        return {
-            element: img,
-            active: false,
-            timeoutId: null,
-        };
-    });
-
-    function fadeOutIcon(icon) {
-        if (!icon.active) return;
-
-        icon.element.style.opacity = '0';
-        icon.element.style.transform = 'scale(0.5)';
-
-        if (icon.timeoutId) {
-            clearTimeout(icon.timeoutId);
-        }
-
-        icon.timeoutId = setTimeout(() => {
-            icon.active = false;
-            icon.element.style.left = '-9999px';
-            icon.timeoutId = null;
-        }, FADE_DURATION);
-    }
-
-    function showIcon(x, y) {
-        const poolIndex = iconIndex % iconPool.length;
-        const iconObj = iconPool[poolIndex];
-
-        if (iconObj.timeoutId) {
-            clearTimeout(iconObj.timeoutId);
-
-            iconObj.timeoutId = null;
-        }
-
-        iconObj.active = true;
-        iconObj.element.style.left = `${x - ICON_SIZE / 2}px`;
-        iconObj.element.style.top = `${y - ICON_SIZE / 2}px`;
-        iconObj.element.style.transform = 'scale(1)';
-        iconObj.element.style.opacity = '1';
-
-        const activeIcons = iconPool.filter(icon => icon.active);
-
-        if (activeIcons.length > maxIcons) {
-            fadeOutIcon(activeIcons[0]);
-        }
 
         iconIndex++;
     }
 
-    function hideAllIcons() {
-        iconPool.forEach(icon => {
-            fadeOutIcon(icon);
-        });
-    }
-
-    function handleMouseMoveWindow({ clientX, clientY, target }) {
+    function handleMouseMove(event) {
+        const { clientX, clientY, target } = event;
         if (IGNORED_TAGS.includes(target.tagName)) return;
 
         if (lastX !== null && lastY !== null) {
@@ -112,7 +97,7 @@ export const initCursor = () => {
             const distance = Math.hypot(dx, dy);
 
             if (distance >= DISTANCE_THRESHOLD) {
-                showIcon(clientX, clientY);
+                addTrailIcon(clientX, clientY);
 
                 lastX = clientX;
                 lastY = clientY;
@@ -122,20 +107,61 @@ export const initCursor = () => {
             lastY = clientY;
         }
 
-        clearTimeout(stopTimer);
+        if (stopTimer) clearTimeout(stopTimer);
 
-        stopTimer = setTimeout(() => {
-            hideAllIcons();
+        stopTimer = window.setTimeout(() => {
+            for (const icon of trail) {
+                if (!icon.fading) {
+                    icon.fading = true;
+                    icon.startTime = performance.now();
+                }
+            }
+
             lastX = null;
             lastY = null;
         }, TIMER_DURATION);
     }
 
-    window.addEventListener(
-        'mousemove',
-        ({ clientX, clientY, target }) => {
-            handleMouseMoveWindow({ clientX, clientY, target });
-        },
-        { passive: true }
-    );
-};
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    function draw() {
+        const now = performance.now();
+
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < trail.length; i++) {
+            const icon = trail[i];
+            const { x, y, startTime, iconIndex, fading } = icon;
+            const elapsed = now - startTime;
+
+            if (fading) {
+                if (elapsed >= FADE_DURATION) {
+                    trail.splice(i, 1);
+                    i--;
+                    continue;
+                }
+            }
+
+            const t = fading ? elapsed / FADE_DURATION : 0;
+            const alpha = fading ? 1 - t : 1;
+            const scale = fading ? 0.5 + 0.5 * (1 - t) : 1;
+
+            const img = images[iconIndex];
+            const size = ICON_SIZE * scale;
+
+            ctx.globalAlpha = alpha;
+            ctx.drawImage(img, x - size / 2, y - size / 2, size, size);
+        }
+
+        ctx.globalAlpha = 1;
+
+        requestAnimationFrame(draw);
+    }
+
+    const waitForLoad = setInterval(() => {
+        if (loadedCount === images.length) {
+            clearInterval(waitForLoad);
+            requestAnimationFrame(draw);
+        }
+    }, 50);
+}

@@ -155,7 +155,11 @@
         }
 
         .placeholder-nda {
-            @apply flex h-[250px] w-full items-center justify-center rounded-xl bg-white object-cover md:h-[390px] dark:bg-[oklch(0.2367_0.0076_285.81)];
+            @apply flex h-[200px] w-full items-center justify-center rounded-xl bg-white object-cover md:h-[390px] dark:bg-[oklch(0.2367_0.0076_285.81)];
+
+            img {
+                @apply w-[80px] md:w-[120px];
+            }
         }
 
         a {
@@ -197,10 +201,6 @@
         @media (width <= --theme(--breakpoint-md)) {
             @apply m-[64px_24px] h-[calc(100%-128px)] w-[calc(100%-48px)];
         }
-    }
-
-    .trail-icon {
-        @apply pointer-events-none fixed origin-[center_center] transition-[opacity,transform] duration-500 ease-out will-change-[transform,opacity] select-none;
     }
 }
 
