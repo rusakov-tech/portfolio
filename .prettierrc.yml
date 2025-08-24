@@ -1,5 +1,6 @@
 arrowParens: avoid
 plugins:
+    - '@ianvs/prettier-plugin-sort-imports'
     - prettier-plugin-tailwindcss
     - prettier-plugin-packagejson
 printWidth: 120

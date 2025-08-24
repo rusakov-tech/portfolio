@@ -4,7 +4,9 @@ public/
 
 .gitignore
 
+*.env.example
+
 dist/
 docs/
 
-CHANGELOG.md
+bun.lockb

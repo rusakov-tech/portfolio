@@ -20,7 +20,9 @@
         "check:lint": "eslint .",
         "dev": "vite",
         "prepare": "husky",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "release": "npm run check:all && npm run build && changeset version && changeset publish",
+        "reset:changelog": "bun run rm -rf */**/CHANGELOG.md"
     },
     "config": {
         "commitizen": {
@@ -31,7 +33,9 @@
         "@splidejs/splide": "4.1.4"
     },
     "devDependencies": {
+        "@changesets/cli": "2.29.6",
         "@eslint/js": "9.34.0",
+        "@ianvs/prettier-plugin-sort-imports": "github:ianvs/prettier-plugin-sort-imports",
         "@tailwindcss/vite": "4.1.12",
         "commitizen": "4.3.1",
         "eslint": "9.34.0",

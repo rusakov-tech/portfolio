@@ -2,12 +2,11 @@
 
 import '#/styles/globals.css';
 import '@splidejs/splide/css/core';
-
-import { initNav } from '../molecules/nav';
-import { initCursor } from '../atoms/cursor';
 import { initBtnTop } from '../atoms/btn-top';
+import { initCursor } from '../atoms/cursor';
 import { initAchievements } from '../molecules/achievements';
 import { initCases } from '../molecules/cases';
+import { initNav } from '../molecules/nav';
 
 async function init() {
     try {
