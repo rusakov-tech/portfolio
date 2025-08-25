@@ -1,18 +1,11 @@
 'use strict';
 
 import '#/styles/globals.css';
-import '@splidejs/splide/css/core';
 import { initBtnTop } from '../atoms/btn-top';
 import { initCursor } from '../atoms/cursor';
-import { initAchievements } from '../molecules/achievements';
-import { initCases } from '../molecules/cases';
-import { initNav } from '../molecules/nav';
 
 async function init() {
     try {
-        initNav();
-        initAchievements();
-        initCases();
         initCursor();
         initBtnTop();
     } catch (error) {

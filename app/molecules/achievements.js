@@ -3,12 +3,17 @@ import { isMobile } from '#/utils/is-mobile';
 
 export function initAchievements() {
     const achievements = new Splide('#achievements', {
-        speed: 500,
+        speed: 250,
         isNavigation: true,
         pagination: false,
         focus: 'center',
         type: 'loop',
         arrows: false,
+        lazyLoad: 'nearby',
+        wheel: false,
+        rewind: true,
+        flickPower: 250,
+        flickMaxPages: 1,
         breakpoints: {
             1280: {
                 perPage: 2,

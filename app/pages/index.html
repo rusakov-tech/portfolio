@@ -266,14 +266,14 @@
         >
             <button
                 id="btn-top"
-                class="hover:[&>img]:zoom-125 absolute left-1.5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary opacity-0 transition-[opacity] hover:cursor-pointer md:left-4 md:h-17 md:w-17 dark:bg-primary [&.visible]:opacity-100"
+                class="absolute left-1.5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary opacity-0 transition-[opacity] hover:cursor-pointer md:left-4 md:h-17 md:w-17 dark:bg-primary [&.visible]:opacity-100 hover:[&>img]:scale-125"
                 type="button"
                 aria-label="Перейти к началу страницы"
             >
                 <img
                     draggable="false"
                     aria-hidden="true"
-                    class="h-4 w-4 transition-[zoom] md:h-6 md:w-6"
+                    class="h-4 w-4 transition-[scale] md:h-6 md:w-6"
                     src="/img/icons/arrow.svg"
                     width="32"
                     height="32"
@@ -578,6 +578,21 @@
                                         Разработал и&nbsp;внедрил стандарты взаимодействия разработчиков
                                         с&nbsp;дизайнерами, снизив количество правок на&nbsp;25%
                                     </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="/docs/designers.pdf"
+                                        aria-label="Открыть документацию"
+                                    >
+                                        <img
+                                            src="/img/icons/link.svg"
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            alt="Стрелочка"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
                                 </div>
                             </article>
                             <article data-achievement class="achievement splide__slide">
@@ -1210,5 +1225,6 @@
         >
 
         <script type="module" src="./app.js"></script>
+        <script type="module" src="./index.js"></script>
     </body>
 </html>
