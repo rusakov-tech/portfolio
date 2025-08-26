@@ -81,6 +81,12 @@
             @apply bg-transparent;
         }
     }
+
+    @keyframes strokeDashoffsetFull {
+        100% {
+            stroke-dashoffset: 100px;
+        }
+    }
 }
 
 @layer components {
@@ -176,6 +182,35 @@
 
         a {
             @apply inline-block transition-[color] hover:text-primary;
+        }
+    }
+
+    .btn-top {
+        @apply absolute left-1.5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary opacity-0 transition-[opacity] hover:cursor-pointer md:left-4 md:h-17 md:w-17 dark:bg-primary [&.visible]:opacity-100;
+
+        &:hover {
+            svg {
+                @apply stroke-[color:var(--color-gray-300)] stroke-[2px] transition-[stroke-dasharray] duration-[500ms,stroke-width] delay-[250ms];
+
+                stroke-dasharray: var(--dash-size), var(--gap-size);
+
+                rect {
+                    animation: 12500ms linear 0s infinite normal none running strokeDashoffsetFull;
+                }
+            }
+        }
+
+        svg {
+            @apply block absolute stroke-[2px] stroke-secondary overflow-visible transition-[stroke-dasharray] duration-[500ms,stroke-width] delay-[250ms];
+
+            --dash-size: 2px;
+            --gap-size: 3px;
+
+            stroke-linecap: round;
+        }
+
+        img {
+            @apply h-4 w-4 md:h-6 md:w-6;
         }
     }
 
