@@ -1,3 +1,5 @@
+import '@splidejs/splide/css/core';
+
 import Splide from '@splidejs/splide';
 import { isMobile } from '#/utils/is-mobile';
 
