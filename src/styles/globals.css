@@ -97,7 +97,7 @@
     }
 
     .achievement {
-        @apply h-[280px] min-w-[320px] p-4 md:h-[340px] [&.is-active]:opacity-100;
+        @apply h-[280px] min-w-[320px] p-4 opacity-50 transition-[opacity] md:h-[340px] [&.is-active]:opacity-100;
 
         & > div {
             @apply relative flex h-full flex-col items-center justify-center rounded-xl px-4 md:px-12;
