@@ -1,0 +1,1349 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>TailwindCSS: Попутный ветер перемен</title>
+    <link rel="stylesheet" href="./themes/ribbon/styles/styles.css" />
+    <link rel="stylesheet" href="./bundled/main.css" />
+    <meta name="description" content="Презентация по TailwindCSS" />
+    <link rel="icon" href="./themes/tw/images/logo.svg" type="image/svg+xml" />
+  </head>
+  <body class="shower list scrollbar bg-purple-dark">
+    <header class="caption">
+      <h1>TailwindCSS: Попутный ветер перемен</h1>
+      <p class="mt-2">
+        <i>Денис Русаков</i>
+      </p>
+    </header>
+
+    <section class="slide clear p-0">
+      <div class="flex h-full flex-col items-center justify-end">
+        <svg width="171" height="96" fill="none" aria-hidden="true" class="mb-[100px] overflow-visible">
+          <path
+            fill="#fff"
+            fill-opacity=".6"
+            fill-rule="evenodd"
+            d="M86 0C64.75 0 51.469 10.625 46.156 31.875c7.969-10.625 17.266-14.61 27.89-11.953 6.063 1.515 10.396 5.913 15.192 10.781 7.813 7.93 16.855 17.11 36.606 17.11 21.25 0 34.531-10.626 39.844-31.876-7.969 10.626-17.266 14.61-27.891 11.954-6.062-1.516-10.395-5.914-15.191-10.782C114.793 9.179 105.75 0 86 0ZM46.156 47.812c-21.25 0-34.531 10.625-39.843 31.875 7.968-10.625 17.265-14.609 27.89-11.953 6.062 1.516 10.395 5.914 15.191 10.782C57.207 86.446 66.25 95.625 86 95.625c21.25 0 34.531-10.625 39.844-31.875-7.969 10.625-17.266 14.61-27.89 11.953-6.063-1.516-10.396-5.913-15.192-10.782-7.813-7.93-16.855-17.109-36.606-17.109Z"
+            clip-rule="evenodd"
+            style="mix-blend-mode: screen"
+          />
+          <g filter="url(#a)">
+            <path
+              fill="#60e7fb"
+              fill-rule="evenodd"
+              d="M86 0C64.75 0 51.469 10.625 46.156 31.875c7.969-10.625 17.266-14.61 27.89-11.953 6.063 1.515 10.396 5.913 15.192 10.781 7.813 7.93 16.855 17.11 36.606 17.11 21.25 0 34.531-10.626 39.844-31.876-7.969 10.626-17.266 14.61-27.891 11.954-6.062-1.516-10.395-5.914-15.191-10.782C114.793 9.179 105.75 0 86 0ZM46.156 47.812c-21.25 0-34.531 10.625-39.843 31.875 7.968-10.625 17.265-14.609 27.89-11.953 6.062 1.516 10.395 5.914 15.191 10.782C57.207 86.446 66.25 95.625 86 95.625c21.25 0 34.531-10.625 39.844-31.875-7.969 10.625-17.266 14.61-27.89 11.953-6.063-1.516-10.396-5.913-15.192-10.782-7.813-7.93-16.855-17.109-36.606-17.109Z"
+              clip-rule="evenodd"
+            />
+          </g>
+          <g filter="url(#b)">
+            <path
+              fill="#fff"
+              fill-rule="evenodd"
+              d="M86 0C64.75 0 51.469 10.625 46.156 31.875c7.969-10.625 17.266-14.61 27.89-11.953 6.063 1.515 10.396 5.913 15.192 10.781 7.813 7.93 16.855 17.11 36.606 17.11 21.25 0 34.531-10.626 39.844-31.876-7.969 10.626-17.266 14.61-27.891 11.954-6.062-1.516-10.395-5.914-15.191-10.782C114.793 9.179 105.75 0 86 0ZM46.156 47.812c-21.25 0-34.531 10.625-39.843 31.875 7.968-10.625 17.265-14.609 27.89-11.953 6.062 1.516 10.395 5.914 15.191 10.782C57.207 86.446 66.25 95.625 86 95.625c21.25 0 34.531-10.625 39.844-31.875-7.969 10.625-17.266 14.61-27.89 11.953-6.063-1.516-10.396-5.913-15.192-10.782-7.813-7.93-16.855-17.109-36.606-17.109Z"
+              clip-rule="evenodd"
+            />
+          </g>
+          <defs>
+            <filter
+              id="a"
+              width="327.375"
+              height="313.625"
+              x="-77.688"
+              y="-134"
+              color-interpolation-filters="sRGB"
+              filterUnits="userSpaceOnUse"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur result="effect1_foregroundBlur_131_17" stdDeviation="42" />
+            </filter>
+            <filter
+              id="b"
+              width="179.375"
+              height="115.625"
+              x="-3.688"
+              y="-10"
+              color-interpolation-filters="sRGB"
+              filterUnits="userSpaceOnUse"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+              <feOffset />
+              <feGaussianBlur stdDeviation="5" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix values="0 0 0 0 0.584314 0 0 0 0 0.94902 0 0 0 0 1 0 0 0 0.7 0" />
+              <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_131_17" />
+              <feBlend in="SourceGraphic" in2="effect1_dropShadow_131_17" result="shape" />
+              <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+              <feOffset />
+              <feGaussianBlur stdDeviation="2" />
+              <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
+              <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.88 0 0 0 0 1 0 0 0 1 0" />
+              <feBlend in2="shape" result="effect2_innerShadow_131_17" />
+            </filter>
+          </defs>
+        </svg>
+        <div class="text-center">
+          <h2 class="!my-[20px] text-5xl">TailwindCSS: Попутный ветер перемен</h2>
+          <p class="text-md italic leading-6">
+            <i class="text-gray">Денис Русаков</i>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide group">
+      <h2>О&nbsp;чём поговорим?</h2>
+      <ol>
+        <li class="next">Основы</li>
+        <li class="next">Использование инструмента</li>
+        <li class="next">Возможности и&nbsp;оптимизация</li>
+        <li class="next" id="cases">Кейсы из&nbsp;жизни разработчиков</li>
+        <li class="next" id="libs">Библиотеки и&nbsp;плагины</li>
+        <li class="next">Альтернативы</li>
+        <li class="next">Выводы</li>
+      </ol>
+      <img
+        class="float-right hidden w-[300px] -translate-y-[250px] rounded-sm group-has-[#cases.active_+_#libs:not(.active)]:block"
+        src="./themes/tw/images/memes/cat.jpg"
+        width="300"
+        alt="183"
+        aria-hidden="true"
+      />
+    </section>
+
+    <section class="slide">
+      <h2>Проблемы сейчас</h2>
+      <ul>
+        <li class="next">Большое кол-во дублей в&nbsp;сборке</li>
+        <li class="next">Импорт конфигов в&nbsp;каждом файле</li>
+        <li class="next">Некоторые препроцессоры устарели</li>
+        <li class="next">Повторяющиеся обертки-компоненты (Box, Flex, Grid)</li>
+        <li class="next">Необходимо писать темизацию</li>
+      </ul>
+    </section>
+
+    <section class="slide clear">
+      <h2 class="shout">Что ты&nbsp;такое <i>Tailwind</i> ?</h2>
+      <img class="cover h" src="./themes/tw/images/memes/what.jpg" alt="Мем. Что ты такое" aria-hidden="true" />
+    </section>
+
+    <section class="slide">
+      <img class="cover h-[530px] rounded-sm" src="./themes/tw/pictures/basics/npm.jpg" height="530" alt="NPM" />
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover h-[420px] rounded-sm"
+        src="./themes/tw/pictures/basics/definition/step-1.jpg"
+        height="420"
+        alt="Определение. Шаг 1"
+      />
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover h-[420px] rounded-sm"
+        src="./themes/tw/pictures/basics/definition/step-2.jpg"
+        height="420"
+        alt="Определение. Шаг 2"
+      />
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover h-[420px] rounded-sm"
+        src="./themes/tw/pictures/basics/definition/step-3.jpg"
+        height="420"
+        alt="Определение. Шаг 3"
+      />
+    </section>
+
+    <section class="slide relative">
+      <div class="absolute left-1/2 top-1/2 w-[800px] -translate-x-1/2 -translate-y-1/2">
+        <figure>
+          <blockquote>
+            <p><b>TailwindCSS</b>&nbsp;&mdash; utility-first CSS framework...</p>
+          </blockquote>
+          <figcaption>Документация</figcaption>
+        </figure>
+        <figure class="next">
+          <blockquote>
+            <p>
+              <b>Utility-first</b>&nbsp;&mdash; создание сложных компонентов из&nbsp;ограниченного набора примитивных
+              утилит
+            </p>
+          </blockquote>
+          <figcaption>Просторы интернета</figcaption>
+        </figure>
+        <figure class="next">
+          <blockquote>
+            <p>
+              <b>Utilities</b>&nbsp;&mdash; набор классов, которые применяются к&nbsp;HTML-элементам для быстрого
+              и&nbsp;гибкого создания стилей
+            </p>
+          </blockquote>
+          <figcaption>Документация</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide">
+      <img class="cover h-[250px] rounded-sm" height="250" src="./themes/tw/pictures/basics/issues.jpg" alt="Issues" />
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover h-[420px] rounded-sm"
+        src="./themes/tw/pictures/basics/popular.jpg"
+        height="420"
+        alt="Популярность"
+      />
+      <a
+        href="https://2023.stateofcss.com/ru-RU/css-frameworks/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="copyright"
+        >State of&nbsp;CSS</a
+      >
+    </section>
+
+    <section class="slide">
+      <img class="cover h-[600px] rounded-sm" src="./themes/tw/pictures/basics/stacks.jpg" height="600" alt="Стек" />
+    </section>
+
+    <section class="slide bg clear">
+      <h2 class="shout">Использование инструмента</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Шаг 1</h2>
+      <img class="cover" src="./themes/tw/pictures/using/install/step-1.svg" alt="Установка. Шаг 1" />
+      <img
+        class="next float-right w-[250px] translate-y-[150px]"
+        src="./themes/tw/images/bun.svg"
+        width="250"
+        alt="Bun"
+      />
+    </section>
+
+    <section class="slide">
+      <h2>Шаг 2</h2>
+      <img class="cover" src="./themes/tw/pictures/using/install/step-2.svg" alt="Установка. Шаг 2" />
+    </section>
+
+    <section class="slide">
+      <h2>Шаг 3</h2>
+      <img class="cover" src="./themes/tw/pictures/using/install/step-3.svg" alt="Установка. Шаг 3" />
+      <img
+        class="next float-right w-[400px] translate-x-[50px] translate-y-[50px] rounded-sm"
+        src="./themes/tw/images/memes/three.jpg"
+        width="400"
+        height="400"
+        alt="Мем. Вы всегда втроём"
+      />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/images/memes/daniel.jpg" alt="Мем. Daniel" />
+    </section>
+
+    <section class="slide">
+      <h2>Синтаксис</h2>
+      <div class="mt-20">
+        <div class="next">
+          <p><b>[class]</b></p>
+          <ul>
+            <li>flex</li>
+            <li>text-white</li>
+            <li>pt-2</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Синтаксис</h2>
+      <div class="columns two mt-20">
+        <div>
+          <p><b>[state][separator][class]</b></p>
+          <ul>
+            <li>hover:bg-sky-700</li>
+            <li>focus:bg-sky-700</li>
+            <li>disabled:bg-sky-700</li>
+          </ul>
+        </div>
+        <div>
+          <p><b>[screen][separator][class]</b></p>
+          <ul>
+            <li>sm:bg-sky-700</li>
+            <li>md:bg-sky-700</li>
+            <li>lg:bg-sky-700</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Разметка</h2>
+      <img class="cover" src="./themes/tw/pictures/using/layout.svg" alt="Пример использования инструмента" />
+    </section>
+
+    <section class="slide">
+      <h2>Стили</h2>
+      <img class="cover" src="./themes/tw/pictures/using/styles.svg" alt="Стили" />
+    </section>
+
+    <section class="slide">
+      <h2>Класс &laquo;зомби&raquo;</h2>
+      <img class="cover" src="./themes/tw/pictures/using/class-without-a-case.svg" alt="Неиспользуемый класс" />
+    </section>
+
+    <section class="slide">
+      <h2>Большое кол-во классов</h2>
+      <img class="cover" src="./themes/tw/pictures/using/many-classes.svg" alt="Большое кол-во классов" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/using/debug/example.jpg" alt="Debug. Пример" />
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover rounded-sm"
+        src="./themes/tw/pictures/using/debug/tailwind-devtools.jpg"
+        alt="Tailwind devtools"
+      />
+      <a
+        class="copyright"
+        href="https://chromewebstore.google.com/detail/tailwind-css-devtools/pgamkpjkbfldnmemhcbekimfdnjcgkco"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Tailwind CSS Devtools
+      </a>
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover h-[500px] rounded-sm"
+        src="./themes/tw/pictures/using/debug/gimli-tailwind.jpg"
+        height="500"
+        alt="Gimli tailwind"
+      />
+      <a
+        class="copyright"
+        href="https://chromewebstore.google.com/detail/gimli-tailwind/fojckembkmaoehhmkiomebhkcengcljl"
+        >gimli-tailwind</a
+      >
+    </section>
+
+    <section class="slide bg clear">
+      <h2 class="shout">Возможности</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Конфиг</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/config.svg" alt="Конфиг" />
+    </section>
+
+    <section class="slide">
+      <h2>Core plugins</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/core-plugins/include.svg" alt="Core plugins include" />
+    </section>
+
+    <section class="slide">
+      <h2>Core plugins</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/core-plugins/exclude.svg" alt="Core plugins exclude" />
+    </section>
+
+    <section class="slide">
+      <h2>Цвета</h2>
+      <img class="cover mt-10" src="./themes/tw/pictures/capabilites/colors.svg" alt="Цвета" />
+    </section>
+
+    <section class="slide">
+      <h2>Тёмная тема</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/dark-mode/settings.svg" alt="Тёмная тема" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/capabilites/dark-mode/using.svg" alt="Тёмной тема" />
+    </section>
+
+    <section class="slide">
+      <h2>Брекпоинты</h2>
+      <img class="cover mt-10" src="./themes/tw/pictures/capabilites/screens/base.svg" alt="Брекпоинты" />
+    </section>
+
+    <section class="slide">
+      <h2>Брекпоинты в&nbsp;скриптах</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/screens/in-scripts.svg" alt="Брекпоинты в скриптах" />
+    </section>
+
+    <section class="slide">
+      <h2>Шрифты</h2>
+      <img class="cover mt-10" src="./themes/tw/pictures/capabilites/fonts.svg" alt="Шрифты" />
+    </section>
+
+    <section class="slide">
+      <h2>Отступы</h2>
+      <img class="cover mt-10" src="./themes/tw/pictures/capabilites/spacing.svg" alt="Настройка отступов" />
+    </section>
+
+    <section class="slide">
+      <h2>!important</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/important/variant-1.svg" alt="!important" />
+      <p
+        class="next w-[285px] translate-x-[650px] translate-y-[100px] rotate-45 rounded-sm bg-white px-2 py-1 text-4xl"
+      >
+        <b class="text-red">!important плохо</b>
+      </p>
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover"
+        src="./themes/tw/pictures/capabilites/important/using-variant-2.svg"
+        alt="Вес селектора на практике"
+      />
+    </section>
+
+    <section class="slide">
+      <h2>&laquo;Вес&raquo; селектора</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/important/variant-2.svg" alt="Вес селектора" />
+    </section>
+
+    <section class="slide">
+      <h2>Анимации</h2>
+      <img class="cover mt-10" src="./themes/tw/pictures/capabilites/animations/settings.svg" alt="Анимации" />
+    </section>
+
+    <section class="slide">
+      <h2>Keyframes</h2>
+      <img class="cover mt-12" src="./themes/tw/pictures/capabilites/animations/keyframes.svg" alt="Keyframes" />
+    </section>
+
+    <section class="slide relative">
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <button
+          type="button"
+          class="text-md inline-flex cursor-not-allowed items-center rounded-sm bg-white px-6 py-4 font-oswald leading-6 text-purple-dark transition duration-150 ease-in-out"
+          disabled
+        >
+          <svg class="-ml-1 mr-3 h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          Обработка...
+        </button>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Блокировка классов</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/blocklist.svg" alt="Блокировка классов" />
+    </section>
+
+    <section class="slide">
+      <h2>Preflight</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/preflight.svg" alt="Preflight" />
+      <a class="copyright" href="https://tailwindcss.com/docs/preflight" target="_blank" rel="noopener noreferrer"
+        >preflight</a
+      >
+    </section>
+
+    <section class="slide">
+      <h2>Вендорные префиксы</h2>
+      <img class="cover" src="./themes/tw/pictures/using/prefixes.svg" alt="Вендорные префиксы" />
+    </section>
+
+    <section class="slide">
+      <h2>Вендорные префиксы</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/autoprefixer/autoprefixer.github.io" target="_blank" rel="noopener noreferrer"
+            >Autoprefixer</a
+          >
+        </li>
+        <li class="next">
+          <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">TailwindCSS CLI</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Доступность</h2>
+      <img class="cover mt-10" src="./themes/tw/pictures/capabilites/a11y/sr-only.svg" alt="Доступность. Sr only" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/capabilites/a11y/using.svg" alt="Доступность. Пример" />
+    </section>
+
+    <section class="slide">
+      <h2>Prefix для классов</h2>
+      <img class="cover next" src="./themes/tw/pictures/capabilites/prefix.svg" alt="Prefix для классов" />
+    </section>
+
+    <section class="slide">
+      <h2>Подключение плагинов</h2>
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/include.svg" alt="Подключение плагинов" />
+    </section>
+
+    <section class="slide">
+      <p class="cover text-4xl">
+        Полная конфигурация
+        <a
+          href="https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js"
+          target="_blank"
+          rel="noopener noreferrer"
+          >здесь</a
+        >
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Директивы</h2>
+      <ul>
+        <li>@supports</li>
+        <li>@layer</li>
+        <li>@apply</li>
+        <li>@config</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>@supports</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/supports.svg" alt="Supports" />
+    </section>
+
+    <section class="slide">
+      <h2>@layer</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/directivies/layer.svg" alt="Layer" />
+    </section>
+
+    <section class="slide">
+      <h2>@apply</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/directivies/apply.svg" alt="Apply" />
+    </section>
+
+    <section class="slide">
+      <h2>@config</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/directivies/config.svg" alt="Config" />
+    </section>
+
+    <section class="slide">
+      <h2>Функции</h2>
+      <ul>
+        <li>theme()</li>
+        <li>screen()</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>theme()</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/functions/theme.svg" alt="Theme" />
+    </section>
+
+    <section class="slide">
+      <h2>screen()</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/functions/screen.svg" alt="Screen" />
+    </section>
+
+    <section class="slide">
+      <h2>Just In&nbsp;Time (JIT)</h2>
+      <figure class="absolute left-1/2 top-1/2 w-[800px] -translate-x-1/2 -translate-y-1/2">
+        <blockquote>
+          <p>
+            Tailwind представляет компилятор, который генерирует ваши стили по запросу, когда вы создаете свои шаблоны,
+            вместо того, чтобы создавать всё заранее во время начальной сборки
+          </p>
+        </blockquote>
+        <figcaption>Документация</figcaption>
+      </figure>
+    </section>
+
+    <section class="slide relative">
+      <h2>Оптимизация</h2>
+      <figure class="absolute left-1/2 top-1/2 w-[800px] -translate-x-1/2 -translate-y-1/2">
+        <blockquote>
+          <p>
+            Сочетание минимизации и&nbsp;сетевого сжатия приводит к&nbsp;созданию CSS файлов размером менее 10&nbsp;КБ
+            даже для больших проектов. Например, Netflix использует Tailwind для Netflix Top&nbsp;10, а&nbsp;весь сайт
+            передает по&nbsp;сети только 6,5&nbsp;КБ.
+          </p>
+        </blockquote>
+        <figcaption>Документация</figcaption>
+      </figure>
+    </section>
+
+    <section class="slide">
+      <h2>Оптимизация</h2>
+      <ul>
+        <li>Опция <i>&mdash;minify</i> (Tailwind CLI)</li>
+        <li class="next"><a href="https://cssnano.co" target="_blank" rel="noopener noreferrer">CSSNano</a></li>
+        <li class="next">
+          <a href="https://github.com/google/brotli" target="_blank" rel="noopener noreferrer">Brotli</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>CSSNano</h2>
+      <img class="cover" src="./themes/tw/pictures/capabilites/cssnano.svg" alt="CSSNano" />
+    </section>
+
+    <section class="slide bg clear">
+      <h2 class="shout">Кейсы</h2>
+    </section>
+
+    <section class="slide relative">
+      <figure class="absolute left-1/2 top-1/2 w-[800px] -translate-x-1/2 -translate-y-1/2">
+        <blockquote>
+          <p>
+            Наиболее повторно используемые компоненты&nbsp;&mdash; это&nbsp;те, имена классов которых не&nbsp;зависят
+            от&nbsp;содержимого
+          </p>
+        </blockquote>
+        <figcaption>Nicolas Gallagher</figcaption>
+      </figure>
+    </section>
+
+    <section class="slide">
+      <h2>Кнопка</h2>
+      <p class="next text-4xl">Как часто приходилось верстать кнопку?</p>
+      <ul>
+        <li class="next">1&nbsp;раз</li>
+        <li class="next">более 1&nbsp;раза</li>
+        <li class="next">более 100 раз</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Требования к&nbsp;кнопке</h2>
+      <ul class="columns two">
+        <li class="next">default</li>
+        <li class="next">hover</li>
+        <li class="next">active</li>
+        <li class="next">focus</li>
+        <li class="next">disabled</li>
+      </ul>
+      <p class="next">
+        + должна иметь возможность быть легко стилизованной без использования привязки к&nbsp;конкретной дизайн-системе
+      </p>
+    </section>
+
+    <section class="slide relative" id="case-btn">
+      <button class="button absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">Отправить</button>
+      <style>
+        #case-btn {
+          .button {
+            background-color: #38bdf8;
+            border-radius: 20px;
+            border: none;
+            color: #fff;
+            padding: 15px 40px;
+            font:
+              normal 42px/1 'Oswald',
+              sans-serif;
+            transition:
+              background-color 0.3s,
+              color 0.3s;
+
+            &:hover {
+              color: #38bdf8;
+              cursor: pointer;
+              background-color: #fff;
+            }
+
+            &:active {
+              color: #0f172a;
+            }
+
+            &:disabled {
+              background-color: #808080;
+              pointer-events: none;
+            }
+
+            &:focus {
+              outline: 2px solid #fff;
+              outline-offset: 2px;
+            }
+          }
+        }
+      </style>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/cases/btn/without.svg" alt="Решение без Tailwind" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/cases/btn/with.svg" alt="Решение c Tailwind" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/cases/nav/without.svg" alt="Навигация. Решение без Tailwind" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/cases/nav/styles.svg" alt="Навигация. Решение без Tailwind. Стили" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/cases/nav/with.svg" alt="Решение с Tailwind" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/cases/sort.svg" alt="Сортировка. Решение c Tailwind" />
+    </section>
+
+    <section class="slide">
+      <h2>Сетка (bento-box)</h2>
+      <div class="grid auto-rows-[100px] grid-cols-2 gap-4 border-white">
+        <div class="row-span-1 rounded-xl border-2 border-white"></div>
+        <div class="row-span-1 rounded-xl border-2 border-white"></div>
+        <div class="col-span-2 row-span-1 rounded-xl border-2 border-white"></div>
+        <div class="row-span-1 rounded-xl border-2 border-white"></div>
+        <div class="row-span-1 rounded-xl border-2 border-white"></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/cases/grid.svg" alt="Сетка (bento-box)" />
+    </section>
+
+    <section class="slide">
+      <h2>Отступы</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/spacing/step-1.svg" alt="Отступы. Шаг 1" />
+    </section>
+
+    <section class="slide">
+      <h2>Отступы</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/spacing/step-2.svg" alt="Отступы. Шаг 2" />
+      <img
+        class="float-right w-[300px] translate-y-[100px] rounded-sm"
+        src="./themes/tw/images/memes/space-x.jpg"
+        alt=""
+        width="300"
+        height="257"
+        aria-hidden="true"
+      />
+    </section>
+
+    <section class="slide">
+      <h2>Прозрачность</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/opacity.svg" alt="Прозрачность" />
+    </section>
+
+    <section class="slide">
+      <h2>Размеры элемента</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/size/step-1.svg" alt="Размеры элемента" />
+    </section>
+
+    <section class="slide">
+      <h2>Размеры элемента</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/size/step-2.svg" alt="Размеры элемента" />
+    </section>
+
+    <section class="slide">
+      <h2>Динамическое значение</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/value.svg" alt="Динамическое значение" />
+    </section>
+
+    <section class="slide">
+      <h2>Фоновое изображение</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/bg/base.svg" alt="Базовое фоновое изображение" />
+    </section>
+
+    <section class="slide">
+      <h2>Фоновое изображение</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/bg/php.svg" alt="Фоновое изображение с php" />
+    </section>
+
+    <section class="slide">
+      <h2>Content</h2>
+      <img class="cover" src="./themes/tw/pictures/cases/content.svg" alt="Content" />
+    </section>
+
+    <section class="slide relative">
+      <label class="absolute left-1/2 top-1/2 flex w-[300px] -translate-x-1/2 -translate-y-1/2 flex-col">
+        <span class="-mb-2 block text-white after:text-red after:content-['*']">Email</span>
+        <input
+          type="email"
+          name="email"
+          class="placeholder-slate-400 sm:text-sm mt-1 block rounded-sm border border-none bg-white px-2 py-1"
+          placeholder="work@webpractik.ru"
+        />
+      </label>
+    </section>
+
+    <section class="slide bg clear">
+      <h2 class="shout">Библиотеки и&nbsp;плагины</h2>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/ui/promo.jpg" alt="Tailwind UI. Promo" />
+      <a class="copyright" href="https://tailwindui.com" target="_blank" rel="noopener noreferrer">Tailwind UI</a>
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover h-[250px]"
+        src="./themes/tw/pictures/libs-and-plugins/ui/source.jpg"
+        alt="Tailwind UI. Source"
+        height="250"
+      />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/radix/promo.jpg" alt="Radix UI. Promo" />
+      <a class="copyright" href="https://www.radix-ui.com">radix-ui</a>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/radix/example.svg" alt="Radix UI. Example" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/shadcn/promo.jpg" alt="Shadcn. Promo" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/shadcn/date-picker.svg" alt="Shadcn. Date picker" />
+    </section>
+
+    <section class="slide relative">
+      <video
+        controls
+        muted
+        preload="metadata"
+        class="absolute left-1/2 top-1/2 h-[500px] w-[400px] -translate-x-1/2 -translate-y-1/2 object-cover"
+        controlslist="nodownload nofullscreen noremoteplayback"
+        poster="./themes/tw/pictures/libs-and-plugins/shadcn/blank.jpg"
+        width="500"
+      >
+        <source src="./themes/tw/video/date-picker.webm" type="video/webm" />
+      </video>
+    </section>
+
+    <section class="slide">
+      <h2>Ещё библиотеки</h2>
+      <ul class="columns two">
+        <li class="next">
+          <a href="https://catalyst.tailwindui.com" target="_blank" rel="noopener noreferrer">Catalyst</a>
+        </li>
+        <li class="next">
+          <a href="https://tw-elements.com" target="_blank" rel="noopener noreferrer">TW&nbsp;Elements</a>
+        </li>
+        <li class="next">
+          <a href="https://tailwindcomponents.com" target="_blank" rel="noopener noreferrer">Tailwind Components</a>
+        </li>
+        <li class="next">
+          <a href="https://tailblocks.cc" target="_blank" rel="noopener noreferrer">Tailblocks</a>
+        </li>
+        <li class="next">
+          <a href="https://flowbite.com" target="_blank" rel="noopener noreferrer">Flowbite</a>
+        </li>
+        <li class="next">
+          <a href="https://merakiui.com" target="_blank" rel="noopener noreferrer">Meraki UI</a>
+        </li>
+        <li class="next">
+          <a href="https://nextui.org" target="_blank" rel="noopener noreferrer">Next UI</a>
+        </li>
+        <li class="next">
+          <a href="https://preline.co" target="_blank" rel="noopener noreferrer">Preline UI</a>
+        </li>
+        <li class="next">
+          <a href="https://www.ripple-ui.com" target="_blank" rel="noopener noreferrer">Ripple UI</a>
+        </li>
+        <li class="next">
+          <a href="https://sailboatui.com" target="_blank" rel="noopener noreferrer">Sailboat UI</a>
+        </li>
+        <li class="next">
+          <a href="https://daisyui.com" target="_blank" rel="noopener noreferrer">Daisy UI</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/prettier.jpg" alt="Prettier" />
+      <a
+        class="copyright"
+        href="https://www.npmjs.com/package/prettier-plugin-tailwindcss"
+        target="_blank"
+        rel="noopener noreferrer"
+        >prettier-plugin-tailwindcss</a
+      >
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/eslint.jpg" alt="Eslint" />
+      <a
+        class="copyright"
+        href="https://www.npmjs.com/package/eslint-plugin-tailwindcss"
+        target="_blank"
+        rel="noopener noreferrer"
+        >eslint-plugin-tailwindcss</a
+      >
+    </section>
+
+    <section class="slide">
+      <h2>ESLint правила</h2>
+      <ul>
+        <li>classnames-order</li>
+        <li class="next">enforces-negative-arbitrary-values</li>
+        <li class="next">enforces-shorthand</li>
+      </ul>
+      <a
+        class="copyright"
+        href="https://www.npmjs.com/package/eslint-plugin-tailwindcss"
+        target="_blank"
+        rel="noopener noreferrer"
+        >eslint-plugin-tailwindcss</a
+      >
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/react-email.png" alt="React-email" />
+      <a
+        class="copyright"
+        href="https://www.npmjs.com/package/@react-email/tailwind"
+        target="_blank"
+        rel="noopener noreferrer"
+        >react-email
+      </a>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/merge/example.svg" alt="Tw-merge пример" />
+      <a class="copyright" href="https://www.npmjs.com/package/tailwind-merge" target="_blank" rel="noopener noreferrer"
+        >tailwind-merge
+      </a>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/merge/util.svg" alt="Class names util" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/rtl.gif" alt="RTL" />
+      <a class="copyright" href="https://github.com/20lives/tailwindcss-rtl" target="_blank" rel="noopener noreferrer"
+        >tailwindcss-rtl</a
+      >
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/cva/logo.jpg" alt="CVA лого" />
+      <a class="copyright" href="https://cva.style/docs" target="_blank" rel="noopener noreferrer">cva </a>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/cva/using.svg" alt="CVA использование" />
+      <a class="copyright" href="https://cva.style/docs" target="_blank" rel="noopener noreferrer">cva </a>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/container-quires.svg" alt="Container quires" />
+      <a
+        class="copyright"
+        href="https://github.com/tailwindlabs/tailwindcss-container-queries"
+        target="_blank"
+        rel="noopener noreferrer"
+        >tailwindcss-container-queries</a
+      >
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/figma-to-tailwind.jpg" alt="Figma to tailwind" />
+      <a
+        class="copyright"
+        href="https://www.figma.com/community/plugin/1292127575793104557/figma-to-tailwind-css"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        figma-to-tailwind
+      </a>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/libs-and-plugins/tailwind-helper.jpg" alt="Tailwind helper" />
+      <a
+        class="copyright"
+        href="https://www.figma.com/community/plugin/1160460536051331955/tailwind-css-helper"
+        target="_blank"
+        rel="noopener noreferrer"
+        >tailwind-helper</a
+      >
+    </section>
+
+    <section class="slide">
+      <h2>Ещё плагины</h2>
+      <ul>
+        <li class="next">
+          <a href="https://github.com/jhta/tailwindcss-truncate-multiline" target="_blank" rel="noopener noreferrer"
+            >tailwindcss-truncate-multiline</a
+          >
+        </li>
+        <li class="next">
+          <a href="https://github.com/gradints/tailwindcss-scrollbar" target="_blank" rel="noopener noreferrer"
+            >tailwindcss-scrollbar</a
+          >
+        </li>
+        <li class="next">
+          <a href="https://github.com/drehimself/tailwindcss-tables" target="_blank" rel="noopener noreferrer"
+            >tailwindcss-tables</a
+          >
+        </li>
+        <li class="next">
+          <a href="https://github.com/MathiasGilson/Tailwind-Styled-Component" target="_blank" rel="noopener noreferrer"
+            >tailwind-styled-component</a
+          >
+        </li>
+        <li class="next">
+          <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noopener noreferrer"
+            >tailwindcss-forms</a
+          >
+        </li>
+        <li class="next">
+          <a href="https://github.com/sambauers/tailwindcss-3d" target="_blank" rel="noopener noreferrer"
+            >tailwindcss-3d</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Расширения</h2>
+      <ul>
+        <li class="next">
+          <a href="https://www.jetbrains.com/help/phpstorm/tailwind-css.html" target="_blank" rel="noopener noreferrer"
+            >PHP Storm (из&nbsp;коробки)</a
+          >
+        </li>
+        <li class="next">
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss"
+            target="_blank"
+            rel="noopener noreferrer"
+            >VS&nbsp;Code</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <img
+        class="cover h-[400px] rounded-sm"
+        src="./themes/tw/pictures/libs-and-plugins/php-storm/enabling.jpg"
+        height="400"
+        alt="Включение плагина в PHP Storm"
+      />
+    </section>
+
+    <section class="slide">
+      <h2>Подсказки в&nbsp;PHP Storm</h2>
+      <img
+        class="cover h-[170px] rounded-sm"
+        src="./themes/tw/pictures/libs-and-plugins/php-storm/using.jpg"
+        height="170"
+        alt="PHP Storm"
+      />
+    </section>
+
+    <section class="slide">
+      <h2>Кто использует?</h2>
+      <ul>
+        <li class="next">Bitwarden</li>
+        <li class="next">Netflix</li>
+        <li class="next">OpenAI&nbsp;/ ChatGPT</li>
+        <li class="next">Turbo</li>
+        <li class="next">NASA</li>
+        <li class="next">Webpractik</li>
+      </ul>
+    </section>
+
+    <section class="slide clear relative">
+      <iframe
+        id="input-otp-iframe"
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-sm"
+        title="input otp"
+        width="95%"
+        height="95%"
+      ></iframe>
+      <button
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-sm bg-blue px-4 text-white transition-colors hover:bg-blue/80 hover:text-white"
+        type="button"
+        id="upload-iframe"
+      >
+        Нажми меня
+      </button>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const uploadIframe = document.querySelector('#upload-iframe');
+          const inputOtpIframe = document.querySelector('#input-otp-iframe');
+
+          uploadIframe.addEventListener('click', function () {
+            inputOtpIframe.src = 'https://input-otp.rodz.dev';
+            inputOtpIframe.classList.add('z-10');
+          });
+        });
+      </script>
+    </section>
+
+    <section class="slide">
+      <h2>Что ещё хорошо?</h2>
+      <ul>
+        <li class="next">
+          <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">Документация</a>
+        </li>
+        <li class="next">
+          <a href="https://play.tailwindcss.com" target="_blank" rel="noopener noreferrer">Песочница</a>
+        </li>
+        <li class="next">
+          <a href="https://www.youtube.com/tailwindlabs" target="_blank" rel="noopener noreferrer">Видео-уроки</a>
+        </li>
+        <li class="next">
+          <a href="https://tailwindcss.com/resources" target="_blank" rel="noopener noreferrer">Ресурсы</a>
+        </li>
+        <li class="next">
+          <a href="https://github.com/tailwindlabs/tailwindcss/discussions" target="_blank" rel="noopener noreferrer"
+            >Сообщество</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Breaking news <span class="text-2xl">v4.0.0-alpha</span></h2>
+      <ul>
+        <li class="next">До&nbsp;10&nbsp;раз быстрее</li>
+        <li class="next">Меньше занимаемого места</li>
+        <li class="next">Пользовательский парсер</li>
+        <li class="next">Rust</li>
+        <li class="next">LightningCSS</li>
+        <li class="next">Встроенная @import обработка</li>
+        <li class="next">Встроенный префикс поставщика</li>
+      </ul>
+    </section>
+
+    <section class="slide clear">
+      <h2 class="shout">Альтернативы</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Альтернативы</h2>
+      <ul>
+        <li class="next">
+          <a href="https://windicss.ru" target="_blank" rel="noopener noreferrer">WindiCSS</a>
+        </li>
+        <li class="next">
+          <a href="https://xstyled.dev" target="_blank" rel="noopener noreferrer">XStyled</a>
+        </li>
+        <li class="next">
+          <a href="https://tachyons.io" target="_blank" rel="noopener noreferrer">Tachyons</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide relative">
+      <div class="absolute left-1/2 top-1/2 w-[800px] -translate-x-1/2 -translate-y-1/2 text-center">
+        <h2 class="!text-7xl">Tailwind + SASS</h2>
+      </div>
+      <p
+        class="next absolute left-1/2 top-[calc(50%_+_100px)] mb-0 w-[800px] -translate-x-1/2 -translate-y-1/2 text-center font-oswald text-[96px] text-white"
+      >
+        А&nbsp;зачем?
+      </p>
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/alternatives/sass/flex.svg" alt="Sass. Flex" />
+    </section>
+
+    <section class="slide">
+      <img class="cover" src="./themes/tw/pictures/alternatives/sass/mixins.svg" alt="Sass. Mixins" />
+    </section>
+
+    <section class="slide">
+      <h2 id="difference">Сравнение подходов</h2>
+      <table aria-describedby="difference">
+        <thead>
+          <tr>
+            <th scope="column"></th>
+            <th scope="column">CSS-modules (+SASS)</th>
+            <th scope="column">CSS-in-JS</th>
+            <th scope="column">Семантический CSS</th>
+            <th scope="column">TailwindCSS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Size Bundle</th>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/rocket.svg" alt="Rocket" width="16" height="16" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Scoped Styles</th>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Better Tooling</th>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Runtime Overhead</th>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Dynamic Styles</th>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Performance Optimizations</th>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Learning Curve</th>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Debugging Complexity</th>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/arrow.svg" alt="Arrow" width="16" height="16" /></td>
+            <td><img src="./themes/tw/images/emoji/cross.svg" alt="Cross" width="16" height="16" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="next note">Меньше JS = более быстрый сайт</p>
+    </section>
+
+    <section class="slide">
+      <h2>Ещё подходы (Deadушки)</h2>
+      <ul>
+        <li class="next">
+          <a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer">Bootstrap</a>
+          <a class="next" href="https://www.youtube.com/watch?v=DRp4Ooe-aac" target="_blank" rel="noopener noreferrer"
+            >(&laquo;Тебе не&nbsp;нужен Bootstrap!&raquo;&nbsp;/ Шинкевич&nbsp;A.)</a
+          >
+        </li>
+        <li class="next">
+          <a href="https://bulma.io" target="_blank" rel="noopener noreferrer">Bulma</a>
+        </li>
+        <li class="next">
+          <a href="https://get.foundation" target="_blank" rel="noopener noreferrer">Foundation</a>
+        </li>
+        <li class="next">
+          <a href="https://mui.com" target="_blank" rel="noopener noreferrer">MUI</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2 class="shout">Как учить?</h2>
+    </section>
+
+    <section class="slide">
+      <img class="cover h-[450px]" src="./themes/tw/pictures/docs.jpg" height="450" alt="Документация" />
+    </section>
+
+    <section class="slide">
+      <h2 class="shout">Когда можно использовать?</h2>
+    </section>
+
+    <section class="slide">
+      <img class="cover h-[400px]" src="./themes/tw/images/wp/nextjs-starter.jpg" height="400" alt="Next.js starter" />
+      <a class="copyright" href="https://github.com/webpractik/nextjs-starter">nextjs-starter</a>
+    </section>
+
+    <section class="slide relative">
+      <h2>Coming soon</h2>
+      <div
+        class="absolute left-1/2 top-1/2 mt-[50px] flex flex w-[90%] -translate-x-1/2 -translate-y-1/2 flex-wrap items-center justify-center justify-around gap-[50px]"
+      >
+        <img class="next" src="./themes/tw/images/wp/logo.svg" width="250" height="250" alt="Wp team" />
+        <img class="next" src="./themes/tw/images/wp/wp-team.svg" width="250" height="250" alt="Wp logo" />
+        <img class="next" src="./themes/tw/images/wp/bx24.png" width="250" height="50" alt="BX24" />
+        <img
+          class="next"
+          src="./themes/tw/images/wp/onlineconverter.svg"
+          width="320"
+          height="50"
+          alt="Onlineconverter"
+        />
+        <img class="next" src="./themes/tw/images/wp/2pdf.svg" width="250" height="50" alt="2pdf" />
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Для чего всё это?</h2>
+      <p class="next">Мы&nbsp;хотим быстро и&nbsp;качественно...</p>
+      <ul>
+        <li class="next"><b>решать</b> задачи</li>
+        <li class="next"><b>научиться решать</b> задачи</li>
+        <li class="next"><b>научить решать</b> задачи</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Выводы</h2>
+      <ol>
+        <li class="next">Быстрый</li>
+        <li class="next">Кроссплатформенный</li>
+        <li class="next">Масштабируемый</li>
+        <li class="next">Позволяет уменьшить когнитивную нагрузку</li>
+        <li class="next">Хорошо спроектирован (нулевое время выполнения)</li>
+      </ol>
+    </section>
+
+    <section class="slide bg clear">
+      <h2 class="shout">Всем спасибо!</h2>
+    </section>
+
+    <section class="slide bg clear relative">
+      <h2 class="shout z-50">Вопросы</h2>
+      <div class="absolute left-0 top-0 m-auto h-[var(--fly-container-h)] w-[var(--fly-container-w)]">
+        <svg
+          class="h-[var(--fly-logo-h)]] animate-color-fly-logo absolute z-0 m-auto w-[var(--fly-logo-w)] animate-fly-logo"
+          fill="currentColor"
+          viewBox="0 0 54 33"
+        >
+          <path
+            d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <div class="progress before:bg-blue"></div>
+
+    <script src="./shower.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{
+    "name": "Денис Русаков — Frontend Team Lead",
+    "short_name": "Денис Русаков",
+    "description": "Привет, меня зовут Денис. Я Frontend Team Lead, занимаюсь созданием удобных интерфейсов, которые нравятся и запоминаются",
+    "lang": "ru",
+    "scope": "/",
+    "dir": "ltr",
+    "start_url": "/",
+    "background_color": "#fff",
+    "theme_color": "#3316e9",
+    "display": "standalone",
+    "orientation": "natural",
+    "display_override": ["fullscreen", "minimal-ui"],
+    "launch_handler": {
+        "client_mode": "navigate-existing"
+    },
+    "categories": [
+        "portfolio", "social"
+    ],
+    "icons": [
+        {
+            "src": "/icon_96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon_192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon_512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshots/desktop.png",
+            "sizes": "1512x854",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Сайт портфолио"
+        },
+        {
+            "src": "/images/screenshots/mobile.png",
+            "sizes": "494x857",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Сайт портфолио"
+        }
+    ]
+}

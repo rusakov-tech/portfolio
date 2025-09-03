@@ -1,0 +1,154 @@
+@tailwind base;
+
+@layer base {
+  @font-face {
+    font-family: 'Oswald';
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+    src: url('../themes/tw/fonts/Oswald/Bold.woff2') format('woff2');
+  }
+
+  :root {
+    --fly-container-w: 1024px;
+    --fly-container-h: 555px;
+    --fly-logo-w: 150px;
+    --fly-logo-h: 70px;
+    --fly-aspect: calc(16 / 9);
+    --fly-duration-y: 7s;
+    --fly-duration-x: calc(var(--fly-duration-y) * var(--fly-aspect));
+  }
+
+  .shower {
+    --slide-ratio: calc(16 / 9);
+
+    &.list {
+      @apply bg-pink-dark;
+
+      .slide {
+        @apply rounded-sm;
+      }
+    }
+
+    &.full {
+      @apply bg-purple-dark;
+    }
+
+    h1 {
+      @apply font-oswald text-white;
+    }
+  }
+
+  .slide {
+    @apply bg-purple-dark p-[24px_90px_0] shadow-[0_20px_50px_rgb(0_0_0_/_30%)];
+
+    &::after {
+      @apply left-auto right-0 mt-[1em] h-auto w-[calc(50px_*_2.4)] p-[0_0.5em_0_2.5em] text-purple-dark;
+
+      background-image: linear-gradient(
+        100deg,
+        transparent 0 10px,
+        theme(colors.blue) 11px 20px,
+        transparent 21px 30px,
+        theme(colors.blue) 31px 40px,
+        transparent 41px 50px,
+        theme(colors.blue) 51px
+      );
+    }
+
+    h2,
+    h3,
+    p,
+    figure p,
+    figcaption,
+    p.note,
+    li,
+    li::before {
+      @apply text-white;
+    }
+
+    & > h2 {
+      @apply font-oswald text-[72px];
+    }
+
+    h2.shout {
+      @apply text-7xl;
+    }
+
+    a {
+      @apply text-blue;
+    }
+
+    ol,
+    ul {
+      @apply leading-[1.8];
+
+      li {
+        @apply text-[34px];
+      }
+    }
+
+    table {
+      @apply mb-0;
+
+      th,
+      td {
+        @apply text-white;
+      }
+
+      th[scope='column'] {
+        @apply text-center;
+      }
+
+      th {
+        @apply text-[18px];
+      }
+
+      td {
+        @apply text-[20px];
+      }
+    }
+  }
+
+  table img {
+    @apply mx-auto;
+  }
+
+  .scrollbar {
+    &::-webkit-scrollbar {
+      @apply w-[18px];
+    }
+
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-sm;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply bg-purple-dark;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply bg-blue;
+    }
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    .scrollbar {
+      scrollbar-color: theme(colors.blue) theme(colors.purple-dark);
+    }
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg {
+    @apply bg-[url('../themes/tw/images/bg.png')] bg-cover bg-center bg-no-repeat;
+  }
+
+  .animate-color-fly-logo {
+    color: hsl(calc(360 / 25 * (var(--fly-color-y) * 5 + var(--fly-color-x)) * 1deg) 100% 50%);
+  }
+}

@@ -1,0 +1,16 @@
+# https://help.github.com/articles/ignoring-files/
+
+.vscode
+.eslintcache
+.idea
+
+node_modules/
+
+.DS_Store
+__MACOSX
+
+npm-debug.log*
+
+.env
+.env*.local
+
