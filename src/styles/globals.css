@@ -90,9 +90,6 @@
 }
 
 @layer components {
-    * {
-        outline: 1px solid blueviolet;
-    }
     .nav {
         a {
             @apply inline-block w-full cursor-default rounded-2xl px-2 py-2 text-center text-sm leading-[125%] font-semibold transition-[scale] md:px-10 md:py-5 md:text-2xl dark:text-white hover:[&:not(.active)]:scale-115 hover:[&:not(.active)]:cursor-pointer;
