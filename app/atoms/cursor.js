@@ -1,26 +1,27 @@
 import { isMobile } from '#/utils/is-mobile';
 
+const iconUrls = [
+    'content_files_pencil_ruler',
+    'computer_old_electronics',
+    'business_product_startup',
+    'computers_devices_electronics_keyboard',
+    'streamline_bubble',
+    'coding_apps_websites_programming_hold_code',
+    'hand_gesture_finger_click',
+    'hand_love_sign',
+    'internet_network_cloud_error',
+    'computers_devices_electronics_mouse',
+];
+const ICON_SIZE = 32;
+const DISTANCE_THRESHOLD = 25;
+const FADE_DURATION = 500;
+const IGNORED_TAGS = ['A', 'BUTTON'];
+
 export function initCursor() {
     if (isMobile()) return;
 
-    const iconUrls = [
-        'content_files_pencil_ruler',
-        'computer_old_electronics',
-        'business_product_startup',
-        'computers_devices_electronics_keyboard',
-        'streamline_bubble',
-        'coding_apps_websites_programming_hold_code',
-        'hand_gesture_finger_click',
-        'hand_love_sign',
-        'internet_network_cloud_error',
-        'computers_devices_electronics_mouse',
-    ];
-
-    const ICON_SIZE = 32;
-    const DISTANCE_THRESHOLD = 25;
-    const FADE_DURATION = 500;
-    const TIMER_DURATION = FADE_DURATION;
-    const MAX_ICONS = iconUrls.length;
+    const timerDuration = FADE_DURATION;
+    const maxIcons = iconUrls.length;
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -39,12 +40,13 @@ export function initCursor() {
     canvas.width = width;
     canvas.height = height;
 
-    window.addEventListener('resize', () => {
+    function handleWindowResize() {
         width = window.innerWidth;
         height = window.innerHeight;
+
         canvas.width = width;
         canvas.height = height;
-    });
+    }
 
     const images = [];
     let loadedCount = 0;
@@ -64,10 +66,8 @@ export function initCursor() {
     let iconIndex = 0;
     let stopTimer = null;
 
-    const IGNORED_TAGS = ['A', 'BUTTON'];
-
     function addTrailIcon(x, y) {
-        if (trail.length >= MAX_ICONS) {
+        if (trail.length >= maxIcons) {
             const oldest = trail.find(icon => !icon.fading);
 
             if (oldest) {
@@ -119,10 +119,8 @@ export function initCursor() {
 
             lastX = null;
             lastY = null;
-        }, TIMER_DURATION);
+        }, timerDuration);
     }
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     function draw() {
         const now = performance.now();
@@ -164,4 +162,9 @@ export function initCursor() {
             requestAnimationFrame(draw);
         }
     }, 50);
+
+    window.addEventListener('resize', handleWindowResize, {
+        passive: true,
+    });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 }

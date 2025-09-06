@@ -49,7 +49,8 @@
     }
 
     body {
-        @apply mx-auto grid w-full cursor-[url('/images/icons/cursor.svg'),auto] grid-rows-[auto_1fr_auto] overscroll-none bg-primary-light-gray text-[18px] antialiased selection:bg-primary selection:text-white dark:bg-primary-black;
+        @apply mx-auto grid w-full cursor-[url('./images/icons/cursor.svg'),auto] grid-rows-[auto_1fr_auto] overscroll-none bg-primary-light-gray text-[18px] antialiased selection:bg-primary selection:text-white dark:bg-primary-black;
+
         color-scheme: light dark;
 
         text-wrap: balance;

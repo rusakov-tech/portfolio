@@ -11,3 +11,4 @@ tailwindStylesheet: ./src/styles/globals.css
 trailingComma: es5
 proseWrap: always
 quoteProps: consistent
+endOfLine: 'lf'

@@ -16,6 +16,7 @@ export function initAchievements() {
         rewind: false,
         flickPower: 250,
         flickMaxPages: 2,
+        role: 'group',
         breakpoints: {
             1280: {
                 perPage: 2,
@@ -30,6 +31,11 @@ export function initAchievements() {
     });
 
     achievements.mount();
+    achievements.Components.Elements.slides.forEach(slide => {
+        if (slide.querySelector('article')) {
+            slide.removeAttribute('role');
+        }
+    });
 
     if (isMobile()) return;
 

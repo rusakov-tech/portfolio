@@ -6,6 +6,7 @@ export function initCases() {
     const btnShowMoreCases = document.getElementById('show-more-cases');
 
     const totalCount = cases.length;
+
     let visibleCount = DEFAULT_VISIBLE_COUNT;
 
     function updateCases() {
