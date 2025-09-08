@@ -9,25 +9,16 @@ export function initAchievements() {
         isNavigation: true,
         pagination: false,
         focus: 'center',
-        type: 'loop',
+        type: 'slide',
         arrows: false,
+        trimSpace: false,
         lazyLoad: false,
         wheel: false,
         rewind: false,
         flickPower: 250,
         flickMaxPages: 2,
+        perPage: 2,
         role: 'group',
-        breakpoints: {
-            1280: {
-                perPage: 2,
-            },
-            1680: {
-                perPage: 3,
-            },
-            1920: {
-                perPage: 4,
-            },
-        },
     });
 
     achievements.mount();

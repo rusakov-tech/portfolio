@@ -99,7 +99,7 @@
 
     .achievements {
         .achievement {
-            @apply h-[280px] min-w-[290px] p-2 opacity-70 transition-[opacity] md:h-[340px] md:p-4 [&.is-active]:opacity-100;
+            @apply h-[280px] max-w-[calc(480px+16px)] min-w-[290px] p-2 opacity-70 transition-[opacity] md:h-[340px] md:max-w-[calc(480px+32px)] md:p-4 [&.is-active]:opacity-100;
 
             & > div {
                 @apply relative flex h-full flex-col items-center justify-center rounded-xl px-4 md:px-12;
