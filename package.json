@@ -13,6 +13,9 @@
     "files": [
         "docs"
     ],
+    "workspaces": [
+        "app/*"
+    ],
     "scripts": {
         "build": "vite build",
         "dev": "vite",
@@ -49,6 +52,7 @@
         "tailwindcss": "4.1.13",
         "vite": "7.1.5"
     },
+    "packageManager": "npm@11.5.1",
     "engines": {
         "node": "^22",
         "npm": "^10",
