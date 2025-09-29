@@ -116,6 +116,10 @@
                 }
 
                 &.animate {
+                    svg {
+                        border-color: var(--color-blue-50, oklch(0.97 0.03 280));
+                    }
+
                     circle {
                         cx: 40px;
                         fill: var(--color-blue-50, oklch(0.97 0.03 280));
@@ -130,12 +134,16 @@
                     min-width: 56px;
                     min-height: 26px;
                     border-radius: 12px;
-                    border: 3px solid var(--color-blue-50, oklch(0.97 0.03 280));
+                    border-width: 3px;
+                    border-style: solid;
+                    border-color: var(--color-gray-50, oklch(0.54 0.02 260));
+                    transition: border-color 0.6s cubic-bezier(0.83, 0, 0.17, 1);
                 }
 
                 circle {
-                    fill: var(--color-blue-50, oklch(0.97 0.03 280));
-                    transition: cx 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+                    fill: var(--color-gray-50, oklch(0.54 0.02 260));
+                    transition-property: cx, fill;
+                    transition: 0.6s cubic-bezier(0.83, 0, 0.17, 1);
                 }
             }
 
