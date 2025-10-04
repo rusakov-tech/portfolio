@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rusakov.tech/sitemap.xml
+Sitemap: https://rusakov-tech.github.io/portfolio/sitemap.xml
