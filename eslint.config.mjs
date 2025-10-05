@@ -7,7 +7,7 @@ const files = ['app/**/*.js', 'src/**/*.js'];
 export default defineConfig([
     js.configs.recommended,
     {
-        ignores: ['docs/**/*.js', 'public/**/*.js'],
+        ignores: ['dist/**/*.js', 'public/**/*.js'],
     },
     {
         ignores: files,

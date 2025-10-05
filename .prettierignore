@@ -7,6 +7,5 @@ public/
 *.env.example
 
 dist/
-docs/
 
 bun.lockb

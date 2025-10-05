@@ -17,7 +17,7 @@ export default defineConfig({
     },
     build: {
         target: 'es6',
-        outDir: path.resolve(__dirname, 'docs'),
+        outDir: path.resolve(__dirname, 'dist'),
         emptyOutDir: true,
         rollupOptions: {
             input: {
