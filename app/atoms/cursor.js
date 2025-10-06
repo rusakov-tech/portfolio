@@ -1,4 +1,5 @@
 import { isMobile } from '#/utils/is-mobile';
+import { isProduction } from '#/utils/is-production';
 
 const iconUrls = [
     'content_files_pencil_ruler',
@@ -54,7 +55,7 @@ export function initCursor() {
     iconUrls.forEach(url => {
         const img = new Image();
 
-        img.src = `/images/icons/${url}.svg`;
+        img.src = `/${isProduction ? 'portfolio' : ''}/images/icons/${url}.svg`;
         img.onload = () => loadedCount++;
         images.push(img);
     });
