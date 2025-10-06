@@ -5,7 +5,7 @@
     "lang": "ru",
     "scope": "/",
     "dir": "ltr",
-    "start_url": "/",
+    "start_url": "/portfolio/",
     "background_color": "#fff",
     "theme_color": "#3316e9",
     "display": "standalone",
