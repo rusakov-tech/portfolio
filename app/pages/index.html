@@ -69,6 +69,11 @@
 
                 --breakpoint-xs: 340px;
 
+                --cursor-default: url('/images/icons/cursor.svg') 16 12, default;
+                --cursor-pointer: url('/images/icons/cursor.svg') 13 12, pointer;
+                --cursor-grab: url('/images/icons/cursor.svg') 13 12, grab;
+                --cursor-grabbing: url('/images/icons/cursor.svg') 13 12, grabbing;
+
                 @supports (font-variation-settings: normal) {
                     --font-inter: 'Inter Variable', 'sans-serif';
                 }
@@ -209,8 +214,6 @@
         <meta name="color-scheme" content="dark light" />
         <meta name="theme-color" content="#3316e9" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)" />
-        <meta name="apple-mobile-web-app-title" content="Денис Русаков" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="application-name" content="Денис Русаков" />
         <meta name="subject" content="Портфолио" />
         <meta name="rating" content="General" />
@@ -219,7 +222,10 @@
         <meta property="article:author" content="Денис Русаков" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="apple-mobile-web-app-title" content="Денис Русаков" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 
         <meta property="og:url" content="https://rusakov-tech.github.io/portfolio/" />
         <meta property="og:title" content="Денис Русаков" />
@@ -372,7 +378,7 @@
                                     <a
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        href="/docs/tw/index.html"
+                                        href="/portfolio/docs/tw/index.html"
                                         aria-label="Перейти на страницу презентации про TailwindCSS"
                                     >
                                         <img
@@ -693,7 +699,7 @@
                                     <a
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        href="/docs/designers.pdf"
+                                        href="/portfolio/docs/designers.pdf"
                                         aria-label="Открыть документацию"
                                     >
                                         <img
@@ -1134,7 +1140,7 @@
                                         >резюме</a
                                     >
                                     <span class="px-1 text-xs md:mt-2 md:px-2 md:text-[24px]">|</span
-                                    ><a target="_blank" rel="noopener noreferrer" href="/docs/cv.pdf">cv</a>
+                                    ><a target="_blank" rel="noopener noreferrer" href="/portfolio/docs/cv.pdf">cv</a>
                                 </li>
                                 <li class="flex">
                                     <a target="_blank" rel="noopener noreferrer" href="https://t.me/rusakov_denis_a/"

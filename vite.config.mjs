@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
     root: 'app/pages',
-    base: 'portfolio',
+    base: '/portfolio',
     publicDir: '../../public',
     plugins: [tailwindcss()],
     resolve: {

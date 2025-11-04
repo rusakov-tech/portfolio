@@ -13,7 +13,12 @@
 
     --default-transition-duration: var(--transition-duration);
 
-    --breakpoint-xs: var(--breakpoint-xs);
+    --breakpoint-xs: 340px;
+
+    --cursor-default: var(--cursor-default);
+    --cursor-pointer: var(--cursor-pointer);
+    --cursor-grab: var(--cursor-grab);
+    --cursor-grabbing: var(--cursor-grabbing);
 }
 
 @layer base {
@@ -44,12 +49,17 @@
     }
 
     html,
+    body {
+        @apply min-h-full;
+    }
+
+    html,
     :host {
         @apply leading-[1.1] dark:text-white;
     }
 
     body {
-        @apply mx-auto grid w-full cursor-[url('/images/icons/cursor.svg'),auto] grid-rows-[auto_1fr_auto] overscroll-none bg-primary-light-gray text-[18px] antialiased selection:bg-primary selection:text-white dark:bg-primary-black;
+        @apply mx-auto grid w-full cursor-[var(--cursor-default)] grid-rows-[auto_1fr_auto] overscroll-none bg-primary-light-gray text-[18px] antialiased selection:bg-primary selection:text-white dark:bg-primary-black;
 
         color-scheme: light dark;
 
@@ -99,7 +109,7 @@
 
     .achievements {
         .achievement {
-            @apply h-[280px] max-w-[calc(480px+16px)] min-w-[290px] p-2 opacity-70 transition-[opacity] md:h-[340px] md:max-w-[calc(480px+32px)] md:p-4 [&.is-active]:opacity-100;
+            @apply h-[280px] max-w-[calc(480px+16px)] min-w-[290px] p-2 opacity-70 transition-opacity md:h-[340px] md:max-w-[calc(480px+32px)] md:p-4 [&.is-active]:opacity-100;
 
             & > div {
                 @apply relative flex h-full flex-col items-center justify-center rounded-xl px-4 md:px-12;
@@ -123,7 +133,7 @@
             }
 
             h3 {
-                @apply mt-8 text-[16px] font-semibold opacity-0 transition-[opacity] md:text-xl;
+                @apply mt-8 text-[16px] font-semibold opacity-0 transition-opacity md:text-xl;
             }
 
             & > div > div {
@@ -135,7 +145,7 @@
             }
 
             p {
-                @apply mt-2 text-center text-xs opacity-0 transition-[opacity] md:text-[16px];
+                @apply mt-2 text-center text-xs opacity-0 transition-opacity md:text-[16px];
             }
 
             a {
@@ -172,7 +182,7 @@
                 @apply flex h-[200px] w-full items-center justify-center rounded-xl bg-white object-cover md:h-[390px] dark:bg-[oklch(0.2367_0.0076_285.81)];
 
                 img {
-                    @apply w-[80px] md:w-[120px];
+                    @apply w-20 md:w-[120px];
                 }
             }
 
@@ -186,7 +196,7 @@
         @apply mt-12 md:mt-24;
 
         li {
-            @apply text-sm md:text-[40px] xs:text-xl;
+            @apply text-sm xs:text-xl md:text-[40px];
         }
 
         a {
@@ -195,12 +205,12 @@
     }
 
     .btn-top {
-        @apply absolute left-1.5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary opacity-0 transition-[opacity] hover:cursor-pointer md:left-4 md:h-17 md:w-17 dark:bg-primary [&.visible]:opacity-100;
+        @apply absolute left-1.5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary opacity-0 transition-opacity hover:cursor-pointer md:left-4 md:h-17 md:w-17 dark:bg-primary [&.visible]:opacity-100;
 
         @media (hover: hover) {
             &:hover {
                 svg {
-                    @apply stroke-[color:var(--color-gray-300)] stroke-[2px] transition-[stroke-dasharray] delay-[250ms] duration-[500ms,stroke-width];
+                    @apply stroke-gray-300 stroke-[2px] transition-[stroke-dasharray] delay-250 duration-[500ms,stroke-width];
 
                     --dash-size: 2px;
                     --gap-size: 3px;
@@ -215,7 +225,7 @@
         }
 
         svg {
-            @apply absolute block overflow-visible stroke-secondary stroke-[2px] transition-[stroke-dasharray] delay-[250ms] duration-[500ms,stroke-width];
+            @apply absolute block overflow-visible stroke-secondary stroke-[2px] transition-[stroke-dasharray] delay-250 duration-[500ms,stroke-width];
 
             stroke-linecap: round;
         }
@@ -255,7 +265,7 @@
     }
 
     @media (width >= --theme(--breakpoint-md)) {
-        @apply max-w-[calc(698px_+_3rem)];
+        @apply max-w-[calc(698px+3rem)];
     }
 }
 
@@ -268,7 +278,7 @@
     }
 
     @media (width >= --theme(--breakpoint-md)) {
-        @apply max-w-[calc(1920px_+_3rem)];
+        @apply max-w-[calc(1920px+3rem)];
     }
 }
 

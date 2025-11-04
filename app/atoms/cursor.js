@@ -1,28 +1,29 @@
 import { isMobile } from '#/utils/is-mobile';
 import { isProduction } from '#/utils/is-production';
 
-const iconUrls = [
-    'content_files_pencil_ruler',
-    'computer_old_electronics',
-    'business_product_startup',
-    'computers_devices_electronics_keyboard',
-    'streamline_bubble',
-    'coding_apps_websites_programming_hold_code',
-    'hand_gesture_finger_click',
-    'hand_love_sign',
-    'internet_network_cloud_error',
-    'computers_devices_electronics_mouse',
-];
-const ICON_SIZE = 32;
-const DISTANCE_THRESHOLD = 25;
-const FADE_DURATION = 500;
-const IGNORED_TAGS = ['A', 'BUTTON'];
-
 export function initCursor() {
     if (isMobile()) return;
 
+    const ICON_URLS = [
+        'content_files_pencil_ruler',
+        'computer_old_electronics',
+        'business_product_startup',
+        'computers_devices_electronics_keyboard',
+        'streamline_bubble',
+        'coding_apps_websites_programming_hold_code',
+        'hand_gesture_finger_click',
+        'hand_love_sign',
+        'internet_network_cloud_error',
+        'computers_devices_electronics_mouse',
+    ];
+    const ICON_SIZE = 32;
+    const DISTANCE_THRESHOLD = 25;
+    const FADE_DURATION = 500;
+    const DURATION_TIMEOUT_WAIT = 50;
+    const IGNORED_TAGS = ['A', 'BUTTON'];
+
     const timerDuration = FADE_DURATION;
-    const maxIcons = iconUrls.length;
+    const maxIcons = ICON_URLS.length;
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -52,7 +53,7 @@ export function initCursor() {
     const images = [];
     let loadedCount = 0;
 
-    iconUrls.forEach(url => {
+    ICON_URLS.forEach(url => {
         const img = new Image();
 
         img.src = `/${isProduction ? 'portfolio' : ''}/images/icons/${url}.svg`;
@@ -136,7 +137,9 @@ export function initCursor() {
             if (fading) {
                 if (elapsed >= FADE_DURATION) {
                     trail.splice(i, 1);
+
                     i--;
+
                     continue;
                 }
             }
@@ -162,10 +165,12 @@ export function initCursor() {
             clearInterval(waitForLoad);
             requestAnimationFrame(draw);
         }
-    }, 50);
+    }, DURATION_TIMEOUT_WAIT);
 
     window.addEventListener('resize', handleWindowResize, {
         passive: true,
     });
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, {
+        passive: true,
+    });
 }
