@@ -70,9 +70,9 @@
                 --breakpoint-xs: 340px;
 
                 --cursor-default: url('/portfolio/images/icons/cursor.svg') 16 12, default;
-                --cursor-pointer: url('/portfolio/images/icons/cursor.svg') 13 12, pointer;
-                --cursor-grab: url('/portfolio/images/icons/cursor.svg') 13 12, grab;
-                --cursor-grabbing: url('/portfolio/images/icons/cursor.svg') 13 12, grabbing;
+                --cursor-pointer: url('/portfolio/images/icons/pointer.svg') 13 12, pointer;
+                --cursor-grab: url('/portfolio/images/icons/grab.svg') 13 12, grab;
+                --cursor-grabbing: url('/portfolio/images/icons/grabbing.svg') 13 12, grabbing;
 
                 @supports (font-variation-settings: normal) {
                     --font-inter: 'Inter Variable', 'sans-serif';
@@ -96,14 +96,14 @@
                 font-size: var(--text-2xl);
 
                 @media (width <= 48rem) {
-                    font-size: var(--text-xl);
+                    font-size: var(--text-md);
                 }
             }
 
             .preloader {
                 position: fixed;
                 width: 100vw;
-                height: 100vh;
+                height: 100dvh;
                 z-index: 3;
                 display: flex;
                 flex-direction: column;
@@ -257,8 +257,8 @@
         <link rel="icon" type="image/png" href="/portfolio/icon_96x96.png" sizes="96x96" />
         <link rel="shortcut icon" href="/portfolio/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/portfolio/apple_touch_icon.png" />
-      <script type="module" crossorigin src="/portfolio/assets/app-fIRdSpvd.js"></script>
-      <link rel="stylesheet" crossorigin href="/portfolio/assets/app-IG-atpII.css">
+      <script type="module" crossorigin src="/portfolio/assets/app-BEdLCB1n.js"></script>
+      <link rel="stylesheet" crossorigin href="/portfolio/assets/app-MBiiwTIF.css">
     </head>
     <body>
         <div class="preloader" id="preloader">
@@ -295,7 +295,7 @@
             </button>
             <nav class="nav relative flex items-center gap-1 md:gap-3" aria-label="Главная навигация" id="nav">
                 <ul
-                    class="z-2 grid grid-flow-col grid-cols-[85px_85px_85px] items-center gap-2 md:grid-cols-[195px_195px_195px] md:gap-3"
+                    class="z-2 grid grid-flow-col grid-cols-[85px_85px_85px] items-center gap-1 md:grid-cols-[195px_195px_195px] md:gap-3"
                 >
                     <li>
                         <a href="#about_myself">О&nbsp;себе</a>
@@ -313,7 +313,7 @@
                 ></div>
             </nav>
         </header>
-        <div class="z-1 grid h-full min-h-screen w-full gap-12 pt-16 md:gap-24 md:pt-40 md:pb-0">
+        <div class="z-1 grid h-full min-h-screen w-full gap-12 pt-12 md:gap-24 md:pt-40 md:pb-0">
             <section>
                 <div class="container-md">
                     <div
@@ -337,14 +337,14 @@
                                 (max-width: 768px) 150px,
                                 (min-width: 769px) and (max-width: 1024px) 250px, 375px"
                         />
-                        <p class="mt-16 text-xl md:text-[40px]" itemprop="description">
+                        <p class="mt-12 text-xl md:mt-16 md:text-[40px]" itemprop="description">
                             верстаю и&nbsp;разрабатываю сервисы, которые помогают бизнесу становиться эффективнее
                             с&nbsp;помощью довольных пользователей
                         </p>
                     </div>
                 </div>
             </section>
-            <section class="mt-10 overflow-hidden md:mt-0" id="about_myself" data-scroll="start">
+            <section class="mt-6 overflow-hidden md:mt-0" id="about_myself" data-scroll="start">
                 <div class="container-md">
                     <h2>О себе</h2>
                     <div class="mt-4 grid gap-4">
@@ -358,6 +358,7 @@
                 <div
                     class="achievements splide relative mx-auto mt-12 flex w-full items-center overflow-hidden"
                     id="achievements"
+                    data-state="grab"
                     aria-label="Достижения"
                 >
                     <div class="splide__track">
@@ -1126,14 +1127,14 @@
                                 aria-label="Открыть карту г. Ростова-на-Дону"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="hover:text-primary md:text-[40px]"
+                                class="text-sm hover:text-primary xs:text-xl md:text-[40px]"
                             >
                                 Ростов-на-Дону,<br />
                                 Россия
                             </a>
                         </div>
                         <div>
-                            <ul class="flex flex-col items-end gap-2 text-right">
+                            <ul class="flex flex-col items-end gap-1 text-right md:gap-2">
                                 <li class="flex items-center">
                                     <a
                                         target="_blank"
@@ -1141,8 +1142,8 @@
                                         href="https://rostov.hh.ru/resume/2aa5864eff0d519f590039ed1f685065747867/"
                                         >резюме</a
                                     >
-                                    <span class="px-1 text-xs md:mt-2 md:px-2 md:text-[24px]">|</span
-                                    ><a target="_blank" rel="noopener noreferrer" href="/portfolio/docs/cv.pdf">cv</a>
+                                    <span class="mt-0.5 px-1 md:mt-2 md:px-2">|</span>
+                                    <a target="_blank" rel="noopener noreferrer" href="/portfolio/docs/cv.pdf">cv</a>
                                 </li>
                                 <li class="flex">
                                     <a target="_blank" rel="noopener noreferrer" href="https://t.me/rusakov_denis_a/"

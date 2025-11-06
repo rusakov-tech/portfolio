@@ -30,11 +30,14 @@ export function initAchievements() {
 
     if (isMobile()) return;
 
-    achievements.on('drag', () => {
-        achievements.root.style.cursor = 'grabbing';
-    });
+    function handleDrag() {
+        achievements.root.dataset.state = 'grabbing';
+    }
 
-    achievements.on('dragged', () => {
-        achievements.root.style.cursor = 'grab';
-    });
+    function handleDragged() {
+        achievements.root.dataset.state = 'grab';
+    }
+
+    achievements.on('drag', handleDrag);
+    achievements.on('dragged', handleDragged);
 }

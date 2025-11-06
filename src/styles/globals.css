@@ -59,7 +59,7 @@
     }
 
     body {
-        @apply mx-auto grid w-full cursor-[var(--cursor-default)] grid-rows-[auto_1fr_auto] overscroll-none bg-primary-light-gray text-[18px] antialiased selection:bg-primary selection:text-white dark:bg-primary-black;
+        @apply mx-auto grid w-full cursor-default grid-rows-[auto_1fr_auto] overscroll-none bg-primary-light-gray text-[18px] antialiased selection:bg-primary selection:text-white dark:bg-primary-black;
 
         color-scheme: light dark;
 
@@ -74,11 +74,11 @@
     }
 
     h1 {
-        @apply mt-8;
+        @apply mt-6 md:mt-8;
     }
 
     h2 {
-        @apply text-xl text-primary-gray lowercase md:text-2xl dark:text-white;
+        @apply text-sm text-primary-gray lowercase sm:text-xl md:text-2xl dark:text-white;
     }
 
     * {
@@ -107,7 +107,21 @@
         }
     }
 
+    html {
+        @apply cursor-[--cursor-grab] cursor-[--cursor-grabbing];
+    }
+
     .achievements {
+        @apply cursor-default;
+
+        &[data-state='grab'] {
+            @apply cursor-grab;
+        }
+
+        &[data-state='grabbing'] {
+            @apply cursor-grabbing;
+        }
+
         .achievement {
             @apply h-[280px] max-w-[calc(480px+16px)] min-w-[290px] p-2 opacity-70 transition-opacity md:h-[340px] md:max-w-[calc(480px+32px)] md:p-4 [&.is-active]:opacity-100;
 
