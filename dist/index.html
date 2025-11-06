@@ -62,6 +62,11 @@
                 --color-gray-200: oklch(0.9099 0.0149 286.1);
 
                 --font-inter: 'Inter', 'sans-serif';
+
+                @supports (font-variation-settings: normal) {
+                    --font-inter: 'Inter Variable', 'sans-serif';
+                }
+
                 --font-feature-settings: normal;
                 --default-font-feature-settings: 'liga' 1, 'calt' 1;
 
@@ -69,13 +74,11 @@
 
                 --breakpoint-xs: 340px;
 
-                --cursor-default: url('/portfolio/images/icons/cursor.svg') 16 12, default;
-                --cursor-pointer: url('/portfolio/images/icons/pointer.svg') 13 12, pointer;
-                --cursor-grab: url('/portfolio/images/icons/grab.svg') 13 12, grab;
-                --cursor-grabbing: url('/portfolio/images/icons/grabbing.svg') 13 12, grabbing;
-
-                @supports (font-variation-settings: normal) {
-                    --font-inter: 'Inter Variable', 'sans-serif';
+                @media screen and (width >= 48rem) {
+                    --cursor-default: url('/portfolio/images/icons/cursor.svg') 16 12, default;
+                    --cursor-pointer: url('/portfolio/images/icons/pointer.svg') 13 12, pointer;
+                    --cursor-grab: url('/portfolio/images/icons/grab.svg') 13 12, grab;
+                    --cursor-grabbing: url('/portfolio/images/icons/grabbing.svg') 13 12, grabbing;
                 }
             }
 
