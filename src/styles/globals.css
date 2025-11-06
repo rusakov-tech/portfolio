@@ -107,10 +107,6 @@
         }
     }
 
-    html {
-        @apply cursor-[--cursor-grab] cursor-[--cursor-grabbing];
-    }
-
     .achievements {
         @apply cursor-default;
 
