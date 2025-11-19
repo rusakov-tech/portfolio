@@ -170,7 +170,11 @@
 
     .cases {
         .case {
-            @apply w-full pt-4;
+            @apply w-full;
+
+            &:not(:first-child) {
+                @apply pt-4;
+            }
 
             & > div {
                 @apply flex flex-col items-start;
@@ -197,7 +201,7 @@
             }
 
             a {
-                @apply mt-4 gap-11 md:mt-8 md:text-xl;
+                @apply mt-4 gap-11 md:mt-6 md:text-xl;
             }
         }
     }
