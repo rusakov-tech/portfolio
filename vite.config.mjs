@@ -14,6 +14,7 @@ export default defineConfig({
         extensions: ['.js'],
         alias: {
             '#': path.resolve(__dirname, 'src'),
+            '@': path.resolve(__dirname, 'app'),
         },
     },
     build: {

@@ -1,6 +1,7 @@
 import js from '@eslint/js';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
+import baselineJs from 'eslint-plugin-baseline-js';
 
 const files = ['app/**/*.js', 'src/**/*.js'];
 
@@ -23,6 +24,12 @@ export default defineConfig([
             globals: {
                 ...globals.browser,
             },
+        },
+    },
+    {
+        files,
+        plugins: {
+            'baseline-js': baselineJs,
         },
     },
 ]);

@@ -2,12 +2,12 @@
 
 import '#/styles/globals.css';
 
-import { initAchievements } from '../molecules/achievements';
-import { initCases } from '../molecules/cases';
-import { initNav } from '../molecules/nav';
+import { initAchievements } from '@/molecules/achievements';
+import { initCases } from '@/molecules/cases';
+import { initNav } from '@/molecules/nav';
 
-import { initBtnTop } from '../atoms/btn-top';
-import { initCursor } from '../atoms/cursor';
+import { initBtnTop } from '@/atoms/btn-top';
+import { initCursor } from '@/atoms/cursor';
 
 async function init() {
     try {
