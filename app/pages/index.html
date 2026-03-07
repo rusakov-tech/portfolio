@@ -1,0 +1,1940 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,shrink-to-fit=no"
+        />
+
+        <title>Денис Русаков — Frontend Team Lead</title>
+
+        <link rel="preconnect" href="https://rusakov-tech.github.io/portfolio/" />
+
+        <script>
+            window.addEventListener(
+                'load',
+                () => {
+                    const preloader = document.getElementById('preloader');
+
+                    if (!preloader) {
+                        console.error('Не найден элемент с id = preloader');
+
+                        return;
+                    }
+
+                    const PRELOADER_TIMEOUT_ANIMATION = 300;
+                    const PRELOADER_TIMEOUT_HIDE = 1000;
+
+                    setTimeout(() => {
+                        preloader.classList.add('animate');
+
+                        setTimeout(() => {
+                            preloader.classList.add('hidden');
+
+                            preloader.addEventListener('transitionend', event => {
+                                event.target.remove();
+
+                                const skipToMainContent = document.getElementById('skip-to-main-content');
+
+                                skipToMainContent?.removeAttribute('hidden');
+                            });
+                        }, PRELOADER_TIMEOUT_HIDE);
+                    }, PRELOADER_TIMEOUT_ANIMATION);
+                },
+                {
+                    passive: true,
+                }
+            );
+        </script>
+
+        <style>
+            :root {
+                --color-blue-50: oklch(0.4 0.26 264);
+                --color-blue-100: oklch(0.97 0.03 280);
+
+                --color-black-50: oklch(0.13 0 0);
+                --color-black-100: oklch(0.235 0 0);
+
+                --color-gray-50: oklch(0.43 0.01 270);
+                --color-gray-100: oklch(0.54 0.02 260);
+                --color-gray-150: oklch(0.95 0.01 280);
+                --color-gray-200: oklch(0.9099 0.0149 286.1);
+
+                --font-inter: 'Inter', 'sans-serif';
+
+                @supports (font-variation-settings: normal) {
+                    --font-inter: 'Inter Variable', 'sans-serif';
+                }
+
+                --font-feature-settings: normal;
+                --default-font-feature-settings: 'liga' 1, 'calt' 1;
+
+                --transition-duration: 0.25s;
+
+                --breakpoint-xs: 340px;
+
+                @media screen and (width >= 48rem) {
+                    --cursor-default: url('/images/icons/cursor.svg') 16 12, default;
+                    --cursor-pointer: url('/images/icons/pointer.svg') 13 12, pointer;
+                    --cursor-grab: url('/images/icons/grab.svg') 13 12, grab;
+                    --cursor-grabbing: url('/images/icons/grabbing.svg') 13 12, grabbing;
+                }
+            }
+
+            *,
+            ::after,
+            ::before,
+            ::backdrop,
+            ::file-selector-button {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                overflow-y: scroll;
+            }
+
+            :where(h1) {
+                font-size: var(--text-2xl);
+
+                @media (width <= 48rem) {
+                    font-size: var(--text-md);
+                }
+            }
+
+            .preloader {
+                position: fixed;
+                width: 100vw;
+                height: 100dvh;
+                z-index: 3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                opacity: 1;
+                transition: opacity 1s ease;
+
+                @media (prefers-color-scheme: light) {
+                    background-color: white;
+                }
+
+                @media (prefers-color-scheme: dark) {
+                    background-color: var(--color-black-50, oklch(0.13 0 0));
+                }
+
+                &.animate {
+                    svg {
+                        border-color: var(--color-blue-50, oklch(0.97 0.03 280));
+                    }
+
+                    circle {
+                        cx: 40px;
+                        fill: var(--color-blue-50, oklch(0.97 0.03 280));
+                    }
+                }
+
+                &.hidden {
+                    opacity: 0;
+                }
+
+                svg {
+                    min-width: 56px;
+                    min-height: 26px;
+                    border-radius: 12px;
+                    border-width: 3px;
+                    border-style: solid;
+                    border-color: var(--color-gray-50, oklch(0.54 0.02 260));
+                    transition: border-color 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+                }
+
+                circle {
+                    fill: var(--color-gray-50, oklch(0.54 0.02 260));
+                    transition-property: cx, fill;
+                    transition: 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+                }
+            }
+
+            noscript {
+                .promo {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    object-fit: contain;
+                    padding: 24px;
+                }
+            }
+        </style>
+
+        <link rel="dns-prefetch" href="https://rusakov-tech.github.io/portfolio/" />
+        <link rel="prefetch" href="https://rusakov-tech.github.io/portfolio/" />
+        <link rel="prerender" href="https://rusakov-tech.github.io/portfolio/" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ProfilePage",
+                "name": "Денис Русаков",
+                "url": "https://rusakov-tech.github.io/portfolio/",
+                "description": "Привет, меня зовут Денис, Frontend Team Lead, создаю интерфейсы, которые нравятся и запоминаются.",
+                "image": "https://rusakov-tech.github.io/portfolio/images/promo.png",
+                "mainEntity": {
+                    "@type": "Person",
+                    "name": "Денис Русаков",
+                    "alternateName": "Denis Rusakov",
+                    "jobTitle": "Frontend Team Lead",
+                    "url": "https://rusakov-tech.github.io/portfolio/",
+                    "image": "https://rusakov-tech.github.io/portfolio/images/promo.png",
+                    "worksFor": {
+                        "@type": "Organization",
+                        "name": "Портфолио"
+                    },
+                    "sameAs": ["mailto:rusakov.denis.a@yandex.ru", "https://t.me/rusakov_denis_a/"]
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Денис Русаков",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://rusakov-tech.github.io/portfolio/images/logos/logo.png"
+                    }
+                }
+            }
+        </script>
+
+        <meta name="robots" content="index, follow" />
+        <meta
+            name="description"
+            content="Привет, меня зовут Денис, Frontend Team Lead, создаю интерфейсы, которые нравятся и запоминаются."
+        />
+        <meta
+            name="keywords"
+            content="Денис Русаков, Denis Rusakov, Frontend Team Lead, тимлид, программист, разработка, frontend, фронтенд, портфолио"
+        />
+        <meta name="title" content="Денис Русаков" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="#3316e9" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)" />
+        <meta name="application-name" content="Денис Русаков" />
+        <meta name="subject" content="Портфолио" />
+        <meta name="rating" content="General" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta property="article:author" content="Денис Русаков" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Денис Русаков" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+
+        <meta property="og:url" content="https://rusakov-tech.github.io/portfolio/" />
+        <meta property="og:title" content="Денис Русаков" />
+        <meta property="og:site_name" content="Портфолио" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta
+            property="og:description"
+            content="Привет, меня зовут Денис, Frontend Team Lead, создаю интерфейсы, которые нравятся и запоминаются."
+        />
+        <meta property="og:image" content="/images/promo.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Денис Русаков" />
+        <meta name="twitter:image" content="/images/promo.png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
+
+        <link rel="me" href="https://rusakov-tech.github.io/portfolio/" />
+        <link rel="me" href="mailto:rusakov.denis.a@yandex.ru" />
+
+        <link rel="canonical" href="https://rusakov-tech.github.io/portfolio/" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+
+        <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon" />
+        <link rel="icon" type="image/svg+xml" href="/any.svg" />
+        <link rel="icon" type="image/png" href="/icon_96x96.png" sizes="96x96" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple_touch_icon.png" />
+    </head>
+    <body>
+        <div class="preloader" id="preloader">
+            <svg width="56" height="26">
+                <circle r="8" cx="10" cy="10" />
+            </svg>
+            <noscript>
+                <img class="promo" draggable="false" src="/images/promo.png" width="1200" height="630" alt="Промо" />
+            </noscript>
+        </div>
+        <p hidden id="skip-to-main-content" class="bg-primary text-center text-white">
+            <a
+                class="m-2 inline-block underline not-active:not-focus-visible:absolute not-active:not-focus-visible:[clip-path:inset(50%)]"
+                href="#cases"
+                >Перейти к&nbsp;основному содержанию</a
+            >
+        </p>
+        <header
+            id="header"
+            class="has:[&>div.expanded]:rounded-[0_0_12px_12px] fixed bottom-4 left-1/2 z-2 mx-auto flex -translate-x-1/2 items-center justify-center rounded-xl bg-white p-2 transition-[padding] md:p-4 dark:bg-[oklch(0.2367_0.0076_285.81)] [&.expanded]:px-5 md:[&.expanded]:px-14"
+        >
+            <button id="btn-top" class="btn-top" type="button" aria-label="Перейти к началу страницы">
+                <svg viewBox="0 0 32 32" data-is-pressing="false">
+                    <rect pathLength="100" x="0" y="0" width="32" height="32" fill="none" rx="24"></rect>
+                </svg>
+                <img
+                    draggable="false"
+                    aria-hidden="true"
+                    src="/images/icons/arrow.svg"
+                    width="32"
+                    height="32"
+                    alt="Иконка стрелки вверх"
+                />
+            </button>
+            <nav class="nav relative flex items-center gap-1 md:gap-3" aria-label="Главная навигация" id="nav">
+                <ul
+                    class="z-2 grid grid-flow-col grid-cols-[85px_85px_85px] items-center gap-1 md:grid-cols-[195px_195px_195px] md:gap-3"
+                >
+                    <li>
+                        <a href="#about_myself">О&nbsp;себе</a>
+                    </li>
+                    <li>
+                        <a href="#cases">Кейсы</a>
+                    </li>
+                    <li>
+                        <a href="#contacts">Контакты</a>
+                    </li>
+                </ul>
+                <div
+                    id="nav-indicator"
+                    class="pointer-events-none absolute top-0 z-1 rounded-[20px] bg-secondary opacity-0 transition-all duration-300 ease-in-out dark:bg-primary"
+                ></div>
+            </nav>
+        </header>
+        <div class="z-1 grid h-full min-h-screen w-full gap-12 pt-12 md:gap-24 md:pt-40 md:pb-0">
+            <section>
+                <div class="container-md">
+                    <div
+                        class="flex flex-col items-center justify-start"
+                        itemscope
+                        itemtype="https://schema.org/Person"
+                    >
+                        <p class="text-2xl md:text-4xl">кодинг &amp;&nbsp;вайб</p>
+                        <h1 class="text-center">Денис, разработчик, тимлид</h1>
+                        <img
+                            itemprop="image"
+                            draggable="false"
+                            class="relative mt-8 h-56.25 w-37.5 rounded-xl object-cover md:h-93.75 md:w-62.5"
+                            src="/images/photo-lg.jpg"
+                            alt="Фотография"
+                            fetchpriority="high"
+                            width="250"
+                            height="375"
+                            srcset="/images/photo-md.jpg 320w, /images/photo-lg.jpg 800w"
+                            sizes="
+                                (max-width: 768px) 150px,
+                                (min-width: 769px) and (max-width: 1024px) 250px, 375px"
+                        />
+                        <p class="mt-12 text-xl md:mt-16 md:text-[40px]" itemprop="description">
+                            лично верстаю и&nbsp;проектирую сервисы, которые помогают бизнесу достигать целей
+                            с&nbsp;помощью довольных пользователей
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="mt-6 overflow-hidden md:mt-0" id="about_myself" data-scroll="start">
+                <div class="container-md">
+                    <h2>О себе</h2>
+                    <div class="mt-4 grid gap-4">
+                        <div class="flex flex-col items-start gap-2 text-xl md:text-3xl">
+                            <p>frontend team lead</p>
+                            <p>создаю понятные интерфейсы, которые нравятся и&nbsp;запоминаются</p>
+                            <p>разрабатываю сервисы и&nbsp;ориентирую на&nbsp;улучшение клиентского опыта</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="achievements splide relative mx-auto mt-12 flex w-full items-center overflow-hidden"
+                    id="achievements"
+                    data-state="grab"
+                    aria-label="Достижения"
+                >
+                    <div class="splide__track py-1">
+                        <div class="splide__list">
+                            <article data-achievement aria-label="1321" class="achievement splide__slide">
+                                <div class="bg-[oklch(0.2077_0.0398_265.75)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/logos/tw.svg"
+                                            alt="TailwindCSS Попутный ветер перемен"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-white">TailwindCSS</h3>
+                                    <p class="text-middle-gray">
+                                        Лично выступил с&nbsp;презентацией &laquo;TailwindCSS: попутный ветер
+                                        перемен&raquo;
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="/portfolio/docs/tw/index.html"
+                                        aria-label="Перейти на страницу презентации про TailwindCSS"
+                                    >
+                                        <img
+                                            src="/images/icons/link.svg"
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            alt="Стрелочка"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            aria-hidden="true"
+                                            draggable="false"
+                                            src="/images/logos/doka.svg"
+                                            alt="Логотип Доки"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Дока</h3>
+                                    <p class="text-middle-gray">
+                                        Написал статьи по&nbsp;фронтенд разработке, включая разбор CSS-псевдоэлемента
+                                        ::selection
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://doka.guide/css/selection/"
+                                        aria-label="Перейти на сайт проекта Дока"
+                                    >
+                                        <img
+                                            src="/images/icons/link.svg"
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            alt="Стрелочка"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/icons/comment.svg"
+                                            alt="Иконка для аутстаффа"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Аутстафф</h3>
+                                    <p class="text-center text-middle-gray">
+                                        Провёл технические собеседования для подбора специалистов в&nbsp;команды.
+                                    </p>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            class="h-16 w-16 md:h-22 md:w-22"
+                                            src="/images/logos/strapi.svg"
+                                            alt="Логотип Strapi"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-white">Strapi</h3>
+                                    <p class="text-middle-gray">
+                                        Принял участие в&nbsp;развитии open-source проекта Strapi, закрывая issues
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://strapi.io/"
+                                        aria-label="Перейти на сайт Strapi"
+                                    >
+                                        <img
+                                            src="/images/icons/link.svg"
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            alt="Стрелочка"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <img
+                                            draggable="false"
+                                            src="/images/logos/vue.svg"
+                                            alt="Логотип Vue.js"
+                                            width="150"
+                                            height="150"
+                                        />
+                                        <img
+                                            draggable="false"
+                                            src="/images/logos/bitrix.svg"
+                                            alt="Логотип Bitrix"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Vue.js и Bitrix Framework</h3>
+                                    <p class="text-middle-gray">
+                                        Сдал экзамен и&nbsp;получил сертификат по&nbsp;Vue.js и&nbsp;Bitrix Framework.
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=176&INDEX=Y/"
+                                        aria-label="Перейти на страницу экзамена Vue.js и Bitrix Framework"
+                                    >
+                                        <img
+                                            src="/images/icons/link.svg"
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            alt="Иконка стрелочки"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <img
+                                            draggable="false"
+                                            src="/images/logos/tilda.svg"
+                                            alt="Логотип Tilda"
+                                            width="150"
+                                            height="150"
+                                        />
+                                        <img
+                                            draggable="false"
+                                            src="/images/logos/nodejs.svg"
+                                            alt="Логотип Node.js"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Tilda + Node.js</h3>
+                                    <p class="text-middle-gray">
+                                        Автоматизировал формирование структуры HTML-страниц из&nbsp;Tilda с&nbsp;помощью
+                                        скрипта на&nbsp;Node.js
+                                    </p>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/logos/stepik.svg"
+                                            alt="Логотип Stepik"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Wordpress</h3>
+                                    <p class="text-middle-gray">
+                                        Сдал экзамен &laquo;Сайт на&nbsp;WordPress: вёрстка и&nbsp;перенос
+                                        на&nbsp;CMS&raquo;
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://stepik.org/course/113393/promo/"
+                                        aria-label="Перейти на страницу экзамена по Wordpress"
+                                    >
+                                        <img
+                                            src="/images/icons/link.svg"
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            alt="Стрелочка"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/icons/coding_apps_websites_favorite_rate.svg"
+                                            alt="Иконка для менторинга"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Менторство</h3>
+                                    <p class="text-middle-gray">
+                                        Был ментором у 5&nbsp;сотрудников, сократив время онбординга новых разработчиков
+                                        с&nbsp;4&nbsp;до&nbsp;2&nbsp;недель
+                                    </p>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/icons/interface-essential-translate.svg"
+                                            alt="Иконка"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">1-ту-1</h3>
+                                    <p class="text-middle-gray">
+                                        Провёл 1-ту-1 и&nbsp;давал обратную связь, помогая ребятам развиваться
+                                        и&nbsp;поддерживать уровень вовлечённости
+                                    </p>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/icons/interface_essential_file_error.svg"
+                                            alt="Иконка"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Управление проектом</h3>
+                                    <p class="text-middle-gray">
+                                        Перевёл бизнес-цели в&nbsp;задачи для фронтенд-команды, выстраивал проекты
+                                        от&nbsp;постановки целей до&nbsp;ретроспективы, удерживая сроки и&nbsp;качество
+                                    </p>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/icons/flag.svg"
+                                            alt="Иконка"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Управление командой</h3>
+                                    <p class="text-middle-gray">
+                                        Управлял рисками, декомпозировал и&nbsp;делегировал задачи, выстраивал процессы
+                                        в распределённой среде
+                                    </p>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/logos/figma.svg"
+                                            alt="Иконка для документации"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">Документация</h3>
+                                    <p class="text-middle-gray">
+                                        Разработал и&nbsp;внедрил стандарты взаимодействия разработчиков
+                                        с&nbsp;дизайнерами, снизив количество правок на&nbsp;25%
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="/portfolio/docs/designers.pdf"
+                                        aria-label="Открыть документацию"
+                                    >
+                                        <img
+                                            src="/images/icons/link.svg"
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            alt="Стрелочка"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-white dark:bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            draggable="false"
+                                            src="/images/logos/frontend_conf.svg"
+                                            alt="Логотип конференции FrontendConf"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-black dark:text-white">FrontendConf</h3>
+                                    <p class="text-middle-gray">
+                                        Посетил FrontendConf 2023, где получил новые знания по&nbsp;оптимизации
+                                        фронтенда, внедрил полезные практики в&nbsp;проекты и&nbsp;расширил
+                                        профессиональные контакты
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://frontendconf.ru/moscow/2023/"
+                                        aria-label="Перейти на страницу конференции FrontendConf 2023"
+                                    >
+                                        <img
+                                            src="/images/icons/link.svg"
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            alt="Стрелочка"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
+                                </div>
+                            </article>
+                            <article data-achievement class="achievement splide__slide">
+                                <div class="bg-[oklch(0.235_0_0)]">
+                                    <div>
+                                        <img
+                                            aria-hidden="true"
+                                            draggable="false"
+                                            src="/images/logos/code_run.svg"
+                                            alt="Логотип CodeRun"
+                                            width="150"
+                                            height="150"
+                                        />
+                                    </div>
+                                    <h3 class="text-white">CodeRun</h3>
+                                    <p class="text-middle-gray">
+                                        Занял 33-е место во&nbsp;втором сезоне в&nbsp;треке &laquo;Фронтенд&raquo;
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://coderun.yandex.ru/"
+                                        aria-label="Перейти на сайт проекта CodeRun"
+                                    >
+                                        <img
+                                            draggable="false"
+                                            aria-hidden="true"
+                                            src="/images/icons/link.svg"
+                                            alt="Иконка стрелочки"
+                                            width="24"
+                                            height="24"
+                                        />
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <main id="cases" class="cases @container/cases" data-scroll="start">
+                <div class="container-md">
+                    <h2
+                        class="relative inline-block w-auto after:absolute after:top-0 after:-right-5 after:text-xs after:content-['52'] sm:after:text-sm"
+                    >
+                        Кейсы
+                    </h2>
+                    <div class="mt-4 flex flex-col items-center gap-8 md:gap-12">
+                        <article class="case" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Telegram-бот</h3>
+                                <p>
+                                    Бот нуждался в&nbsp;поддержке нескольких языков. Доработал архитектуру локализации
+                                    на&nbsp;React, реализовал динамическое переключение языков и&nbsp;адаптировал
+                                    интерфейс. Пользователи получили удобный мультиязычный опыт, что повысило
+                                    вовлечённость
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case" data-case>
+                            <div>
+                                <img
+                                    draggable="false"
+                                    class="rounded-xl object-cover md:h-97.5"
+                                    src="/images/cases/ncode.jpg"
+                                    alt="Ncode команда"
+                                    width="698"
+                                    height="390"
+                                />
+                                <h3>Ncode</h3>
+                                <p>
+                                    Команде разработчиков требовался представительский сайт. Сверстал проект
+                                    на&nbsp;Vite, HTML, TailwindCSS и&nbsp;TypeScript с&nbsp;модульной архитектурой.
+                                    Время загрузки&nbsp;&mdash; менее 5&nbsp;секунд, код удобен для расширения
+                                </p>
+                                <a
+                                    class="link"
+                                    href="https://ncode.dev/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Перейти на страницу проекта Ncode"
+                                    >Ссылка</a
+                                >
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт на&nbsp;Tilda</h3>
+                                <p>
+                                    Клиенту нужно было визуализировать точки на&nbsp;карте. Интегрировал
+                                    API&nbsp;Яндекс.Карт и&nbsp;разработал сайдбар с&nbsp;поиском по&nbsp;меткам.
+                                    Пользователи стали находить нужные места в&nbsp;разы быстрее
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт для музыкальной группы</h3>
+                                <p>
+                                    Группе требовался сайт с&nbsp;возможностью самостоятельного обновления. Создал
+                                    проект на&nbsp;WordPress с&nbsp;интуитивной админ-панелью. Клиент управляет
+                                    контентом без привлечения разработчика
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сервис по&nbsp;Trade-In</h3>
+                                <p>
+                                    Бизнесу требовалось принимать заявки на&nbsp;Trade-In онлайн. Разработал сервис
+                                    на&nbsp;HTML, PostCSS и&nbsp;JavaScript с&nbsp;автоматической обработкой форм.
+                                    Время обработки заявок сократилось, нагрузка на&nbsp;менеджеров снизилась
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <img
+                                    draggable="false"
+                                    class="rounded-xl object-cover md:h-97.5"
+                                    src="/images/cases/doubleb.jpg"
+                                    alt="DoubleB кофейня"
+                                    width="698"
+                                    height="390"
+                                />
+                                <h3>Даблби</h3>
+                                <p>
+                                    Кофейне нужен был инструмент для вовлечения гостей. Спроектировал и&nbsp;реализовал
+                                    интерактивный квиз с&nbsp;промокодами на&nbsp;чистом JavaScript с&nbsp;анимациями.
+                                    Вовлечённость посетителей заметно выросла
+                                </p>
+                                <a
+                                    class="link"
+                                    href="https://doubleb-coffee.github.io/quiz/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Перейти на страницу проекта Даблби"
+                                    >Ссылка</a
+                                >
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Талантливая молодёжь МГУ</h3>
+                                <p>
+                                    Университету требовался сайт для презентации программ. Разработал проект
+                                    на&nbsp;1С-Битрикс с&nbsp;продуманной навигацией и&nbsp;современным дизайном.
+                                    Студенты получили удобный доступ к&nbsp;информации о&nbsp;программах
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт для салона красоты</h3>
+                                <p>
+                                    Салону нужна была онлайн-запись. Разработал сервис для оформления услуг
+                                    с&nbsp;удобным интерфейсом. Управление записью клиентов упростилось, нагрузка
+                                    на&nbsp;администратора снизилась
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Образовательная платформа</h3>
+                                <p>
+                                    Пользователи испытывали сложности с&nbsp;навигацией по&nbsp;платформе. Переработал
+                                    интерфейс, упростив ключевые сценарии взаимодействия. Скорость работы
+                                    с&nbsp;сервисом увеличилась, жалобы на&nbsp;UX сократились
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт для экологического консалтинга</h3>
+                                <p>
+                                    Компании требовалось онлайн-присутствие для привлечения клиентов. Разработал
+                                    Landing&nbsp;Page с&nbsp;фокусом на&nbsp;конверсию и&nbsp;ясную подачу услуг.
+                                    Бизнес получил рабочий канал привлечения клиентов из&nbsp;интернета
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Корпоративный сайт с&nbsp;вакансиями</h3>
+                                <p>
+                                    HR тратил часы на&nbsp;ручное обновление вакансий. Автоматизировал заполнение через
+                                    HeadHunter&nbsp;API на&nbsp;TypeScript с&nbsp;использованием Strapi. Затраты&nbsp;HR
+                                    сократились на&nbsp;5&nbsp;часов в&nbsp;неделю
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Корпоративная база знаний</h3>
+                                <p>
+                                    В&nbsp;компании отсутствовала единая база знаний, онбординг занимал 2&nbsp;недели.
+                                    Развернул Outline, доработал тегирование документов через Sequelize&nbsp;ORM.
+                                    Онбординг сократился до&nbsp;1&nbsp;недели
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт по&nbsp;конвертации файлов</h3>
+                                <p>
+                                    Функционал конвертации был зашит в&nbsp;legacy-проект и&nbsp;не&nbsp;переиспользовался.
+                                    Вынес его в&nbsp;отдельный пакет с&nbsp;помощью Rollup. Пакет стал доступен
+                                    в&nbsp;нескольких репозиториях, ускорив разработку
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Демостенд</h3>
+                                <p>
+                                    Требовался интерфейс для расшифровки AI-аудиозаписей в&nbsp;реальном времени.
+                                    Разработал демостенд на&nbsp;Next.js с&nbsp;PostCSS, используя preact/signals для
+                                    стриминга текста. Пользователи видят расшифровку мгновенно по&nbsp;мере
+                                    её&nbsp;генерации
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт конвертации PDF-файлов</h3>
+                                <p>
+                                    Сайт с&nbsp;MobX показывал низкие баллы PageSpeed, что снижало доход с&nbsp;рекламы.
+                                    Рефакторил проект на&nbsp;Next.js App&nbsp;Router с&nbsp;SSR. Время загрузки
+                                    сократилось на&nbsp;25%, доход с&nbsp;рекламы вырос
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Интернет-магазин кофе</h3>
+                                <p>
+                                    Клиенту нужен был сайт для онлайн-продажи кофе и&nbsp;сопутствующих товаров.
+                                    Разработал интернет-магазин с&nbsp;использованием Webpack и&nbsp;удобным каталогом.
+                                    Клиент получил возможность самостоятельно управлять ассортиментом и&nbsp;продажами
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Внутренний модуль в&nbsp;Битрикс24</h3>
+                                <p>
+                                    Бизнес-процессы в&nbsp;Битрикс24 работали медленно из-за устаревшего модуля.
+                                    Разработал новый сервис на&nbsp;Ember.js. Скорость обработки запросов выросла
+                                    на&nbsp;30%
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Интернет-магазин светильников</h3>
+                                <p>
+                                    Магазин нуждался в&nbsp;обновлении дизайна и&nbsp;автоматизации закупок. Обновил
+                                    интерфейс на&nbsp;1С-Битрикс, внедрил автоимпорт товаров от&nbsp;поставщика
+                                    и&nbsp;маркетинговые инструменты. Юзабилити улучшилось, ассортимент обновляется
+                                    автоматически
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт рыбного ресторана</h3>
+                                <p>
+                                    Ресторану требовался сайт с&nbsp;привлекательным дизайном и&nbsp;удобной навигацией
+                                    по&nbsp;меню. Разработал одностраничник с&nbsp;адаптивной вёрсткой
+                                    и&nbsp;визуальными акцентами. Гости получили удобный доступ к&nbsp;меню с&nbsp;любого
+                                    устройства
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт для конструкторского бюро</h3>
+                                <p>
+                                    Бюро нужно было представить большой объём данных в&nbsp;сжатые сроки.
+                                    Спроектировал навигацию, кастомизировал шаблон под фирменный стиль и&nbsp;обеспечил
+                                    адаптив. Проект сдан в&nbsp;срок с&nbsp;удобной структурой для пользователей
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Интернет-магазин одежды</h3>
+                                <p>
+                                    Бренду требовался современный интернет-магазин. Реализовал лаконичный интерфейс
+                                    с&nbsp;интуитивной навигацией и&nbsp;адаптивной вёрсткой. Каталог корректно
+                                    отображается на&nbsp;всех устройствах, покупатели быстрее находят нужные товары
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Интернет-магазин товаров для дома и&nbsp;дачи</h3>
+                                <p>
+                                    Клиенту нужен был интернет-магазин с&nbsp;ограниченным бюджетом. Предложил решение
+                                    на&nbsp;базе 1С-Битрикс, существенно сократив сроки разработки. Магазин запущен
+                                    быстрее и&nbsp;дешевле исходного плана
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Интернет-магазин оборудования учёта</h3>
+                                <p>
+                                    Компании нужен был современный магазин с&nbsp;интеграцией учётной системы.
+                                    Разработал адаптивный интернет-магазин с&nbsp;автообменом данных через
+                                    1С:Предприятие. Ассортимент и&nbsp;заказы синхронизируются автоматически
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Модернизация и&nbsp;интеграции сайта школы</h3>
+                                <p>
+                                    Сайт школы устарел: неудобные формы, отсутствие ЛК, низкая скорость. Переработал
+                                    формы заявок, создал личный кабинет, добавил страницы на&nbsp;React, Webpack, Sass
+                                    и&nbsp;1С-Битрикс. Скорость работы выросла, пользовательский опыт улучшился,
+                                    администрирование упростилось
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Личный кабинет продавца продуктов</h3>
+                                <p>
+                                    Продавцам требовался удобный инструмент для работы с&nbsp;продуктами. Разработал
+                                    новый ЛК на&nbsp;микрофронтенд-архитектуре с&nbsp;паттерном BFF
+                                    и&nbsp;14&nbsp;интеграциями. Работа с&nbsp;продуктами стала быстрее и&nbsp;проще
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Система управления грейдами</h3>
+                                <p>
+                                    Модуль управления грейдами внутри Bitrix24 нуждался в&nbsp;рефакторинге.
+                                    Переработал архитектуру в&nbsp;сфере HRTech, оптимизировал процессы оценки
+                                    и&nbsp;продвижения. Автоматизация грейдирования сократила ручную работу HR
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>ИИ-платформа диагностики пациентов</h3>
+                                <p>
+                                    Требовалась платформа для проведения конкурсов и&nbsp;обучения ИИ-систем
+                                    диагностики. Разработал высоконагруженную платформу и&nbsp;создал уникальные
+                                    датасеты. ИИ-системы получили качественные данные для обучения первичной диагностики
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Интернет-магазин косметики</h3>
+                                <p>
+                                    Бренду косметики нужен был удобный интернет-магазин. Разработал на&nbsp;Bitrix
+                                    с&nbsp;фильтрами по&nbsp;категориям, подборками и&nbsp;рекомендациями товаров.
+                                    Покупатели стали быстрее находить нужную продукцию
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт производителя теплооборудования</h3>
+                                <p>
+                                    Производителю нужен был корпоративный сайт для привлечения клиентов. Разработал
+                                    проект на&nbsp;Bitrix с&nbsp;каталогом продукции и&nbsp;формами заявок. Компания
+                                    получила рабочий канал привлечения клиентов из&nbsp;интернета
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт развлекательного комплекса</h3>
+                                <p>
+                                    Комплексу требовался современный сайт для привлечения посетителей. Разработал
+                                    проект на&nbsp;Bitrix с&nbsp;адаптивной вёрсткой и&nbsp;актуальным дизайном.
+                                    Посетители получили удобный доступ к&nbsp;информации с&nbsp;любого устройства
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт по&nbsp;продаже автомобильных весов</h3>
+                                <p>
+                                    Производителю автомобильных весов нужен был корпоративный сайт. Разработал проект
+                                    на&nbsp;Bitrix с&nbsp;каталогом и&nbsp;описанием продукции. Клиенты получили
+                                    возможность выбирать оборудование онлайн
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт для оптики</h3>
+                                <p>
+                                    Сети оптик требовался интернет-магазин и&nbsp;корпоративный сайт. Разработал
+                                    комплексное решение на&nbsp;Bitrix с&nbsp;каталогом и&nbsp;онлайн-заказом.
+                                    Клиенты получили возможность выбирать и&nbsp;заказывать оптику онлайн
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Интернет-магазин техники</h3>
+                                <p>
+                                    Компании нужен был магазин для оптовой и&nbsp;розничной продажи техники. Разработал
+                                    интернет-магазин на&nbsp;Bitrix с&nbsp;разделением по&nbsp;типам покупателей. Обе
+                                    категории клиентов получили удобный интерфейс покупки
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Внутренний портал</h3>
+                                <p>
+                                    Внутренний портал тормозил из-за устаревшего кода. Модернизировал архитектуру
+                                    с&nbsp;учётом требований к&nbsp;оперативности. Скорость работы портала выросла,
+                                    сотрудники стали тратить меньше времени на&nbsp;рутину
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Мультиязычный сайт для агрохолдинга</h3>
+                                <p>
+                                    Агрохолдингу требовался многоязычный сайт для международных партнёров. Разработал
+                                    корпоративный сайт на&nbsp;русском и&nbsp;английском с&nbsp;лендингами
+                                    на&nbsp;китайском и&nbsp;арабском. Компания вышла на&nbsp;международные рынки
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Модернизация и&nbsp;мониторинг сайта</h3>
+                                <p>
+                                    Сайт нуждался в&nbsp;модернизации и&nbsp;мониторинге ошибок. Провёл обновление
+                                    на&nbsp;React и&nbsp;внедрил Sentry для отслеживания сбоев. Стабильность выросла,
+                                    время реакции на&nbsp;баги сократилось
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сеть магазинов замков</h3>
+                                <p>
+                                    Сети магазинов требовался интернет-магазин с&nbsp;отображением филиалов на&nbsp;карте.
+                                    Разработал на&nbsp;Bitrix с&nbsp;интеграцией Яндекс.Карт и&nbsp;оптимизацией
+                                    производительности. Клиенты легко находят ближайший магазин
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт стоматологической клиники</h3>
+                                <p>
+                                    Клинике нужен был сайт с&nbsp;онлайн-записью на&nbsp;услуги. Разработал проект
+                                    на&nbsp;Bitrix с&nbsp;каталогом услуг и&nbsp;формами записи. Пациенты записываются
+                                    на&nbsp;приём онлайн, загрузка клиники выросла
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сервисная платформа для дома и&nbsp;ремонта</h3>
+                                <p>
+                                    Пользователям требовался удобный интерфейс для ремонтных задач. Спроектировал
+                                    и&nbsp;внедрил интерфейс платформы на&nbsp;Next.js. Пользователи получили
+                                    интуитивный инструмент для планирования ремонта и&nbsp;благоустройства
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>ML-платформа</h3>
+                                <p>
+                                    Команде требовался производительный интерфейс для ML-платформы. Руководил
+                                    фронтенд-разработкой на&nbsp;Redux и&nbsp;Vite, выстроил масштабируемую архитектуру.
+                                    Интерфейс выдерживает высокие нагрузки и&nbsp;легко расширяется
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>HR&nbsp;Tech платформа</h3>
+                                <p>
+                                    Компании нужна была HR-платформа для взаимодействия сотрудников. Возглавил
+                                    фронтенд-команду, внедрил современные компоненты для удобной работы
+                                    с&nbsp;системой. Сотрудники стали тратить меньше времени на&nbsp;рутинные
+                                    HR-процессы
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Платформа благотворительности</h3>
+                                <p>
+                                    Требовался интерфейс для платформы помощи и&nbsp;обучения. Как фронтенд-лид
+                                    разработал интерфейс, объединивший функции помощи, получения помощи
+                                    и&nbsp;обучения. Люди получили единую точку входа для благотворительности
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Цифровые сервисы банка</h3>
+                                <p>
+                                    Банку требовались цифровые сервисы с&nbsp;высокими требованиями к&nbsp;безопасности.
+                                    Руководил фронтенд-разработкой: создал интерфейс онлайн-операций, интегрировал
+                                    защищённые формы и&nbsp;панели управления. Клиенты получили безопасный
+                                    и&nbsp;удобный онлайн-банк
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт digital агентства</h3>
+                                <p>
+                                    Агентству нужен был современный сайт с&nbsp;обратной связью. Возглавил
+                                    фронтенд-разработку, оптимизировал интерфейс и&nbsp;внедрил адаптивный дизайн.
+                                    Конверсия заявок выросла благодаря удобным формам обратной связи
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>B2B-платформа с&nbsp;админкой</h3>
+                                <p>
+                                    Бизнесу требовалась B2B-платформа с&nbsp;админкой. Спроектировал интерфейс для
+                                    корпоративных клиентов, интегрировал каталог и&nbsp;автоматизацию заказов.
+                                    Менеджеры тратят меньше времени на&nbsp;обработку заказов
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт стратегических решений в&nbsp;бизнесе</h3>
+                                <p>
+                                    Требовался сайт для продвижения цифровых решений для МСБ. Разработал платформу
+                                    с&nbsp;инструментами регистрации и&nbsp;партнёрской программой.
+                                    За&nbsp;6&nbsp;месяцев: 200+&nbsp;предпринимателей, +250%&nbsp;регистраций,
+                                    охват 15&nbsp;регионов
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Корпоративный портал для фармкомпании</h3>
+                                <p>
+                                    Фармкомпании требовался портал для внутренних коммуникаций. Разработал проект
+                                    на&nbsp;Next.js с&nbsp;интерактивными HR-инструментами. Внутренние коммуникации
+                                    упростились, сотрудники получили единую точку доступа
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>B2C-сервис производителя масел</h3>
+                                <p>
+                                    Производителю масел нужно было расширить функционал сайта. Поддерживал проект
+                                    на&nbsp;Vue.js, завёл новые страницы и&nbsp;доработал личный кабинет.
+                                    Функционал ЛК расширен, пользователи получили новые возможности
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Аналитическая платформа</h3>
+                                <p>
+                                    Проект решал социально-экономические задачи регионов через data-driven подходы.
+                                    Создал новые страницы на&nbsp;Vue.js и&nbsp;поддержал существующие на&nbsp;Tilda.
+                                    Регионы получили инструмент для аналитики и&nbsp;принятия решений
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт производителя оборудования</h3>
+                                <p>
+                                    Производителю нужен был сайт для презентации продукции и&nbsp;работы
+                                    с&nbsp;клиентами. Создал современный корпоративный сайт с&nbsp;каталогом
+                                    и&nbsp;формами обратной связи. Взаимодействие с&nbsp;потенциальными клиентами
+                                    упростилось
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сеть медицинских центров</h3>
+                                <p>
+                                    Пациентам важен непрерывный доступ к&nbsp;информации и&nbsp;записи. Обеспечил
+                                    стабильную поддержку сайта, устранял сбои и&nbsp;обновлял контент. Пациенты
+                                    без&nbsp;препятствий записываются на&nbsp;приём и&nbsp;получают информацию
+                                    об&nbsp;услугах
+                                </p>
+                            </div>
+                        </article>
+                        <article class="case hidden" data-case>
+                            <div>
+                                <div class="placeholder-nda">
+                                    <img
+                                        draggable="false"
+                                        src="/images/icons/internet_network_cloud_error.svg"
+                                        alt="Заглушка кейса под NDA"
+                                        width="120"
+                                        height="120"
+                                    />
+                                </div>
+                                <h3>Сайт по&nbsp;продаже недвижимости</h3>
+                                <p>
+                                    Компании нужно было расширить функционал сайта недвижимости. Разработал каталог
+                                    на&nbsp;Next.js +&nbsp;Strapi с&nbsp;удобной фильтрацией. Клиенты получили
+                                    возможность просматривать объекты и&nbsp;оставлять заявки менеджерам
+                                </p>
+                            </div>
+                        </article>
+                        <button
+                            class="-mt-4 rounded-2xl bg-white px-4 py-2 text-xl transition-[scale] hover:scale-105 hover:cursor-pointer active:scale-95 md:px-10 md:py-5 dark:bg-primary"
+                            id="show-more-cases"
+                            aria-label="Показать ещё кейс"
+                            type="button"
+                        >
+                            <span class="inline-block">Показать ещё кейс</span>
+                        </button>
+                    </div>
+                </div>
+            </main>
+            <section class="contacts" id="contacts" data-scroll="center">
+                <h2 class="sr-only">Контакты</h2>
+                <div class="container-lg">
+                    <div class="flex items-start justify-between font-medium">
+                        <div>
+                            <a
+                                href="https://yandex.ru/maps/39/rostov-na-donu/"
+                                aria-label="Открыть карту г. Ростова-на-Дону"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-sm hover:text-primary xs:text-xl md:text-[40px]"
+                            >
+                                Ростов-на-Дону,<br />
+                                Россия
+                            </a>
+                        </div>
+                        <div>
+                            <ul class="flex flex-col items-end gap-1 text-right md:gap-2">
+                                <li class="flex items-center">
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://rostov.hh.ru/resume/2aa5864eff0d519f590039ed1f685065747867/"
+                                        >резюме</a
+                                    >
+                                    <span class="mt-0.5 px-1 md:mt-2 md:px-2">|</span>
+                                    <a target="_blank" rel="noopener noreferrer" href="/portfolio/docs/cv.pdf">cv</a>
+                                </li>
+                                <li class="flex">
+                                    <a target="_blank" rel="noopener noreferrer" href="https://t.me/rusakov_denis_a/"
+                                        >telegram</a
+                                    >
+                                </li>
+                                <li class="flex">
+                                    <a target="_blank" rel="noopener noreferrer" href="mailto:rusakov.denis.a@yandex.ru"
+                                        >почта</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="pb-28 md:pb-50">
+            <div class="container-lg">
+                <div class="relative">
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 -translate-x-35/10 translate-y-8/10 md:w-[10%]"
+                        src="/images/icons/computers_devices_electronics_mouse.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 translate-x-15/10 translate-y-6/10 md:w-[10%]"
+                        src="/images/icons/internet_network_cloud_error.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 translate-x-22/10 translate-y-5/10 rotate-19 md:w-[10%] md:translate-x-26/10"
+                        src="/images/icons/hand_gesture_finger_click.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 translate-x-18/10 -translate-y-5/10 -rotate-22 md:w-[10%] md:translate-x-16/10"
+                        src="/images/icons/computer_old_electronics.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 -translate-x-16/10 translate-y-7/10 md:w-[10%]"
+                        src="/images/icons/business_product_startup.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 translate-x-8/10 -translate-y-2/10 md:w-[8%]"
+                        src="/images/icons/hand_love_sign.svg"
+                        alt="Иконка"
+                        width="120"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 -translate-x-18/10 -translate-y-6/10 md:w-[8%]"
+                        src="/images/icons/streamline_bubble.svg"
+                        alt="Иконка"
+                        width="120"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 translate-x-2/10 -translate-y-15/10 md:w-[10%]"
+                        src="/images/icons/content_files_pencil_ruler.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 -translate-x-5/10 -translate-y-3/10 md:w-[10%]"
+                        src="/images/icons/coding_apps_websites_programming_hold_code.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="absolute top-0 left-1/2 w-12 -translate-x-25/10 translate-y-2/10 -rotate-14 md:w-[10%]"
+                        src="/images/icons/computers_devices_electronics_keyboard.svg"
+                        alt="Иконка"
+                        width="142"
+                        height="142"
+                        aria-hidden="true"
+                    />
+                    <img
+                        draggable="false"
+                        class="mt-12 w-full"
+                        src="/images/surname.svg"
+                        alt="Фамилия"
+                        width="320"
+                        height="120"
+                    />
+                </div>
+            </div>
+        </footer>
+        <div class="bg"></div>
+
+        <script type="module" src="./index.js"></script>
+    </body>
+</html>

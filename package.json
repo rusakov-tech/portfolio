@@ -1,0 +1,45 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Привет, меня зовут Денис, Frontend Team Lead, создаю интерфейсы, которые нравятся и запоминаются.",
+    "keywords": [
+        "web"
+    ],
+    "homepage": "https://rusakov-tech.github.io/portfolio/",
+    "license": "MIT",
+    "author": "Денис Русаков",
+    "type": "module",
+    "files": [
+        "docs"
+    ],
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "format": "prettier . --write",
+        "lint": "eslint .",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@splidejs/splide": "4.1.4"
+    },
+    "devDependencies": {
+        "@eslint/js": "10.0.1",
+        "@tailwindcss/vite": "4.2.1",
+        "eslint": "10.0.3",
+        "eslint-plugin-baseline-js": "0.6.1",
+        "globals": "17.4.0",
+        "prettier": "3.8.1",
+        "prettier-plugin-packagejson": "^3.0.2",
+        "prettier-plugin-tailwindcss": "^0.7.2",
+        "tailwindcss": "4.2.1",
+        "vite": "7.3.1"
+    },
+    "packageManager": "npm@11.11.0",
+    "engines": {
+        "node": "^22",
+        "npm": "^10",
+        "pnpm": "Please use npm instead of pnpm to install dependencies",
+        "yarn": "Please use npm instead of yarn to install dependencies"
+    }
+}

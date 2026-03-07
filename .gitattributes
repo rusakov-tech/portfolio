@@ -1,0 +1,10 @@
+* text=auto
+
+*.js text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+
+*.png binary
+*.jpg binary
+
+*.md linguist-detectable=true
