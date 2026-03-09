@@ -155,7 +155,7 @@
             }
 
             p {
-                @apply mt-2 text-center text-xs opacity-0 transition-opacity md:text-[16px];
+                @apply mt-2 text-center text-xs text-pretty opacity-0 transition-opacity md:text-[16px];
             }
 
             a {
@@ -193,7 +193,11 @@
             }
 
             .placeholder-nda {
-                @apply flex h-50 w-full items-center justify-center rounded-xl bg-white object-cover md:h-97.5 dark:bg-[oklch(0.2367_0.0076_285.81)];
+                @apply flex h-50 w-full flex-col items-center justify-center rounded-xl bg-white object-cover md:h-97.5 dark:bg-[oklch(0.2367_0.0076_285.81)];
+
+                &::after {
+                    @apply text-sm font-bold text-primary content-['NDA'] md:text-xl;
+                }
 
                 img {
                     @apply w-20 md:w-30;

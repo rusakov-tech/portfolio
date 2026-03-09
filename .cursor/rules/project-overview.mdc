@@ -1,0 +1,46 @@
+---
+description: Core project context — portfolio site on vanilla JS + Vite + Tailwind CSS 4
+alwaysApply: true
+---
+
+# Portfolio Project
+
+Personal portfolio — static site deployed to GitHub Pages.
+
+## Stack
+
+- **Language:** JavaScript (ES modules, `'use strict'`)
+- **Build:** Vite 7 (`app/pages` as root)
+- **Styling:** Tailwind CSS 4 (`@import 'tailwindcss'`, `@theme`, `@utility`, `@layer`)
+- **Carousel:** Splide
+- **Lint:** ESLint (flat config) + Prettier
+- **Deploy:** GitHub Actions → GitHub Pages (`/portfolio` base path)
+
+## Path Aliases
+
+| Alias | Resolves to |
+|-------|-------------|
+| `#`   | `src/`      |
+| `@`   | `app/`      |
+
+## Architecture (Atomic Design)
+
+```
+app/
+  atoms/        — small self-contained UI (btn-top, cursor)
+  molecules/    — composed behavior (nav, achievements, cases)
+  pages/        — entry points (index.html, index.js)
+
+src/
+  styles/       — globals.css (Tailwind theme + components)
+  utils/        — pure helpers (is-mobile, theme, etc.)
+```
+
+## Key Conventions
+
+- No framework — vanilla DOM manipulation via `init*()` functions
+- Each module exports a single `initModuleName()` called from `index.js`
+- Event listeners always use `{ passive: true }` where possible
+- Respect `prefers-reduced-motion` for animations/scroll behavior
+- Russian language for user-facing content
+- `public/` holds static assets (images, fonts, documents)

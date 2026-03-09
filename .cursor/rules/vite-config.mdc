@@ -1,0 +1,23 @@
+---
+description: Vite build configuration details
+globs: "vite.config.*"
+alwaysApply: false
+---
+
+# Vite Configuration
+
+- **Root:** `app/pages` (HTML entry point lives there)
+- **Base:** `/portfolio` (GitHub Pages subpath)
+- **Public dir:** `../../public` (relative to root)
+- **Target:** ES6
+- **Output:** `dist/` with `emptyOutDir: true`
+- **Plugins:** `@tailwindcss/vite`
+
+## Path Aliases
+
+```js
+'#' → path.resolve(__dirname, 'src')
+'@' → path.resolve(__dirname, 'app')
+```
+
+When adding new aliases or entry points, update both `vite.config.mjs` and `eslint.config.mjs` if needed.

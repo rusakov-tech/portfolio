@@ -1,0 +1,34 @@
+---
+description: Git commit message format following the project's .gitmessage template
+alwaysApply: true
+---
+
+# Commit Messages
+
+Follow the conventional format from `.gitmessage`:
+
+```
+<type>: <subject>
+
+<body>
+
+<footer>
+```
+
+## Types
+
+| Type       | When |
+|------------|------|
+| `feat`     | New feature or section |
+| `fix`      | Bug fix |
+| `docs`     | Documentation only |
+| `style`    | Formatting, whitespace, CSS (no logic change) |
+| `refactor` | Code restructuring without behavior change |
+| `test`     | Adding or updating tests |
+| `chore`    | Build, tooling, dependencies |
+
+## Rules
+
+- Subject in lowercase, imperative mood, no period
+- Body explains **why**, not what
+- Keep subject under 72 characters

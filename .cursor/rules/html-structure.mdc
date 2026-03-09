@@ -1,0 +1,28 @@
+---
+description: HTML structure and templating conventions
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# HTML Conventions
+
+## Structure
+
+- Single `index.html` serves the entire portfolio
+- `lang="ru"` — all user-facing text in Russian
+- Semantic sections: `<main>`, `<section>`, `<header>`, `<footer>`
+- Sections have `id` attributes for navigation scroll-spy
+- `data-scroll="start|center"` attribute controls scroll-to positioning
+
+## Assets
+
+- Images: `/images/` (icons, logos, cases, screenshots)
+- Fonts: `/fonts/inter/` (regular, semibold, variable)
+- Documents: root of `public/`
+- Base path `/portfolio` in production (Vite `base` config)
+
+## Inline Styles
+
+- Critical CSS for preloader is inlined in `<style>` tag in `<head>`
+- CSS variables for theme colors defined on `:root`
+- Body has `overflow: hidden` until JS removes it (preloader pattern)

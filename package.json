@@ -17,6 +17,7 @@
         "build": "vite build",
         "dev": "vite",
         "format": "prettier . --write",
+        "prelint": "echo '📌 Идёт проверка кода...'",
         "lint": "eslint .",
         "preview": "vite preview"
     },

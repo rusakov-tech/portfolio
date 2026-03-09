@@ -1,0 +1,37 @@
+---
+description: Tailwind CSS 4 styling patterns for the portfolio
+globs: "**/*.css"
+alwaysApply: false
+---
+
+# Tailwind CSS 4
+
+This project uses Tailwind CSS 4 with the new CSS-first configuration.
+
+## Configuration in `globals.css`
+
+- `@import 'tailwindcss'` — no `tailwind.config.js`
+- `@theme { }` — design tokens (colors, fonts, breakpoints, cursors)
+- `@layer base { }` — font-face, global resets, focus styles
+- `@layer components { }` — scoped component styles (.nav, .cases, etc.)
+- `@utility name { }` — custom utilities (container-md, container-lg, link)
+
+## Design Tokens
+
+Semantic colors reference Tailwind palettes via CSS variables:
+
+```css
+--color-primary: var(--color-blue-50);
+--color-black: var(--color-black-50);
+--color-gray: var(--color-gray-50);
+```
+
+Custom breakpoint: `--breakpoint-xs: 340px`
+
+## Patterns
+
+- Use `@apply` for grouping Tailwind classes inside component layers
+- Media queries use `@media (width > --theme(--breakpoint-md))` syntax
+- Dark mode via `dark:` variant and `prefers-color-scheme`
+- Container queries with `@3xl/cases:` syntax for responsive components
+- Transitions always specify the property list explicitly

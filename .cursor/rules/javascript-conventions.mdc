@@ -1,0 +1,46 @@
+---
+description: JavaScript coding conventions for the portfolio project
+globs: "{app,src}/**/*.js"
+alwaysApply: false
+---
+
+# JavaScript Conventions
+
+## Module Pattern
+
+Every component module exports a single `init` function:
+
+```js
+export function initComponentName() {
+    // DOM queries, event bindings, logic
+}
+```
+
+Called from `app/pages/index.js` inside `DOMContentLoaded`.
+
+## Style Rules
+
+- `'use strict'` only in the entry point (`index.js`)
+- 4-space indentation, single quotes, trailing commas (ES5)
+- Arrow functions for callbacks with single param omit parens: `x => x + 1`
+- Constants in UPPER_SNAKE_CASE at the top of the function scope
+- Use `document.getElementById` / `document.querySelectorAll` for DOM access
+
+## Imports
+
+- Styles: `import '#/styles/globals.css'`
+- Utils: `import { helper } from '#/utils/helper'`
+- Components: `import { initX } from '@/atoms/x'` or `@/molecules/x`
+
+## Event Listeners
+
+```js
+// Always specify passive when no preventDefault is needed
+element.addEventListener('scroll', handler, { passive: true });
+```
+
+## Accessibility
+
+- Check `isPrefersReducedMotion()` before smooth scrolling or animations
+- Check `isMobile()` before desktop-only features (custom cursor)
+- Guard missing DOM elements with early return + `console.error`

@@ -30,14 +30,10 @@ export function initNav() {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
             const sectionCenter = sectionTop + sectionHeight / 2;
-
-            let isVisible = false;
-
-            if (scrollType === 'center') {
-                isVisible = sectionCenter >= viewportTop && sectionCenter <= viewportBottom;
-            } else {
-                isVisible = scrollPosition >= sectionTop;
-            }
+            const isVisible =
+                scrollType === 'center'
+                    ? sectionCenter >= viewportTop && sectionCenter <= viewportBottom
+                    : scrollPosition >= sectionTop;
 
             if (isVisible) {
                 currentSection = section;
@@ -139,10 +135,14 @@ export function initNav() {
 
     if (window.location.hash) {
         const targetId = window.location.hash.substring(1);
-        const targetLink = Array.from(links).find(link => link.getAttribute('href').substring(1) === targetId);
+        const targetLink = Array.from(links).find(link => {
+            return link.getAttribute('href').substring(1) === targetId;
+        });
 
         if (targetLink) {
-            links.forEach(link => link.classList.remove('active'));
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
 
             targetLink.classList.add('active');
         }
