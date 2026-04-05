@@ -37,7 +37,7 @@
     "screenshots": [
         {
             "src": "./images/screenshots/desktop.png",
-            "sizes": "1470x740",
+            "sizes": "1920x967",
             "type": "image/png",
             "form_factor": "wide",
             "label": "Сайт портфолио"
