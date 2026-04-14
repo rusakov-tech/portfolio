@@ -29,12 +29,12 @@
         "@tailwindcss/vite": "4.2.2",
         "eslint": "10.2.0",
         "eslint-plugin-baseline-js": "0.6.1",
-        "globals": "17.4.0",
-        "prettier": "3.8.1",
+        "globals": "17.5.0",
+        "prettier": "3.8.2",
         "prettier-plugin-packagejson": "^3.0.2",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "tailwindcss": "4.2.2",
-        "vite": "8.0.3"
+        "vite": "8.0.8"
     },
     "packageManager": "npm@11.12.1",
     "engines": {
